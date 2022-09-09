@@ -10,6 +10,33 @@ const PORT = 4000;
 // Initialise Express
 const app = express();
 
+// Look for all static files in public folder
+// (CSS, JS, Images, Videos, Audio files)
+app.use(express.static("public"));
+
+// Require express-ejs-layouts
+const expressLayouts = require('express-ejs-layouts');
+
+// Import Routes
+const indexRouter = require('./routes/index');
+
+// Look into views folder for the file named as layout.ejs
+app.use(expressLayouts);
+
+// Mount Routes
+app.use('/', indexRouter);
+
+// NodeJS will look in a folder called views for all ejs related files
+app.set('view engine', 'ejs');
+
+// Database Connection
+mongoose.connect('mongodb://localhost:27017/musiceventsapp',
+    { useNewURLParser: true, useUnifiedTopology: true},
+    () => {
+        console.log('MongoDB connected!')
+    }
+);
+
 app.listen(PORT, () => {
     console.log(`Running on port ${PORT}`);
 })
