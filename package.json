@@ -1,0 +1,15 @@
+{
+  "name": "musiceventsapp",
+  "version": "1.0.0",
+  "description": "SEI Project 02 - Music Events App",
+  "main": "server.js",
+  "scripts": {
+    "test": "nodemon server"
+  },
+  "author": "Ellie Eadington",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.1",
+    "mongoose": "^6.6.0"
+  }
+}
