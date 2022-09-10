@@ -1,34 +1,46 @@
 
 <h1>Create Profile</h1>
 
-<form method="POST" action="/artist/add">
+ <form method="POST" action="/artist/add>">
+
+<div>
 
     <div>
-        <label> Artist/Band Name</label>
-        <input type="text" name="bandName"/>
+        <label>Associated Accounts</label>
+        <select name="user[]" multiple="multiple" class="form-control" >
+            <% user.forEach(function(user) {     %> 
+           <% if(user.profileType === 'artist'){ %>
+                <option value="<%= user._id %>" > <%= user.firstName %> <%= user.lastName %> </option> 
+            <% }}) %>
+    
+    
+        </select>
     </div>
+    <label>Band Name</label>
+    <input type="text" name="bandName"/>
 
+</div>
 
 <div>
     <label>Genres:</label>
     
- <select type="checkbox" name="Genres" multiple>
+ <select type="checkbox" name="genres" multiple>
     <option value="dnb">Alternative</option>
       <option value="rock">Rock</option>
       <option value="pop">Indie Rock</option>
       <option value="hiphop">Hip-Hop</option>
       <option value="rnb">R&B</option>
       <option value="dnb">Drum and Bass</option>
-    </div>
     </select>
+    </div>
+   
      
-
     <div>
         <label>Bio</label>
-        <textarea  name="Bio"></textarea>
+        <textarea  name="bio"></textarea>
     </div>
     
-    <label for="image">Upload Profiel Picture</label>
+    <label for="image">Upload Profile Picture</label>
     <input type="file" id="image" 
            name="image">
 </div>
@@ -36,4 +48,4 @@
 
     <button  type= "submit"  > Create Profile </button>
  
-</form>
+</form> 

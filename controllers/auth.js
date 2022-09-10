@@ -1,4 +1,4 @@
-//  will need to require user model 
+//  required User model  
 
 const User = require("../models/User")
 
@@ -18,15 +18,16 @@ exports.auth_signup_post =(req,res) =>{
     console.log(user)
 
     user.save()
-    .then(()=> {
-    if(user.profileType === "fan"){
-        res.redirect("/");
-    }
-    
-    else{
-        res.redirect("/artist/add")
-    }
+
+    .then(() =>{
+ if(user.profileType === 'artist'){
+        res.redirect("/artist/add");
+ }
+else{
+    res.redirect("/")
+}
     })
+    
     .catch((err)=> {
         console.log(err);
         res.send("Please try again later.")

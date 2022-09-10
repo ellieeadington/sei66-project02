@@ -1,26 +1,33 @@
+// required artist and events schema 
 
-const Artist = require("../models/Artist")
+const Artist= require("../models/Artist");
+const User = require("../models/User");
 
 exports.artist_create_get=(req,res)=>{
-
-  res.render("artist/add")
-
+  
+    User.find()
+    .then((user) => {
+        res.render("artist/add", {user:user})
+    })
+    .catch((err) => {
+        console.log(err);
+    })
 }
+
 
 
 exports.artist_create_post=(req, res) => {
     let artist= new Artist(req.body);
-    console.log(artist)
-  artist.save()
+  
+    artist.save()
+    .then(() =>{
+   res.redirect('/')
 
-    .then(() => {
-        res.redirect("/");
     })
-    .catch((err) => {
-        console.log(err);
-        res.send("Please try again later!!!");
-    })
-}
 
-
-
+   .catch((err) => {
+    console.log(err);
+    res.send("Please try again later!!!");
+})
+      }
+      
