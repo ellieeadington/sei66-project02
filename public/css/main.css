@@ -1,0 +1,26 @@
+.event-body-nav {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    border: 1px solid black;
+}
+.search-bar {
+    display: flex;
+    flex-direction: row;
+}
+
+.categories {
+    display: flex;
+    flex-direction: row;
+}
+
+.event-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.event {
+    width: 250px;
+    height: 300px;
+    border: 1px solid black;
+}
