@@ -1,26 +1,135 @@
-.event-body-nav {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
+body {
+    background-color: rgb(207, 207, 207);
+    min-height: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.nav {
+    background-color: grey;
+}
+
+a {
+    all: unset;
+    color: white;
+}
+
+
+header {
+    height: 200px;
+    background-color: white;
     border: 1px solid black;
 }
+
+/* .event-body {
+    display: flex;
+    flex-direction: column;
+    align-content: right;
+    border: 1px solid black;
+} */
+
+.filters {
+    background-color: rgb(225, 225, 225);
+    position: relative;
+    float: left;
+    height: 600px;
+    width: 10%;
+    margin-top: 20px;
+    border: 1ps solid black;
+}
+
+.filter-title {
+    margin-top: 20px;
+}
+
+.filter {
+    border: 1ps solid black;
+    width: 100px;
+    background-color: white;
+    margin: 40px auto;
+}
+
+.dropdown {
+    width: 100px;
+    margin: 0 auto;
+}
+
+.dropdown-toggle {
+    background-color: white;
+    color: black;
+    margin: 0 auto;
+}
+
+.select {
+    border: none;
+    float: right;
+    margin-right: 5px;
+    border-radius: 2px;
+}
+
+.event-body {
+    float: left;
+    border: 1ps solid black;
+    width: 80%;
+    margin-top: 20px;
+}
+.search {
+    margin: 0 auto;
+    border: 1px solid black;
+    padding: 10px;
+}
+
 .search-bar {
     display: flex;
     flex-direction: row;
-}
-
-.categories {
-    display: flex;
-    flex-direction: row;
+    margin: 0 auto;
+    width: 600px;
 }
 
 .event-grid {
-    display: grid;
+    display: inline-grid;
+    justify-items: center;
+    align-items: center;
+    width: 100%;
+    column-gap: 0;
     grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
 .event {
-    width: 250px;
-    height: 300px;
+    background-color: white;
+    width: 300px;
+    height: 360px;
     border: 1px solid black;
+}
+
+.event-image {
+    width: 280px;
+    height: 180px;
+    margin: 0 auto;
+    border: 1px solid black;
+}
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+    background-color: grey;
+}
+.footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    border: 1px solid black;
+}
+
+li {
+    display: inline;
+    margin: 0px 20px 0px 20px;
+}
+
+svg {
+    width: 26px;
+    height: 26px;
 }

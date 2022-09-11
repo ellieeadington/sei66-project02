@@ -4,6 +4,7 @@ let location = "All";
 //     location = $(this).text();
 // });
 
+
 module.exports = {location};
 
 

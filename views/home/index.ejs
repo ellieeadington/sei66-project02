@@ -1,76 +1,109 @@
 
-    <h2 id="hi">This is our home page woop woop</h2>
-    <div class="event-body">
- 
-        <div class="event-body-nav">
-       
             <div class="search">
+              <h4>search for an event...</h4>
                 <form class="search-bar">
                     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                 </form>
             </div>
-       
-            <div class="categories">
-                <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      Location
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                      <div class="dropdown-item city">All</div>
-                      <% event.forEach(function(event) { %> 
-                      <div class="dropdown-item city"><%=event.city%></div>
-                      <% }) %>
+     
+     
+     
+     <aside class="filters">
+      <h5 class="filter-title">Filters</h5>
+       <div class="filter">
+          <li class="dropdown location">
+            <a href="#" data-toggle="dropdown" class="dropdown-toggle">Location<b class="caret"></b></a>
+            <ul class="dropdown-menu">
+                <li class="dropdown-item">
+                  <div class="checkbox">
+                    <label>
+                        <input type="checkbox">All
+                    </label>
+                  </div>
+                  <% event.forEach(function(event) { %> 
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox"><%=event.city%>
+                        </label>
                     </div>
+                    <% }) %>
+                </li>
+                <button class="select">select</button>
+            </ul>
+          </li>
+        </div>
+        <div class="filter">
+        <li class="dropdown artist">
+          <a href="#" data-toggle="dropdown" class="dropdown-toggle">Artist<b class="caret"></b></a>
+          <ul class="dropdown-menu">
+              <li class="dropdown-item">
+                <div class="checkbox">
+                  <label>
+                      <input type="checkbox">All
+                  </label>
                 </div>
-           
-                <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      Artist
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                      <% event.forEach(function(event) { %> 
-                      <a class="dropdown-item" href="#"><%=event.artist%></a>
-                      <% }) %>
-                    </div>
+                <% event.forEach(function(event) { %> 
+                  <div class="checkbox">
+                      <label>
+                          <input type="checkbox"><%=event.artist%>
+                      </label>
+                  </div>
+                  <% }) %>
+              </li>
+              <button class="select">select</button>
+          </ul>
+        </li>
+        </div>
+        <div class="filter">
+        <li class="dropdown genre">
+          <a href="#" data-toggle="dropdown" class="dropdown-toggle">Genre<b class="caret"></b></a>
+          <ul class="dropdown-menu">
+              <li class="dropdown-item">
+                <div class="checkbox">
+                  <label>
+                      <input type="checkbox">All
+                  </label>
                 </div>
-           
-           
-                <div class="dropdown">
-                    <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      Month
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                      <a class="dropdown-item" href="#">Action</a>
-                      <a class="dropdown-item" href="#">Another action</a>
-                      <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
-                </div>
-            </div>
-          </div>  
+                <% event.forEach(function(event) { %> 
+                  <div class="checkbox">
+                      <label>
+                          <input type="checkbox"><%=event.genreTags%>
+                      </label>
+                  </div>
+                  <% }) %>
+              </li>
+              <button class="select">select</button>
+          </ul>
+        </li>
+      </div>
+    </aside> 
+        
+        <div class="event-body">
+          <!-- -------------------------------------------------------------------- -->
        
             <div class="event-grid">
                 <% event.forEach(function(event) { %>
                     <% if (location === "All") { %>
               <div class="event">
-                <div><%=event.name %></div>
+                <div><h4><%=event.name %></h4></div>
+                <div class="event-image"></div>
                 <div><%=event.artist %></div>
                 <div><%=event.city %></div>
                 <div><%=event.date %></div>
                 <div><%=event.genreTags %></div>
               </div>
-           <% } else if (event.city === location) { %>
-            <div class="event">
-                <div><%=event.name %></div>
+                <% } else if (event.city === location) { %>
+              <div class="event">
+                <div><h4><%=event.name %></h4></div>
+                <div class="event-image"></div>
                 <div><%=event.artist %></div>
                 <div><%=event.city %></div>
-                <div><%=event.date %></div>
+                <div><%=event.date%></div>
                 <div><%=event.genreTags %></div>
               </div>
-            <% } %>
-            <% }) %>
-         
-            </div>
-
-          </div>
+              <% }}) %>
+            <!-- -------------------------------------------------------------------- -->
+          </div> 
+        </div>
       

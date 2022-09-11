@@ -6,3 +6,9 @@
 > Added root route to render the home.index page in our root.
 > Created basic boilerplate in our home/index.ejs file with dummy text to check is rendering.
 > Added code to require and use express-ejs-layouts in server.js so the code in layouts.ejs for default layout will render in every page. added 'app.use(express.static('public')) to link our css to our views.
+
+## 10/09/2022
+> Created wireframe for home page and layout.ejs 
+> Created dummy event schema to start working on categories
+> Used jquery to listen for category selection click, then update category variable, export, and import to index.js in controllers folder so it could be referenced in the javascript used in the index.ejs file to only popualte the events body with events that match that specific location etc.
+> Decided I wanted to use checkbox dropdowns instead, so included these in my index.ejs file instead.
