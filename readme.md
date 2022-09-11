@@ -10,5 +10,5 @@
 ## 10/09/2022
 > Created wireframe for home page and layout.ejs 
 > Created dummy event schema to start working on categories
-> Used jquery to listen for category selection click, then update category variable, export, and import to index.js in controllers folder so it could be referenced in the javascript used in the index.ejs file to only popualte the events body with events that match that specific location etc.
-> Decided I wanted to use checkbox dropdowns instead, so included these in my index.ejs file instead.
+> Tried to use jquery to listen for category selection click, then update category variable, export, and import to index.js in controllers folder so it could be referenced in the javascript used in the index.ejs file to only popualte the events body with events that match that specific location etc. Realised this would not work. Scrapped that idea.
+> Decided I wanted to use checkbox dropdowns instead, so included these in my index.ejs file in a form. Created a post api to get the values of the checked boxes and filter the collection by those values.

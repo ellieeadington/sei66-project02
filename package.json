@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "bootstrap": "^5.2.1",
+    "cors": "^2.8.5",
     "dotenv": "^16.0.2",
     "ejs": "^3.1.8",
     "ejs-layouts": "^0.0.1",

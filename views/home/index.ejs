@@ -1,82 +1,25 @@
 
             <div class="search">
-              <h4>search for an event...</h4>
-                <form class="search-bar">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                </form>
+              <h5>search for an event... </h5>
+                <input type="text" id="search" name="search" />
+                <button type="submit">Search</button>
             </div>
      
      
      
      <aside class="filters">
       <h5 class="filter-title">Filters</h5>
-       <div class="filter">
-          <li class="dropdown location">
-            <a href="#" data-toggle="dropdown" class="dropdown-toggle">Location<b class="caret"></b></a>
-            <ul class="dropdown-menu">
-                <li class="dropdown-item">
-                  <div class="checkbox">
-                    <label>
-                        <input type="checkbox">All
-                    </label>
-                  </div>
+       
+      <div class="filter">
+        <form method="POST" action="/">
                   <% event.forEach(function(event) { %> 
-                    <div class="checkbox">
-                        <label>
-                            <input type="checkbox"><%=event.city%>
-                        </label>
-                    </div>
+                        <label><%=event.city%></label>
+                        <input type="checkbox" name="loc" class="loc" checked="true" value="<%=event.city%>">
                     <% }) %>
-                </li>
-                <button class="select">select</button>
-            </ul>
-          </li>
+          <button type="submit" class="btn btn-primary select">select</button>
+          </form>
         </div>
-        <div class="filter">
-        <li class="dropdown artist">
-          <a href="#" data-toggle="dropdown" class="dropdown-toggle">Artist<b class="caret"></b></a>
-          <ul class="dropdown-menu">
-              <li class="dropdown-item">
-                <div class="checkbox">
-                  <label>
-                      <input type="checkbox">All
-                  </label>
-                </div>
-                <% event.forEach(function(event) { %> 
-                  <div class="checkbox">
-                      <label>
-                          <input type="checkbox"><%=event.artist%>
-                      </label>
-                  </div>
-                  <% }) %>
-              </li>
-              <button class="select">select</button>
-          </ul>
-        </li>
-        </div>
-        <div class="filter">
-        <li class="dropdown genre">
-          <a href="#" data-toggle="dropdown" class="dropdown-toggle">Genre<b class="caret"></b></a>
-          <ul class="dropdown-menu">
-              <li class="dropdown-item">
-                <div class="checkbox">
-                  <label>
-                      <input type="checkbox">All
-                  </label>
-                </div>
-                <% event.forEach(function(event) { %> 
-                  <div class="checkbox">
-                      <label>
-                          <input type="checkbox"><%=event.genreTags%>
-                      </label>
-                  </div>
-                  <% }) %>
-              </li>
-              <button class="select">select</button>
-          </ul>
-        </li>
-      </div>
+
     </aside> 
         
         <div class="event-body">
@@ -84,25 +27,29 @@
        
             <div class="event-grid">
                 <% event.forEach(function(event) { %>
-                    <% if (location === "All") { %>
+                 <% if(categories.length === 0) { %>
               <div class="event">
                 <div><h4><%=event.name %></h4></div>
                 <div class="event-image"></div>
                 <div><%=event.artist %></div>
                 <div><%=event.city %></div>
-                <div><%=event.date %></div>
+                <div><%=event.date  %></div>
                 <div><%=event.genreTags %></div>
               </div>
-                <% } else if (event.city === location) { %>
-              <div class="event">
-                <div><h4><%=event.name %></h4></div>
-                <div class="event-image"></div>
-                <div><%=event.artist %></div>
-                <div><%=event.city %></div>
-                <div><%=event.date%></div>
-                <div><%=event.genreTags %></div>
-              </div>
-              <% }}) %>
+              <% } else { %>
+               <% for (let i=0; i < categories.length; i++){ %>
+              <% if(event.city === categories[i]) { %>
+                <div class="event">
+                  <div><h4><%=event.name %></h4></div>
+                  <div class="event-image"></div>
+                  <div><%=event.artist %></div>
+                  <div><%=event.city %></div>
+                  <div><%=event.date %></div>
+                  <div><%=event.genreTags %></div>
+                </div>
+              <% } %>
+            <% } %>
+          <% }}) %>
             <!-- -------------------------------------------------------------------- -->
           </div> 
         </div>
