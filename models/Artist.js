@@ -7,7 +7,7 @@ const artistSchema = mongoose.Schema({
     bandMembers: Array,
     genres: Array,
     bio: String,
-    profilePhoto: String,
+    image: String,
     
     event: [{
         type: mongoose.Schema.Types.ObjectId,
@@ -16,7 +16,7 @@ const artistSchema = mongoose.Schema({
 
     user: [{
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Event'
+        ref: 'User'
     }],
 }, {
     timestamps: true
