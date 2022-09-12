@@ -1,15 +1,6 @@
-
-            <div class="search">
-              <h5>search for an event... </h5>
-                <input type="text" id="search" name="search" />
-                <button type="submit">Search</button>
-            </div>
-     
-     
      
      <aside class="filters">
       <h5 class="filter-title">Filters</h5>
-       
       <div class="filter">
         <form method="POST" action="/">
 
@@ -26,13 +17,11 @@
                   <label><%=artistFilter%></label>
                   <input type="checkbox" name="loc" class="loc" checked value="<%=artistFilter%>">
               <% }) %>
-          <button type="submit" class="btn btn-primary select">select</button>
           </form>
-        </div>
 
         <hr>
 
-        <h6>Dates</h6>       
+        <h6>Months</h6>       
         <% let arr = [] %>   
           <% dateTime.forEach(function(dateTime) { %> 
             <% let date = new Date(dateTime).toLocaleDateString('en-us', {month:"short", year:"numeric"}).toString() %>

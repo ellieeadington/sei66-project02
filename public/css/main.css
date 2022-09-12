@@ -74,16 +74,6 @@ header {
     width: 80%;
     margin-top: 20px;
 }
-.search {
-    margin: 0 auto;
-    border: 1px solid black;
-    padding: 10px;
-}
-
-#search {
-    margin: 0 auto;
-    width: 600px;
-}
 
 .event-grid {
     display: inline-grid;

@@ -13,7 +13,6 @@ exports.index_get = (req, res) => {
     let city = [];
     let dates = [];
 
-
     Event.find().distinct("city").then(
         cities => {
             locationFilter = cities;
@@ -34,6 +33,7 @@ exports.index_get = (req, res) => {
 
 
     // console.log(locations);
+
     for( let i=0; i < categories.length; i++) {
     city.push({city: categories[i]});
     artist.push({artist: categories[i]});
@@ -57,12 +57,16 @@ exports.index_get = (req, res) => {
         .catch(err => {
             console.log(err);
         })
+    
     }
-
 }
 // HTTP GET -------------------------------------------------------------
 exports.index_location_post = (req, res) => {
     categories = req.body.loc;
     res.redirect('/');
 }
+
+
+
+
 
