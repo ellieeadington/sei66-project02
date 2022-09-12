@@ -22,8 +22,6 @@ exports.auth_signup_post =(req,res) =>{
      User.findById(user)
      .then( (user) =>{ 
         let artist = new Artist(req.body)
-        console.log(req.file)
-       artist.image=req.file.filename
        artist.user.push(user)
        artist.save()
        .catch()
