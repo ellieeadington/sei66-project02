@@ -1,0 +1,17 @@
+<!-- created basic grid on views index page to render the Artist date -->
+
+<h1>Artist Index</h1>
+
+<div class="grid-container">
+<% artist.forEach(function(artist) {     %> 
+<div class="grid-section">
+   <img src="../image/<%=artist.image%>" >
+    <h3><%=artist.bandName%></h3>
+    <p><%=artist.bio%></p>
+    
+
+    <button href="">Artist Profile</button>
+</div>
+    <% }) %>
+</div>
+
