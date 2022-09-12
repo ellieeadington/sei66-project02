@@ -12,13 +12,41 @@
        
       <div class="filter">
         <form method="POST" action="/">
-                  <% event.forEach(function(event) { %> 
-                        <label><%=event.city%></label>
-                        <input type="checkbox" name="loc" class="loc" checked="true" value="<%=event.city%>">
-                    <% }) %>
+
+          <h6>Locations</h6>
+             <% locationFilter.forEach(function(locationFilter) { %> 
+              <label><%=locationFilter%></label>
+              <input type="checkbox" name="loc" class="loc" checked value="<%=locationFilter%>">
+              <% }) %>
+          
+              <hr>
+
+          <h6>Artists</h6>          
+            <% artistFilter.forEach(function(artistFilter) { %> 
+                  <label><%=artistFilter%></label>
+                  <input type="checkbox" name="loc" class="loc" checked value="<%=artistFilter%>">
+              <% }) %>
           <button type="submit" class="btn btn-primary select">select</button>
           </form>
         </div>
+
+        <hr>
+
+        <h6>Dates</h6>       
+        <% let arr = [] %>   
+          <% dateTime.forEach(function(dateTime) { %> 
+            <% let date = new Date(dateTime).toLocaleDateString('en-us', {month:"short", year:"numeric"}).toString() %>
+            <% arr.push(date); %>
+             <% }) %>
+             <% let newArr = [...new Set(arr)] %>
+             <% newArr.forEach(function(date) { %>    
+                <label><%=date%></label>
+                <input type="checkbox" name="loc" class="loc" checked value="<%=date%>">
+            <% }) %>
+        <button type="submit" class="btn btn-primary select">select</button>
+        </form>
+      </div>
+
 
     </aside> 
         
@@ -27,29 +55,16 @@
        
             <div class="event-grid">
                 <% event.forEach(function(event) { %>
-                 <% if(categories.length === 0) { %>
               <div class="event">
                 <div><h4><%=event.name %></h4></div>
                 <div class="event-image"></div>
                 <div><%=event.artist %></div>
                 <div><%=event.city %></div>
-                <div><%=event.date  %></div>
+                <div><%= new Date(event.date).toLocaleDateString('en-us', { year:"numeric", month:"short", day:"numeric"})%></div>
                 <div><%=event.genreTags %></div>
               </div>
-              <% } else { %>
-               <% for (let i=0; i < categories.length; i++){ %>
-              <% if(event.city === categories[i]) { %>
-                <div class="event">
-                  <div><h4><%=event.name %></h4></div>
-                  <div class="event-image"></div>
-                  <div><%=event.artist %></div>
-                  <div><%=event.city %></div>
-                  <div><%=event.date %></div>
-                  <div><%=event.genreTags %></div>
-                </div>
-              <% } %>
-            <% } %>
-          <% }}) %>
+            <% }) %>
+
             <!-- -------------------------------------------------------------------- -->
           </div> 
         </div>
