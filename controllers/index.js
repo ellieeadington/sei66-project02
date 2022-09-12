@@ -4,14 +4,15 @@ const { modelName } = require('../models/User');
 let categories = [];
 let locationFilter = "";
 let artistFilter = "";
-let dateTime = "";
+let monthFilter = "";
+let genreFilter = "";
+
+// to do - get month filtering working
+// get genre filtering working
 
 // HTTP GET -------------------------------------------------------------
 
 exports.index_get = (req, res) => {
-    let artist = [];
-    let city = [];
-    let dates = [];
 
     Event.find().distinct("city").then(
         cities => {
@@ -21,28 +22,27 @@ exports.index_get = (req, res) => {
 
     Event.find().distinct("artist").then(
         artists => {
-            artistFilter =artists;
+            artistFilter = artists;
         }
     ).catch();
 
-    Event.find().distinct("date").then(
-        date => {
-            dateTime = date;
+    Event.find().distinct("month").then(
+        months => {
+            monthFilter = months;
+        }
+    ).catch();
+
+    Event.find().distinct("genreTags").then(
+        genres => {
+            genreFilter = genres;
         }
     ).catch();
 
 
-    // console.log(locations);
-
-    for( let i=0; i < categories.length; i++) {
-    city.push({city: categories[i]});
-    artist.push({artist: categories[i]});
-    } 
-
-    if(city.length == 0 && artist.length == 0) {
+    if(categories.length == 0) {
         Event.find()
         .then(event => {
-            res.render('home/index', {event,locationFilter,artistFilter,dateTime,categories});
+            res.render('home/index', {event,locationFilter,artistFilter,monthFilter,genreFilter,categories});
             })
             .catch(err => {
                 console.log(err);
@@ -50,9 +50,9 @@ exports.index_get = (req, res) => {
     
         } else {
 
-    Event.find({$and: [{ $or: city}, {$or: artist}]})
+    Event.find({$and: [{city: {$in: categories}}, {artist: {$in: categories}}, {month: {$in: categories}}, {genreTags: {$in: categories}}]})
     .then(event => {
-        res.render('home/index', {event,locationFilter,artistFilter,dateTime, categories});
+        res.render('home/index', {event,locationFilter,artistFilter,monthFilter,genreFilter,categories});
         })
         .catch(err => {
             console.log(err);

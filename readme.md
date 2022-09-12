@@ -12,3 +12,14 @@
 > Created dummy event schema to start working on categories
 > Tried to use jquery to listen for category selection click, then update category variable, export, and import to index.js in controllers folder so it could be referenced in the javascript used in the index.ejs file to only popualte the events body with events that match that specific location etc. Realised this would not work. Scrapped that idea.
 > Decided I wanted to use checkbox dropdowns instead, so included these in my index.ejs file in a form. Created a post api to get the values of the checked boxes and filter the collection by those values.
+
+## 12/09/2022
+> Worked out how to create a unique list of values in a field in mongodb
+> Used this to create my dropdown filters
+> Created a new field in the db that included text value of the month and year. Need to work out how to include this value when an event is created.
+> Filtered the documents in the events collection where there was a match of cities, artists, months and genres from the form selection.
+> Updated my form to accomodate multiselect checkboxes for each category, and used bootstrap to show and hide the filter options as the list was quite large.
+> Updated the css for my filters
+> Created a dropdown for account info so the user/artist can choose to go to their profile.
+
+<img src="public\image\project02-img1.PNG">
