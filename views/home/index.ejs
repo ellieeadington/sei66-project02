@@ -1,2 +1,56 @@
 
-    <h2>This is our home page woop woop</h2>
+            <div class="search">
+              <h5>search for an event... </h5>
+                <input type="text" id="search" name="search" />
+                <button type="submit">Search</button>
+            </div>
+     
+     
+     
+     <aside class="filters">
+      <h5 class="filter-title">Filters</h5>
+       
+      <div class="filter">
+        <form method="POST" action="/">
+                  <% event.forEach(function(event) { %> 
+                        <label><%=event.city%></label>
+                        <input type="checkbox" name="loc" class="loc" checked="true" value="<%=event.city%>">
+                    <% }) %>
+          <button type="submit" class="btn btn-primary select">select</button>
+          </form>
+        </div>
+
+    </aside> 
+        
+        <div class="event-body">
+          <!-- -------------------------------------------------------------------- -->
+       
+            <div class="event-grid">
+                <% event.forEach(function(event) { %>
+                 <% if(categories.length === 0) { %>
+              <div class="event">
+                <div><h4><%=event.name %></h4></div>
+                <div class="event-image"></div>
+                <div><%=event.artist %></div>
+                <div><%=event.city %></div>
+                <div><%=event.date  %></div>
+                <div><%=event.genreTags %></div>
+              </div>
+              <% } else { %>
+               <% for (let i=0; i < categories.length; i++){ %>
+              <% if(event.city === categories[i]) { %>
+                <div class="event">
+                  <div><h4><%=event.name %></h4></div>
+                  <div class="event-image"></div>
+                  <div><%=event.artist %></div>
+                  <div><%=event.city %></div>
+                  <div><%=event.date %></div>
+                  <div><%=event.genreTags %></div>
+                </div>
+              <% } %>
+            <% } %>
+          <% }}) %>
+            <!-- -------------------------------------------------------------------- -->
+          </div> 
+        </div>
+      

@@ -5,16 +5,18 @@ const express = require('express');
 const mongoose = require('mongoose');
 
 
-
-
-
 // Port Config
-const PORT = 4000;
+const PORT = 4002;
+
+// require dotenv
+require('dotenv').config();
 
 // Initialise Express
 const app = express();
 
-
+=======
+app.use(express.json());
+app.use(express.urlencoded({extended: true}));
 
 // Look for all static files in public folder
 // (CSS, JS, Images, Videos, Audio files)
