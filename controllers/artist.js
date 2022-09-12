@@ -14,26 +14,7 @@ exports.artist_create_get=(req,res)=>{
         console.log(err);
     })
 }
-
-
-
-exports.artist_create_post=(req, res) => {
-    let artist= new Artist(req.body)
-    artist.image=req.file.filename
-    console.log(artist)
-    artist.save()
-    .then(() =>{
-   res.redirect('/')
-
-    })
-
-   .catch((err) => {
-    console.log(err);
-    res.send("Please try again later!!!");
-})
-      }
       
-
       exports.artist_index_get=(req,res) => {
         Artist.find()
         .then(artist =>{

@@ -1,6 +1,7 @@
 //  required User model  
 
 const User = require("../models/User")
+const Artist= require("../models/Artist");
 
 //  will need to require passport configuration 
 
@@ -11,26 +12,26 @@ exports.auth_signup_get = (req, res) => {
     res.render("auth/signup");
 }
 
-
+const { default: mongoose } = require("mongoose");
 exports.auth_signup_post =(req,res) =>{
 
     let user = new User(req.body)
-    console.log(user)
-
-    user.save()
-
-    .then(() =>{
- if(user.profileType === 'artist'){
-        res.redirect("/artist/add");
- }
-else{
-    res.redirect("/")
-}
+     user.save()
+    .catch()
+    .then(() => {
+     User.findById(user)
+     .then( (user) =>{ 
+        let artist = new Artist(req.body)
+        console.log(req.file)
+       artist.image=req.file.filename
+       artist.user.push(user)
+       artist.save()
+       .catch()
+        })
+        res.redirect("/")
     })
-    
-    .catch((err)=> {
-        console.log(err);
-        res.send("Please try again later.")
+     .catch((err)=> {
+         console.log(err);
+         res.send("Please try again later.")
     })
-
 }

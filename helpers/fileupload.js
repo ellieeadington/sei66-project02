@@ -1,6 +1,6 @@
 // requiring middileware for uploading images 
 
-const { builtinModules } = require('module');
+// const { builtinModules } = require('module');
 const multer = require('multer')
 const path =require('path')
 
@@ -18,6 +18,7 @@ const storage = multer.diskStorage({
     }
   });
 
+//   filtering the images so only png jpg or jpeg can be accepted 
   const filefilter = (req,file, cb) => {
     if(file.mimetype === "image/png" || file.mimetyple === 'image/jpg' || file.mimetype === 'image/jpeg'){
         cb(null, true)
@@ -31,6 +32,6 @@ const storage = multer.diskStorage({
 
 const upload = multer({storage:storage, filefilter: filefilter})
 
-// this is where the specification of the image file is determined
+
 
 module.exports= upload;

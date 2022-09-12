@@ -1,7 +1,10 @@
-<section >
+<section id="createaccount">
+
     <h1> Create Account </h1>
-    
-    <form method="POST" action="/auth/signup">
+</div>
+
+
+    <form method="POST" action="/auth/signup"  enctype="multipart/form-data" >
     
         <div>
             <label>First Name</label>
@@ -29,7 +32,42 @@
             <input type="radio" name="profileType" value="artist"/> Artist
         </div>
          
+            
+    </select>
+</div>
+<label>Band Name</label>
+<input type="text" name="bandName"/>
+
+</div>
+
+<div>
+<label>Genres:</label>
+
+<select type="checkbox" name="genres" multiple>
+<option value="dnb">Alternative</option>
+  <option value="rock">Rock</option>
+  <option value="pop">Indie Rock</option>
+  <option value="hiphop">Hip-Hop</option>
+  <option value="rnb">R&B</option>
+  <option value="dnb">Drum and Bass</option>
+</select>
+</div>
+
+ 
+<div>
+    <label>Bio</label>
+    <textarea  name="bio"></textarea>
+</div>
+
+<div>
+<label for="image">Upload Profile Picture</label>
+<input type="file" id="image" name="image">
+</div>
+
+
+<button type= "submit"> Create Profile </button>
+
+</form> 
     
-        <button  type= "submit"  > Create Profile </button>
-     
-    </form>
+
+</section>
