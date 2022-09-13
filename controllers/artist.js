@@ -21,3 +21,7 @@ exports.artist_detail_get=(req,res) => {
     })
 }
 
+
+
+
+

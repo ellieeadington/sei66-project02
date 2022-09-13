@@ -9,6 +9,7 @@ body {
     padding: 5px;
     background-color: #000002;
 }
+label, .sign-up {color: white}
 
 
 a {
@@ -119,6 +120,30 @@ aside {
     height: 160px;
     margin: 0 auto;
     background-color: #e6e6e8;
+}
+
+.artists-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.artists {
+    display: flex;
+    flex-direction: row;
+}
+
+.artist {
+    margin-right: 5px;
+}
+
+.genres {
+    display: flex;
+    flex-direction: row;
+}
+
+.genre {
+    margin-right: 5px;
 }
 
 span {
