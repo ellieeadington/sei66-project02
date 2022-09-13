@@ -1,24 +1,46 @@
+<aside class="filters">
+  <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Filters
+        </button>
+        <div class="dropdown-menu filter-menu" aria-labelledby="dropdownMenuButton">
+        <form class="form" method="POST" action="/">
 
-            <div class="search">
-              <h5>search for an event... </h5>
-                <input type="text" id="search" name="search" />
-                <button type="submit">Search</button>
-            </div>
-     
-     
-     
-     <aside class="filters">
-      <h5 class="filter-title">Filters</h5>
-       
-      <div class="filter">
-        <form method="POST" action="/">
-                  <% event.forEach(function(event) { %> 
-                        <label><%=event.city%></label>
-                        <input type="checkbox" name="loc" class="loc" checked="true" value="<%=event.city%>">
-                    <% }) %>
+          <h6>Locations</h6>
+          <% locationFilter.forEach(function(locationFilter) { %> 
+          <label><%=locationFilter%></label>
+          <input type="checkbox" name="loc" class="loc" checked value="<%=locationFilter%>">
+          <% }) %>
+
+          <hr>
+
+          <h6>Artists</h6>          
+          <% artistFilter.forEach(function(artistFilter) { %> 
+          <label><%=artistFilter%></label>
+          <input type="checkbox" name="loc" class="loc" checked value="<%=artistFilter%>">
+          <% }) %>
+
+          <hr>
+
+          <h6>Months</h6>          
+          <% monthFilter.forEach(function(monthFilter) { %> 
+          <label><%=monthFilter%></label>
+          <input type="checkbox" name="loc" class="loc" checked value="<%=monthFilter%>">
+          <% }) %>
+
+          <hr>
+
+          <h6>Genres</h6>          
+          <% genreFilter.forEach(function(genreFilter) { %> 
+          <label><%=genreFilter%></label>
+          <input type="checkbox" name="loc" class="loc" checked value="<%=genreFilter%>">
+          <% }) %>
+          <br>
           <button type="submit" class="btn btn-primary select">select</button>
-          </form>
-        </div>
+        </form>
+      </div>
+  </div>
+  <div class="register">Insert something about registering as a user</div>
 
     </aside> 
         
@@ -27,30 +49,17 @@
        
             <div class="event-grid">
                 <% event.forEach(function(event) { %>
-                 <% if(categories.length === 0) { %>
               <div class="event">
                 <div><h4><%=event.name %></h4></div>
                 <div class="event-image"></div>
-                <div><%=event.artist%></div>
-                <div><%=event.city %></div>
-                <div><%=event.date  %></div>
+                <div><h5><%=event.artist %></h5></div>
+                <div><b><%=event.city %> - <span><%= new Date(event.date).toLocaleDateString('en-us', { year:"numeric", month:"short", day:"numeric"})%></span></b></div>
                 <div><%=event.genreTags %></div>
               </div>
-              <% } else { %>
-               <% for (let i=0; i < categories.length; i++){ %>
-              <% if(event.city === categories[i]) { %>
-                <div class="event">
-                  <div><h4><%=event.name %></h4></div>
-                  <div> class="event-image"</div>
-                  <div><%=event.artist %></div>
-                  <div><%=event.city %></div>
-                  <div><%=event.date %></div>
-                  <div><%=event.genreTags %></div>
-                </div>
-              <% } %>
-            <% } %>
-          <% }}) %>
+            <% }) %>
+
             <!-- -------------------------------------------------------------------- -->
           </div> 
         </div>
+      
       
