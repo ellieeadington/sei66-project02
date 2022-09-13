@@ -1,5 +1,4 @@
-const Artist = require("../models/Artist")
-const User = require("../models/User")
+const {Artist} = require("../models/Artist")
 const {Event}= require("../models/Event")
 
 
@@ -15,25 +14,28 @@ exports.event_create_get = (req, res) => {
 
 exports.event_create_post=(req, res) => {
     let event = new Event(req.body);
-    event.eventPhoto= req.file.filename
-    console.log(event)
- 
-     event.save()
+    event.eventPhoto= req.file.filename;
+    event.month = new Date(req.body.date).toLocaleDateString('en-us', { month:"short",year:"numeric"}).toString();
+    event.save()
     .then(() => {
         req.body.artist.forEach(artist => {
             Artist.findById(artist, (error, artist) => {
                 artist.event.push(event);
                 artist.save();
             })
-        });
+        })
 
-res.redirect("/");
-})
+  res.redirect("/");
+ })
 .catch((err) => {
 console.log(err);
 res.send("Please try again later!!!");
+
 })
 }
+
+// event.update({month: new Date(req.body.date).toLocaleDateString('en-us', { month:"short",year:"numeric"}).toString()});
+
 
 
 

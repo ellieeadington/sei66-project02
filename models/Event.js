@@ -8,6 +8,7 @@ const eventSchema = mongoose.Schema({
     city: String,
     postcode: String,
     date: Date,
+    month: String,
     monthYear: String,
     description: String,
     artist: [{
