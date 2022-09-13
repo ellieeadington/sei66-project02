@@ -13,7 +13,6 @@ exports.event_create_get = (req, res) => {
     })
 }
 
-
 exports.event_create_post=(req, res) => {
     let event = new Event(req.body);
     event.eventPhoto= req.file.filename
