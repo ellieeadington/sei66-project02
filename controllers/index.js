@@ -1,13 +1,11 @@
 // Require Models
 const {Event} = require('../models/Event');
 const {Artist} = require('../models/Artist');
-let categories = [];
+let categories = [0];
 let locationFilter = "";
 let artistFilter = "";
 let monthFilter = "";
 let genreFilter = "";
-let genreArr = [];
-
 // to do - get month filtering working
 // get genre filtering working
 
@@ -42,7 +40,7 @@ exports.index_get = (req, res) => {
     
 
 
-    if(categories.length == 0) {
+    if(categories.length == 1) {
         Event.find()
         .populate('artist')
         .then(event => {
@@ -56,7 +54,7 @@ exports.index_get = (req, res) => {
     
         } else {
 
-    Event.find({$and: [{city: {$in: categories}}, {month: {$in: categories}}]})
+    Event.find()
     .populate('artist')
     .then(event => {
         res.render('home/index', {event,locationFilter,monthFilter,genreFilter,artistFilter,categories});

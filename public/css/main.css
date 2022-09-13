@@ -3,6 +3,7 @@ body {
     min-height: 100%;
     margin: 0 auto;
     text-align: center;
+    color: white;
 }
 
 .nav {
@@ -14,7 +15,7 @@ label, .sign-up {color: white}
 
 a {
     all: unset;
-    color: #e6e6e8;
+    color: white;
 }
 
 
@@ -104,6 +105,7 @@ aside {
     align-items: center;
     width: 100%;
     column-gap: 0;
+    row-gap: 20px;
     grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
@@ -172,5 +174,11 @@ li {
 svg {
     width: 26px;
     height: 26px;
+}
+
+.signin-form {
+    width: 250px;
+    margin: 20px auto;
+    margin-bottom: 40px;
 }
 
