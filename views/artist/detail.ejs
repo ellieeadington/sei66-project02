@@ -1,0 +1,31 @@
+<section>
+ <img  id="imgartistPage" src="../image/<%=artist.user[0].image%>">
+<div>
+
+<!-- will need to write code to hide this button if current user is logged in as a user  -->
+<button><a href="">Edit Profile</a></button>
+<button><a href="/event/add">Add Event</a></button>
+
+
+</div>
+
+<div><%=artist.bio%></div>
+<div>#<%=artist.genres%></div>
+
+<div class="grid-container">
+
+    <% artist.event.forEach(function(event) { %>
+<div class="grid-section">
+   <img src="../image/<%=event.eventPhoto%>">
+    <h3><%=event.name%></h3>
+    <p><%=event.venue%></p>
+    <p><%=event.city%></p>
+    <p><%=event.date%></p>
+    <a>Edit Event</a>
+    <a>Delete Event </a>
+   
+</div>
+<% }) %>
+</div>
+</section>
+

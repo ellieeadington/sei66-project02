@@ -3,19 +3,30 @@ const mongoose = require('mongoose');
 // schema
 const eventSchema = mongoose.Schema({
     name: String,
-    artist: String,
     venue: String,
     addressLine1: String,
     city: String,
     postcode: String,
     date: Date,
     description: String,
-    genreTags: Array
-},
 
+    artist: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Artist'
+    }],
 
-{timestamps: true}
-);
+     user: [{
+        type: mongoose.Schema.Types.ObjectId,
+         ref: 'User'
+     }],
+    eventPhoto: String
+
+},{timestamps: true})
+ 
+    
+   
+    
+
 // model
 
 const Event = mongoose.model('Event', eventSchema);

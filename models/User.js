@@ -34,6 +34,7 @@ const userSchema = mongoose.Schema({
     }],
 
     profileType: String,
+    image: String,
 
 },
 {
