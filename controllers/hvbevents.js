@@ -34,3 +34,18 @@ console.log(err);
 res.send("Please try again later!!!");
 })
 }
+
+
+
+exports.event_detail_get = (req, res) => {
+ 
+    Event.findById(req.query.id).populate('artist').populate('user')
+
+    .then((event)=>{
+        res.render("event/detail", {event:event})
+    })
+
+  .catch((err) => {
+      console.log(err);
+  })
+}

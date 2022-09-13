@@ -3,13 +3,17 @@
 <h1>Artist Index</h1>
 
 <div class="grid-container">
-    <% artist.forEach(function(artist) {     %> 
+    <% artist.forEach(function(artist) { %> 
 <div class="grid-section">
    <img src="../image/<%=artist.user[0].image%>">
     <h3><%=artist.bandName%></h3>
-    <p>#<%=artist.genres%></p>
-
-  
+    <% for(let i=0 ;i< artist.genres.length; i++){%>
+        <p>
+         #<%=artist.genres[i]%>
+        
+        </p>
+        <% } %>
+    
     <a href="/artist/detail?id=<%=artist._id%>" >Artist Profile</a>
 </div>
 <% }) %> 

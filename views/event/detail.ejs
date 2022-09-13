@@ -1,0 +1,30 @@
+<section id="eventId">
+   
+    
+    <div>
+    <h1><%=event.name%></h1>
+    <p>Venue<%=event.venue%></p>
+    <div>
+    <h6>Address:</h6>
+    <p><%=event.addressLine1%></p>
+    <p><%=event.city%></p>
+    <p><%=event.postcode%></p>
+</div>
+    <p>Date & Time:<%=event.date%></p>
+    <p>Description:<%=event.description%></p>
+    </div>
+
+<div>
+    <h1>Line-Up</h1>
+
+        <%event.artist.forEach(function(artist) { %>
+   
+        <h3><%=artist.bandName%></h3>
+        <p><%=artist.genres%></p>
+    </div>
+    <% }) %>
+
+    </section>
+
+    
+     

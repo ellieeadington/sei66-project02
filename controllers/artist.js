@@ -15,13 +15,11 @@ exports.artist_index_get=(req,res) => {
 
 exports.artist_detail_get=(req,res) => {
     Artist.findById(req.query.id).populate('user').populate('event')
-
+     
     .then((artist) =>{
+        console.log(artist)
         res.render("artist/detail", {artist:artist})
     })
 }
-
-
-
 
 
