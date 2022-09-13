@@ -1,8 +1,8 @@
 // required artist and events schema 
 
 const { default: mongoose } = require("mongoose");
-const Artist= require("../models/Artist");
-const User = require("../models/User");
+const {Artist} = require("../models/Artist");
+const {User} = require("../models/User");
 const {Event}= require("../models/Event")
 
       
