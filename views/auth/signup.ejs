@@ -1,46 +1,44 @@
-<section id="createaccount">
+<section>
 
     <h1> Create Account </h1>
 </div>
 
 
-    <form method="POST" action="/auth/signup"  enctype="multipart/form-data" >
-    
-        <div>
-            <label>First Name</label>
-            <input type="text" name="firstName"/>
-        </div>
-    
-        <div>
-            <label>Last Name</label>
-            <input type="text" name="lastName" />
-        </div>
-    
-        <div>
-            <label>Email Address</label>
-            <input type="email" name="emailAddress"/>
-        </div>
-   
-        <div>
-            <label>Password</label>
-            <input type="password" name="password"/>
-        </div>
-    
-        <div>
+    <form  id="createAccount" method="POST" action="/auth/signup"  enctype="multipart/form-data" >
+
+        <div class="groupOne">
             <label>Type</label>
             <input type="radio" name="profileType" value="fan"/> Fan
             <input type="radio" name="profileType" value="artist"/> Artist
         </div>
          
-            
-    </select>
-</div>
-<label>Band Name</label>
+    
+        <div class="groupOne">
+            <label>First Name</label>
+            <input type="text" name="firstName"/>
+        </div>
+    
+        <div class="groupOne">
+            <label>Last Name</label>
+            <input type="text" name="lastName" />
+        </div>
+    
+        <div>
+            <label class="groupOne">Email Address</label>
+            <input type="email" name="emailAddress"/>
+        </div>
+   
+        <div>
+            <label class="groupOne">Password</label>
+            <input type="password" name="password"/>
+        </div>
+<div class="groupTwo">
+</label>Artist/Band Name</label>
 <input type="text" name="bandName"/>
 
 </div>
 
-<div>
+<div class="groupTwo">
 <label>Genres:</label>
 
 <select type="checkbox" name="genres" multiple>
@@ -54,15 +52,15 @@
 </div>
 
  
-<div>
+<div class="groupTwo">
     <label>Bio</label>
     <textarea  name="bio"></textarea>
 </div>
 
-<div>
-<label for="image">Upload Profile Picture</label>
-<input type="file" id="image" name="image">
-</div>
+<div class="groupOne">
+    <label for="image"> Profile Picture</label>
+    <input type="file" id="image" name="image">
+    </div>
 
 
 <button type= "submit"> Create Profile </button>

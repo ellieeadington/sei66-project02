@@ -1,0 +1,62 @@
+
+ <h1>Create Event </h1>       
+        
+ <form  id="createAccount" method="POST" action="/event/add"  enctype="multipart/form-data" >
+      <div>
+            <label>Event Name</label>
+            <input type="text" name="name"/>
+        </div>
+    
+        <div>
+            <label>Event Venue</label>
+            <input type="text" name="venue" />
+        </div>
+         
+
+        <div>
+            <label>Address Line 1 </label>
+            <input type="text" name="address" />
+        </div>
+    
+        <div>
+            <label>City </label>
+            <input type="text" name="address" />
+        </div>
+    
+        
+        <div>
+            <label>Postcode </label>
+            <input type="text" name="postcode" />
+        </div>
+    
+        <div>
+            <label>Date and Time </label>
+            <input type="datetime-local" name="date" />
+        </div>
+
+        
+<div>
+    <label>Line-Up</label>
+    <select name="artist[]" multiple="multiple" >
+        <% artist.forEach(function(artist) {     %> 
+            <option value="<%= artist._id %>" > <%= artist.bandName %> </option>
+        <% }) %>
+
+
+    </select>
+</div>
+        <div>
+            <label>Description </label>
+            <input type="text" name="textarea" />
+        </div>
+         
+        <div>
+            <label for="eventPhoto"> Event Image</label>
+            <input type="file" id="eventPhoto" name="eventPhoto">
+            </div>
+        
+        
+
+        <button type= "submit"> Create Event </button>
+
+</form> 

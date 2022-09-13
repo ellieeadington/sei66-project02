@@ -7,7 +7,7 @@ const artistSchema = mongoose.Schema({
     bandMembers: Array,
     genres: Array,
     bio: String,
-    image: String,
+  
     
     event: [{
         type: mongoose.Schema.Types.ObjectId,
