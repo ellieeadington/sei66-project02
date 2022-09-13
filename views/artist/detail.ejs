@@ -1,29 +1,31 @@
-<section>
- <img  id="imgartistPage" src="../image/<%=artist.user[0].image%>">
+<section id="artistPage">
 <div>
-
-<!-- will need to write code to hide this button if current user is logged in as a user  -->
-<button><a href="">Edit Profile</a></button>
-<button><a href="/event/add">Add Event</a></button>
-
-
+<img  id="imgartistPage" src="../image/<%=artist.user[0].image%>">
 </div>
 
+</div>
+<div><%=artist.bandName%></div>
 <div><%=artist.bio%></div>
-<div>#<%=artist.genres%></div>
+<% for(let i=0 ;i< artist.genres.length; i++){%>
+<div>
+ #<%=artist.genres[i]%>
+
+ <% } %>
+</div>
+
+
 
 <div class="grid-container">
 
-    <% artist.event.forEach(function(event) { %>
+    <%artist.event.forEach(function(event) { %>
 <div class="grid-section">
    <img src="../image/<%=event.eventPhoto%>">
     <h3><%=event.name%></h3>
     <p><%=event.venue%></p>
     <p><%=event.city%></p>
     <p><%=event.date%></p>
-    <a>Edit Event</a>
-    <a>Delete Event </a>
-   
+    <p><a href="/event/detail?id=<%=event._id%>">View Event</a></p>
+
 </div>
 <% }) %>
 </div>
