@@ -51,3 +51,14 @@ exports.event_detail_get = (req, res) => {
       console.log(err);
   })
 }
+
+exports.event_delete_get = (req, res) =>{
+    console.log(`Delete ${req.query.id}`)
+    Event.findByIdAndDelete(req.query.id)
+    .then(()=>{
+        res.redirect("/")
+    })
+    .catch(err => {
+        console.log(err)
+    })
+}
