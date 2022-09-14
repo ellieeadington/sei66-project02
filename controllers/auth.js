@@ -2,6 +2,7 @@
 
 const {User} = require("../models/User")
 const {Artist} = require("../models/Artist");
+const {Event} = require('../models/Event');
 
 //  will need to require passport configuration 
 let passport = require('../helpers/ppConfig');
@@ -60,7 +61,7 @@ exports.auth_signin_get = (req, res) => {
 // HTTP POST Signin Route
 exports.auth_signin_post = passport.authenticate('local', {
     successRedirect: "/",
-    failureRedirect: "/auth/signin"
+    failureRedirect: "/"
 })
 
 
@@ -77,8 +78,62 @@ exports.auth_logout_get = (req, res) => {
     })
 }
 
-// HTP GET - user profile
+// HTTP GET - user profile
 exports.auth_profile_get = (req, res) => {
-    let user = req.user;
-    res.render('auth/profile', {user});
+   let user = req.user;
+
+    Event.find({"user": {$in: [user._id]}})
+    .populate('artist')
+    .then(event => {
+        
+        res.render('auth/profile', {user, event});
+    }).catch(err => {
+        console.log(err);
+    })
+
 }
+
+// HTTP UPDATE - user profile#
+
+exports.auth_profile_update = (req, res) => {
+res.render('auth/update');
+}
+
+exports.auth_update_post = (req, res) => {
+    let user = req.user;
+    User.findByIdAndUpdate(user._id, req.body)
+    .then(() => {
+        res.redirect("/");
+    })
+    .catch(err => {
+        console.log(err)
+    })
+}
+
+
+exports.auth_profile_delete = (req, res) => {
+    let user = req.user;
+    if(user){
+    if(user.profileType == "fan"){
+        User.findByIdAndDelete(user._id).then(() => {
+        res.redirect('/');
+        }).catch(err => {
+            console.log(err);
+        })
+    }
+
+    else if(user.profileType == "artist"){
+        let user_id = req.user.id;
+        User.findByIdAndDelete(user._id).then(() => {
+        Artist.findByIdAndDelete(user_id);
+        res.redirect('/');
+        }).catch(err => {
+                console.log(err);
+        })
+
+    }
+}}
+
+
+
+
