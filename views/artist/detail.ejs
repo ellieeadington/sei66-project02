@@ -1,8 +1,20 @@
+<% if(currentUser.id === artist.user[0].id) { %> 
+<aside>
+    <h5>Account Details</h5>
+    <p><%=artist.user[0].firstName%> </p>
+    <p><%=artist.user[0].lastName%> </p>
+    <p><%=artist.user[0].emailAddress%> </p>
+    <a href="/artist/delete?id=<%=artist._id%>"> Delete Profile</a>
+    <a href="/artist/edit?id=<%=artist._id%>"> Edit Profile</a>
+</aside>
+           
+<% } %>
+
+
 <section id="artistPage">
 <div>
 <img  id="imgartistPage" src="../image/<%=artist.user[0].image%>">
 </div>
-<a href = "/artist/artistprofile?id=<%=artist._id%>">Artist User Account</a>
 </div>
 <div><%=artist.bandName%></div>
 <div><%=artist.bio%></div>
@@ -13,6 +25,28 @@
  <% } %>
 </div>
 
+
+
+<h3>Associated Events</h3>
+
+<% if( currentUser.id === artist.user[0].id) { %> 
+    <p><a href="/event/add"> Add Event</a></p>
+
+<div class="grid-container">
+
+    <%artist.event.forEach(function(event) { %>
+<div class="grid-section">
+   <img src="../image/<%=event.eventPhoto%>">
+    <h3><%=event.name%></h3>
+    <p><%=event.date%></p>
+    <p><a href="/event/edit?id=<%=event._id%>"> Edit Event</a></p>
+    <p><a href="/event/delete?id=<%=event._id%>"> Delete Event</a></p>
+
+
+</div>
+<% }) %>
+</div>
+<% }  else { %>
 
 
 <div class="grid-container">
@@ -26,9 +60,10 @@
     <p><%=event.date%></p>
     <p><a href="/event/detail?id=<%=event._id%>">View Event</a></p>
 
-
 </div>
 <% }) %>
 </div>
+<% } %>
+
 </section>
 

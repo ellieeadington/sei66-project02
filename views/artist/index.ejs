@@ -14,7 +14,15 @@
         </p>
         <% } %>
     
-    <a href="/artist/detail?id=<%=artist._id%>" >Artist Profile</a>
+        <% if(currentUser) { %> 
+            <a href="/artist/detail?id=<%=artist._id%>" >Artist Profile</a>
+          
+            <a href="/auth/logout" class="btn btn-outline-primary">Logout</a>
+        
+        <% } else { %>
+           
+        <% } %>
+
 </div>
 <% }) %> 
 </div>

@@ -3,7 +3,8 @@ const {Event}= require("../models/Event")
 
 
 exports.event_create_get = (req, res) => {
-      Artist.find()
+  
+      Artist.find().populate('user')
       .then((artist)=>{
         res.render("event/add", {artist})
     })

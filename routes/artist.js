@@ -15,7 +15,9 @@ const upload = require("../helpers/fileupload")
 router.get("/artist/index", artistCtrl.artist_index_get)
 router.get("/artist/detail", artistCtrl.artist_detail_get)
 router.get("/artist/delete", artistCtrl.artist_delete_get)
-router.get("/artist/artistprofile", artistCtrl.artistuser_detail_get)
+router.get("/artist/edit", artistCtrl.artist_edit_get)
+
+
 
 
 
