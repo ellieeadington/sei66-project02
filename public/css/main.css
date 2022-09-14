@@ -1,0 +1,184 @@
+body {
+    background-color:  #1e1a2e;
+    min-height: 100%;
+    margin: 0 auto;
+    text-align: center;
+    color: white;
+}
+
+.nav {
+    padding: 5px;
+    background-color: #000002;
+}
+label, .sign-up {color: white}
+
+
+a {
+    all: unset;
+    color: white;
+}
+
+
+.profile-pic {
+    float: left;
+    width: 50px;
+    height: 50px;
+    border: 1px solid black;
+    border-radius: 50%;
+    background-color: white;
+}
+
+
+
+header {
+    display: flex;
+    align-items: center;
+    background-image: url('../image/festival.jpeg');
+    background-color: rgb(60, 6, 255);
+    background-position: center;
+    height: 200px;
+    background-blend-mode:multiply;
+}
+
+h1 {
+    font-size:80px;
+    margin: 0 auto;
+    color: #e6e6e8;
+}
+
+aside {
+    background-color: #504d5d;
+    position: relative;
+    float: left;
+    height: 600px;
+    width: 20%;
+    margin-top: 20px;
+}
+
+.register {
+    margin: 80px auto;
+    width: 280px;
+    height: 280px;
+    background-color: #e6e6e8;
+    border: none;
+    border-radius: 5px;
+}
+#dropdownMenuButton {
+    margin: 5px 0 0 5px;
+    float: left;
+    width: 150px;
+    background-color: #e6e6e8;
+    color: #000002;
+}
+
+.filter-menu {
+    margin-top: 330px;
+    background-color: #e6e6e8;
+    font-size: 12px;
+}
+
+.dropdown {
+    width: 95%;
+}
+
+.form {
+    padding: 10px;
+    margin-top: 10px;
+}
+
+
+.select {
+    margin-top: 20px;
+    padding: 0 5px;
+    border: none;
+}
+
+.event-body {
+    float: left;
+    width: 80%;
+    margin-top: 20px;
+}
+
+.event-grid {
+    display: inline-grid;
+    justify-items: center;
+    align-items: center;
+    width: 100%;
+    column-gap: 0;
+    row-gap: 20px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.event {
+    background-color: #9b99a2;
+    width: 300px;
+    height: 300px;
+    border: none;
+    border-radius: 5px;
+}
+
+.event-image {
+    width: 280px;
+    height: 160px;
+    margin: 0 auto;
+    background-color: #e6e6e8;
+}
+
+.artists-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.artists {
+    display: flex;
+    flex-direction: row;
+}
+
+.artist {
+    margin-right: 5px;
+}
+
+.genres {
+    display: flex;
+    flex-direction: row;
+}
+
+.genre {
+    margin-right: 5px;
+}
+
+span {
+    margin-left: 5px;
+}
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+    background-color:#000002;
+}
+.footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+}
+
+li {
+    display: inline;
+    margin: 0px 20px 0px 20px;
+}
+
+svg {
+    width: 26px;
+    height: 26px;
+}
+
+.signin-form {
+    width: 250px;
+    margin: 20px auto;
+    margin-bottom: 40px;
+}
+

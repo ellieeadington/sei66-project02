@@ -1,0 +1,33 @@
+<section id="artistPage">
+<div>
+<img  id="imgartistPage" src="../image/<%=artist.user[0].image%>">
+</div>
+
+</div>
+<div><%=artist.bandName%></div>
+<div><%=artist.bio%></div>
+<% for(let i=0 ;i< artist.genres.length; i++){%>
+<div>
+ #<%=artist.genres[i]%>
+
+ <% } %>
+</div>
+
+
+
+<div class="grid-container">
+
+    <%artist.event.forEach(function(event) { %>
+<div class="grid-section">
+   <img src="../image/<%=event.eventPhoto%>">
+    <h3><%=event.name%></h3>
+    <p><%=event.venue%></p>
+    <p><%=event.city%></p>
+    <p><%=event.date%></p>
+    <p><a href="/event/detail?id=<%=event._id%>">View Event</a></p>
+
+</div>
+<% }) %>
+</div>
+</section>
+
