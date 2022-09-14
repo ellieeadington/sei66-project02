@@ -18,5 +18,4 @@ router.post("/auth/signin", authCtrl.auth_signin_post);
 
 router.get('/auth/logout', authCtrl.auth_logout_get);
 
-
 module.exports = router;

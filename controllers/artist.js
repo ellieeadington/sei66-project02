@@ -14,13 +14,23 @@ exports.artist_index_get=(req,res) => {
 
 exports.artist_detail_get=(req,res) => {
     Artist.findById(req.query.id).populate('user').populate('event')
-     
     .then((artist) =>{
         console.log(artist)
         res.render("artist/detail", {artist:artist})
     })
 }
 
+exports.artistuser_detail_get=(req,res) => {
+
+    Artist.findById(req.query.id).populate('user').populate('event')
+    .then((artist)=>{
+        res.render("artist/artistprofile", {artist:artist})
+    })
+
+    .catch(err => {
+        console.log(err);
+    })
+}
 
 exports.artist_delete_get = (req, res) =>{
     console.log(`Delete ${req.query.id}`)
@@ -32,3 +42,4 @@ exports.artist_delete_get = (req, res) =>{
         console.log(err)
     })
 }
+
