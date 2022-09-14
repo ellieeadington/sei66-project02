@@ -1,13 +1,16 @@
 // Require Models
 const {Event} = require('../models/Event');
 const {Artist} = require('../models/Artist');
-let categories = [];
+let categories = [0];
+let location = [0];
+let month = [0];
+let artist = [0];
+let genre = [0];
+
 let locationFilter = "";
 let artistFilter = "";
 let monthFilter = "";
 let genreFilter = "";
-let genreArr = [];
-
 // to do - get month filtering working
 // get genre filtering working
 
@@ -41,37 +44,29 @@ exports.index_get = (req, res) => {
     ).catch();
     
 
-
-    if(categories.length == 0) {
-        Event.find()
-        .populate('artist')
-        .then(event => {
-
-            res.render('home/index', {event,locationFilter,monthFilter,genreFilter,artistFilter, categories});
-            })
-            .catch(err => {
-                console.log(err);
-            })
-
-    
-        } else {
-
-    Event.find({$and: [{city: {$in: categories}}, {month: {$in: categories}}]})
+    Event.find()
     .populate('artist')
     .then(event => {
-        res.render('home/index', {event,locationFilter,monthFilter,genreFilter,artistFilter,categories});
+        res.render('home/index', {event,locationFilter,monthFilter,genreFilter,artistFilter,categories, location, month, genre, artist});
         })
         .catch(err => {
             console.log(err);
         })
     
     }
-}
+
 // HTTP GET -------------------------------------------------------------
 exports.index_location_post = (req, res) => {
-    categories = req.body.loc;
+    location = req.body.loc;
+    month = req.body.month;
+    artist = req.body.art;
+    genre = req.body.gen;
     res.redirect('/');
 }
+
+console.log(categories);
+console.log(month);
+
 
 
 

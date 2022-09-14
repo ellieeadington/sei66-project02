@@ -17,7 +17,7 @@
           <h6>Months</h6>          
           <% monthFilter.forEach(function(monthFilter) { %> 
           <label><%=monthFilter%></label>
-          <input type="checkbox" name="loc" class="loc" checked value="<%=monthFilter%>">
+          <input type="checkbox" name="month" class="month" checked value="<%=monthFilter%>">
           <% }) %>
 
           <hr>
@@ -25,7 +25,7 @@
           <h6>Artists</h6>
           <% artistFilter.forEach(function(artistFilter) { %> 
           <label><%=artistFilter%></label>
-          <input type="checkbox" name="loc" class="loc" checked value="<%=artistFilter%>">
+          <input type="checkbox" name="art" class="art" checked value="<%=artistFilter%>">
           <% }) %>
 
           <hr>
@@ -33,7 +33,7 @@
           <h6>Genres</h6>          
           <% genreFilter.forEach(function(genreFilter) { %> 
           <label><%=genreFilter%></label>
-          <input type="checkbox" name="loc" class="loc" checked value="<%=genreFilter%>">
+          <input type="checkbox" name="gen" class="gen" checked value="<%=genreFilter%>">
           <% }) %>
 
           <hr>
@@ -42,22 +42,74 @@
         </form>
       </div>
   </div>
-  <!-- <div class="register">Insert something about registering as a user</div> -->
+  <div class="register">Insert something about registering as a user</div>
 
     </aside> 
         
 
         
         
-        
-        
-        
-        
+
         <div class="event-body">
           <!-- -------------------------------------------------------------------- -->
        
             <div class="event-grid">
+              <!-- NEARLY THERE -->
+
+              <% if (location == 0 && month == 0 && artist == 0 && genre == 0) { %>
               <% event.forEach(function(event) { %>
+                <div class="event">
+                  <div><h4><%=event.name %></h4></div>
+                  
+                  <img class="event-image" src="../image/<%=event.eventPhoto%>">
+                  
+                  <div><b><%=event.city %> - <span><%= new Date(event.date).toLocaleDateString('en-us', { year:"numeric", month:"short", day:"numeric"})%></span></b></div>
+                  
+                  <div class="artists-info">
+                    <div class="artists">
+                      <% for (i = 0; i < event.artist.length; i++){ %>
+                      <h5 class="artist"><%=event.artist[i].bandName %></h5>
+                      <% } %>
+                    </div>
+                    
+                    <div class="genres">
+                      <% for (i = 0; i < event.artist.length; i++){ %>
+                      <h6><%=event.artist[i].genres %></h6>
+                      <% } %> 
+                    </div>
+                 </div>
+                </div> 
+
+              <% })} else { %>
+
+              <% event.forEach(function(event) { %>  
+                <% let genres = "" %>
+                <% let artistMatch = true %>
+                <% let genreMatch = false %>
+      
+
+                <% for (i = 0; i < event.artist.length; i++){ %>
+                <% if (artist.includes(event.artist[i].bandName) == false) { %>
+                <% artistMatch = false; %>
+                <% }} %>
+
+                <% for (i = 0; i < event.artist.length; i++){ %>
+                <% genres += event.artist[i].genres %>
+                <% } %>
+          
+ 
+                <% for (i = 0; i < genre.length; i++){ %>
+                  <% if (genres.includes(genre[i]) === true) { %>
+                  <% genreMatch = true %>
+                  <% console.log("artist with genres: " + genres + " has a match with " + genre[i] + " genre match = " +genreMatch) %>
+                  <% } }%>
+
+                  <% console.log(genreMatch) %>
+
+
+                <% if(location.indexOf(event.city) != -1 && month.indexOf(event.month) != -1 && artistMatch == true && genreMatch == true ) { %>
+
+                <!-- INCLUDE IF STATEMENT HERE -->
               <div class="event">
                 <div><h4><%=event.name %></h4></div>
                 
@@ -80,9 +132,13 @@
                 </div>
 
               </div>
+              <% } %>
               <% }) %>
+
+              <% } %>
 
             <!-- -------------------------------------------------------------------- -->
           </div> 
         </div>
+
 
