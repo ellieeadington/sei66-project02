@@ -30,3 +30,4 @@
 > brought event image into the index.ejs home page.
 > Created a sign-in page
 > updated the css on the home page
+

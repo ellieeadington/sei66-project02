@@ -54,7 +54,6 @@ exports.auth_signup_post =(req,res) =>{
 // HTTP Get - signin route
 
 exports.auth_signin_get = (req, res) => {
-    console.log("hello");
     res.render('auth/signin');
 }
 
@@ -63,6 +62,7 @@ exports.auth_signin_post = passport.authenticate('local', {
     successRedirect: "/",
     failureRedirect: "/auth/signin"
 })
+
 
 // HTTP GET - Logout Route - to logout the user
 exports.auth_logout_get = (req, res) => {
@@ -75,4 +75,12 @@ exports.auth_logout_get = (req, res) => {
         req.flash('success', 'You are logged out successfully');
         res.redirect('/auth/signin')
     })
+}
+
+// HTP GET - user profile
+exports.auth_profile_get = (req, res) => {
+    let user = req.user;
+    console.log(user);
+
+    res.render('auth/profile', {user});
 }

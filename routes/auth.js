@@ -17,5 +17,7 @@ router.get("/auth/signin", authCtrl.auth_signin_get);
 router.post("/auth/signin", authCtrl.auth_signin_post);
 
 router.get('/auth/logout', authCtrl.auth_logout_get);
+router.get('/auth/profile', authCtrl.auth_profile_get);
+
 
 module.exports = router;
