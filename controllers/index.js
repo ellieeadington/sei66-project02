@@ -7,10 +7,10 @@ let month = [0];
 let artist = [0];
 let genre = [0];
 
-let locationFilter = "";
-let artistFilter = "";
-let monthFilter = "";
-let genreFilter = "";
+let locationFilter = [];
+let artistFilter = [];
+let monthFilter = [];
+let genreFilter = [];
 // to do - get month filtering working
 // get genre filtering working
 

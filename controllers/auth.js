@@ -1,15 +1,12 @@
 //  required User model  
 
-const { default: mongoose } = require("mongoose");
 const {User} = require("../models/User")
 const {Artist} = require("../models/Artist");
 
-
 //  will need to require passport configuration 
-const passport = require('passport');
+let passport = require('../helpers/ppConfig');
 
 //  Require bcrypt
-
 const bcrypt = require ('bcrypt')
 const salt = 10 
 
@@ -28,7 +25,7 @@ exports.auth_signup_post =(req,res) =>{
     console.log(hash);
 
     user.password = hash;
-     user.save()
+    user.save()
     .catch((err)=> {
         console.log(err);
         res.send("Please try again later.")
@@ -54,8 +51,28 @@ exports.auth_signup_post =(req,res) =>{
    })
 }
 
+// HTTP Get - signin route
 
 exports.auth_signin_get = (req, res) => {
+    console.log("hello");
     res.render('auth/signin');
 }
 
+// HTTP POST Signin Route
+exports.auth_signin_post = passport.authenticate('local', {
+    successRedirect: "/",
+    failureRedirect: "/auth/signin"
+})
+
+// HTTP GET - Logout Route - to logout the user
+exports.auth_logout_get = (req, res) => {
+    // Invalidates the session
+    req.logout(function(err) {
+        if(err) { 
+            req.flash('error', 'You have not logged out successfully');
+            return next(err);
+        }
+        req.flash('success', 'You are logged out successfully');
+        res.redirect('/auth/signin')
+    })
+}
