@@ -23,6 +23,7 @@
     "express-ejs-layouts": "^2.5.1",
     "express-session": "^1.17.3",
     "flash": "^1.1.0",
+    "flass": "^0.0.2",
     "jquery": "^3.6.1",
     "jsdom": "^20.0.0",
     "moment": "^2.29.4",
