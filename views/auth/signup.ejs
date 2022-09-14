@@ -39,25 +39,40 @@
 
 </div>
 
-<div class="groupTwo">
-<label>Genres:</label>
 
-<select type="checkbox" name="genres" multiple>
-<option value="dnb">Alternative</option>
-  <option value="rock">Rock</option>
-  <option value="pop">Indie Rock</option>
-  <option value="hiphop">Hip-Hop</option>
-  <option value="rnb">R&B</option>
-  <option value="dnb">Drum and Bass</option>
-</select>
-</div>
-
- 
 <div class="groupTwo">
     <label>Bio</label>
     <textarea  name="bio"></textarea>
 </div>
 
+<fieldset class="groupTwo">
+    <legend>Genres</legend>
+    <div>
+        <input type="checkbox"  name="genres" value="alternative">
+        <label for="alternative">Alternative</label>
+      
+   
+      <input type="checkbox"  name="genres" value="dnb">
+      <label for="dnb">Drum & Bass</label>
+    
+   
+        <input type="checkbox"  name="genres" value="rock">
+        <label for="rock">Rock</label>
+      </div>
+       <div>
+        <input type="checkbox"  name="genres" value="reggae">
+        <label for="reggae">Reggae</label>
+     
+    
+        <input type="checkbox"  name="genres" value="hip-hop">
+        <label for="hip-hop">Hip-Hop</label>
+      
+     
+        <input type="checkbox"  name="genres" value="r&b">
+        <label for="r&b">R & B</label>
+    </div>
+  </fieldset>
+  
 <div class="groupOne">
     <label for="image"> Profile Picture</label>
     <input type="file" id="image" name="image">

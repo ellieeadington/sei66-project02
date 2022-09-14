@@ -1,12 +1,17 @@
+<aside>
+    <h5>Account Details</h5>
+    <p><%=artist.user[0].firstName%> </p>
+    <p><%=artist.user[0].lastName%> </p>
+    <p><%=artist.user[0].emailAddress%> </p>
+</aside>
+
 <section id="artistPage">
-    <div>
     <img  id="imgartistPage" src="../image/<%=artist.user[0].image%>">
-    </div>
+    <div>
     <a href="/artist/delete?id=<%=artist._id%>"> Delete Artist Profile</a>
-    <a href="/artist/edit?id=<%=artist._id%>"> Edit Artist</a>
-    
-    
-    
+    <a href="/artist/edit?id=<%=artist._id%>"> Edit Account</a>
+</div>
+
     </div>
     <div><%=artist.bandName%></div>
     <div><%=artist.bio%></div>
