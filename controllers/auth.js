@@ -1,7 +1,7 @@
 //  required User model  
 
-const User = require("../models/User")
-const Artist= require("../models/Artist");
+const {User} = require("../models/User")
+const {Artist} = require("../models/Artist");
 
 //  will need to require passport configuration 
 
@@ -40,3 +40,8 @@ exports.auth_signup_post =(req,res) =>{
         res.send("Please try again later.")
    })
 }
+
+exports.auth_signin_get = (req, res) => {
+    res.render('auth/signin');
+}
+

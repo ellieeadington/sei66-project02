@@ -28,3 +28,5 @@
 > updated index.js apis to accomodate the schemas. Updated the index.ejs file too and fixed the filtering (kind of).
 > added a new month field to be included when an event is added to the schema to use for my filtering.
 > brought event image into the index.ejs home page.
+> Created a sign-in page
+> updated the css on the home page
