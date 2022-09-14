@@ -1,29 +1,23 @@
 // Require Express
 const express = require('express');
 
-// Require Mongoose
-const mongoose = require('mongoose');
-
-
+// require dotenv
 require('dotenv').config();
 
 // require connect flash 
 
 const flash = require('connect-flash')
 
+// Require Mongoose
+const mongoose = require('mongoose');
+
 // Port Config
 const PORT = process.env.PORT
-
-// require dotenv
-require('dotenv').config();
 
 // Initialise Express
 const app = express();
 
-
-app.use(flash())
-app.use(express.json());
-app.use(express.urlencoded({extended: true}));
+app.use(flash());
 
 // Look for all static files in public folder
 // (CSS, JS, Images, Videos, Audio files)
@@ -39,6 +33,28 @@ const eventRouter = require ('./routes/event');
 
 // Look into views folder for the file named as layout.ejs
 app.use(expressLayouts);
+
+// Express session and passport
+let session = require('express-session');
+let passport = require('./helpers/ppConfig');
+
+app.use(session({
+    secret: process.env.SECRET,
+    saveUninitialized:true,
+    resave: false,
+    cookie: {maxAge: 36000000}
+}))
+
+// Initialise passport and passport session
+app.use(passport.initialize());
+app.use(passport.session());
+
+// Sharing the user information with all pages
+app.use(function(req, res, next){
+    res.locals.currentUser = req.user;
+    res.locals.alerts = req.flash();
+    next();
+})
 
 
 // Mount Routes
