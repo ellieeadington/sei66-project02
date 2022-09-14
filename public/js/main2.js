@@ -1,5 +1,3 @@
-
-
 $('.groupTwo').hide()
 
 $('input:radio[name="profileType"]').change(function(){

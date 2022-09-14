@@ -80,7 +80,5 @@ exports.auth_logout_get = (req, res) => {
 // HTP GET - user profile
 exports.auth_profile_get = (req, res) => {
     let user = req.user;
-    console.log(user);
-
     res.render('auth/profile', {user});
 }
