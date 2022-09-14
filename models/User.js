@@ -23,18 +23,21 @@ const userSchema = mongoose.Schema({
         unique: true
 
     },
- password: {
+    password: {
         type: String,
         required: true,
         minlenth:[6]
     },
+    profileType: {
+        type: String,
+        required: true
+    },  
 
     event: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Event'
     }],
-
-    profileType: String,
+    
     image: String,
 
 },
