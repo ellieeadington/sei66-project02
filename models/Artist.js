@@ -18,6 +18,8 @@ const artistSchema = mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
     }],
+
+    artistImage: String,
 }, {
     timestamps: true
 })

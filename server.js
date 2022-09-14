@@ -5,8 +5,14 @@ const express = require('express');
 const mongoose = require('mongoose');
 
 
+require('dotenv').config();
+
+// require connect flash 
+
+const flash = require('connect-flash')
+
 // Port Config
-const PORT = 4002;
+const PORT = process.env.PORT
 
 // require dotenv
 require('dotenv').config();
@@ -15,6 +21,7 @@ require('dotenv').config();
 const app = express();
 
 
+app.use(flash())
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
@@ -34,8 +41,6 @@ const eventRouter = require ('./routes/event');
 app.use(expressLayouts);
 
 
-
-
 // Mount Routes
 app.use('/', indexRouter);
 app.use('/', authRouter);
@@ -46,7 +51,7 @@ app.set('view engine', 'ejs');
 
 
 // Database Connection
-mongoose.connect('mongodb://localhost:27017/musiceventsapp',
+mongoose.connect(process.env.MongoDBURL,
     { useNewURLParser: true, useUnifiedTopology: true},
     () => {
         console.log('MongoDB connected!')
