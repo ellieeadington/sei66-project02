@@ -31,15 +31,12 @@ const userSchema = mongoose.Schema({
     profileType: {
         type: String,
         required: true
-    },  
-
+    }, 
     event: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Event'
-    }],
-    
+    }],   
     image: String,
-
 },
 {
     timestamps: true
