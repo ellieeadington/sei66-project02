@@ -58,7 +58,8 @@ exports.event_edit_get=(req, res)=>{
 }
 
 exports.event_update_post=(req,res) =>{
-    Event.findByIdAndUpdate(req.body.id,req.body)  
+    Event.findByIdAndUpdate(req.body.id, req.body)
+  
      .then(()=>{
         res.redirect("/");
     })
