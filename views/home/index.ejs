@@ -87,10 +87,10 @@
               <% })} else { %>
 
               <% event.forEach(function(event) { %>  
-                <% let genres = "" %>
+                <% let artistgenres = "" %>
                 <% let artistMatch = true %>
-                <% let genreMatch = false %>
-      
+                <% let genreMatch = true %>
+                <% let artistgenresArr = [] %>
 
                 <% for (i = 0; i < event.artist.length; i++){ %>
                 <% if (artist.includes(event.artist[i].bandName) == false) { %>
@@ -98,20 +98,27 @@
                 <% }} %>
 
                 <% for (i = 0; i < event.artist.length; i++){ %>
-                <% genres += event.artist[i].genres %>
+                <% artistgenres += event.artist[i].genres %>
                 <% } %>
-          
- 
-                <% for (i = 0; i < genre.length; i++){ %>
-                  <% if (genres.includes(genre[i]) === true) { %>
-                  <% genreMatch = true %>
-                  <% console.log("artist with genres: " + genres + " has a match with " + genre[i] + " genre match = " +genreMatch) %>
-                  <% } }%>
+  
+                <% artistgenreArr = JSON.stringify(artistgenres).split(",") %>
+                <% trimmedGenre = artistgenreArr[0].replace('"', '') %>
+                <% trimmedGenre2 = artistgenreArr[artistgenreArr.length -1].replace('"', '') %>
+                <% artistgenreArr.splice(0,1); %>
+                <% artistgenreArr.splice(artistgenreArr.length-1, 1) %>
+                <% artistgenreArr.push(trimmedGenre) %>
+                <% artistgenreArr.push(trimmedGenre2) %>
+                <% console.log(artistgenreArr) %>
+                 
 
-                  <% console.log(genreMatch) %>
+                <% for(i = 0; i < artistgenreArr.length; i++) { %>
+                <% console.log(artistgenreArr[i] + " " + genre) %>
+                <% if(genre.indexOf(artistgenreArr[i]) <= -1) { %>
+                <% genreMatch = false}%>
+                <% } %>
+     
 
-
-                <% if(location.indexOf(event.city) != -1 && month.indexOf(event.month) != -1 && artistMatch == true && genreMatch == true ) { %>
+                <% if(location.indexOf(event.city) != -1 && month.indexOf(event.month) != -1 && artistMatch == true && genreMatch == true) { %>
 
                 <!-- INCLUDE IF STATEMENT HERE -->
               <div class="event">
