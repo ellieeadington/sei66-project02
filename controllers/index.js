@@ -72,31 +72,37 @@ exports.index_bookmark_post = (req,res) => {
     
 
     let user = req.user;
-    Event.find({$and: [{_id : req.body.id}, {user:  {$in: user._id}} ]},
-        
-    function (err, result) {
-        if(err) {
+    console.log(req.body.id)
+    Event.findOne({$and: [{_id : req.body.id}, {user:  {$in: user._id}} ]}).then(
+        function (err, result) {
+            if(err) {
+                console.log("wasn't favourited");
+            }
 
-        Event.update(
-            {_id: req.body.id },
-            { $push: {user: user._id}})
+            // Event.update(
+            //     {_id: req.body.id },
+            //     { $push: {user: user._id}})
 
-        User.update(
-            {_id: user._id },
-            { $push: {event: req.body.id}})
-        .then(() => {
-            res.redirect("/")
-        })
-        .catch(err => {
-        console.log(err)
-        })
-        } 
+            // User.update(
+            //     {_id: user._id },
+            //     { $push: {event: req.body.id}})
+            // .then(() => {
+            //     res.redirect("/")
+            // })
+            // .catch(err => {
+            // console.log(err)
+            // })
+            // } 
 
-        else{
-            console.log("already favourited")
+            else{
+                console.log("already favourited")
+            }
         }
-       }
-    )
+        )
+        .catch(err => {
+            console.log(err);
+        })
+    
 }
 
 

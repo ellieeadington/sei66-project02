@@ -34,10 +34,10 @@ header {
     display: flex;
     align-items: center;
     background-image: url('../image/festival.jpeg');
-    background-color: rgb(60, 6, 255);
+    background-color: rgb(152, 152, 152);
     background-position: center;
     height: 200px;
-    background-blend-mode:multiply;
+    background-blend-mode: multiply;
 }
 
 h1 {
