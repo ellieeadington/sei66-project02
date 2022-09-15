@@ -15,11 +15,7 @@ let artistFilter = [];
 let monthFilter = [];
 let genreFilter = [];
 
-// to do - get month filtering working
-// get genre filtering working
-
-// HTTP GET -------------------------------------------------------------
-
+// HTTP GET - load index page with filters and event info
 exports.index_get = (req, res) => {
     
     Event.find().distinct("city").then(
@@ -52,14 +48,13 @@ exports.index_get = (req, res) => {
     .populate('artist')
     .then(event => {
         res.render('home/index', {event,locationFilter,monthFilter,genreFilter,artistFilter,categories, location, month, genre, artist});
-        })
-        .catch(err => {
+    })
+    .catch(err => {
             console.log(err);
-        })
-    
-    }
+    })
+}
 
-// HTTP GET -------------------------------------------------------------
+// HTTP POST - update filter selection values
 exports.index_filter_post = (req, res) => {
     location = req.body.loc;
     month = req.body.month;
@@ -68,7 +63,7 @@ exports.index_filter_post = (req, res) => {
     res.redirect('/');
 }
 
-
+// HTTP POST - add bookmarked events to user info and users to bookmarked events
 exports.index_bookmark_post = (req,res) => {
     let user = req.user;
     console.log(req.body.id)
@@ -102,9 +97,6 @@ exports.index_bookmark_post = (req,res) => {
                     console.log("error")
                 }
     
-                
-                
-                
                 else {console.log("result:   " + result)};
             })
             .clone()
@@ -123,6 +115,7 @@ exports.index_bookmark_post = (req,res) => {
         });
 }
 
+// HTTP POST - remove bookmarked events from user info and users from bookmarked events
 exports.index_unbookmark_post = (req,res) => {
     let user = req.user;
     console.log(req.body.id)
