@@ -112,13 +112,35 @@ exports.auth_update_post = (req, res) => {
 
 
 
-exports.auth_updatepassword_get = (req, res) => {
+exports.auth_updatepassword_get = function  (req, res) {
     res.render('auth/updatepassword')
 }
 
-exports.auth_updatepassword_post = async (req, res) => {
+exports.auth_updatepassword_post =(req, res) => {
+ let currentUser= req.user
+ if(currentUser.emailAddress){
+    let oldPassword = req.body.oldPassword;
+    let newPassword = req.body.newPassword;
+    let confirmPassword= req.body.confirmPassword
+    User.findOne({"emailAddress": currentUser.emailAddress}, (err, user) =>{
+     if( user != null){
+        let hash = user.password;
+        bcrypt.compare(oldPassword, hash, function(err,res){
+       if (res){
+        if(newPassword == confirmPassword){
+            bcrypt.hash(newPassword, 3, function(err, hash){
+             user.password = hash;
+             user.save()
+            })
 
-}
+        }
+       }
+        })
+
+     }
+    })
+    res.redirect('/')
+}}
   
 
 exports.auth_profile_delete = (req, res) => {
