@@ -1,8 +1,8 @@
+
 <section id="artistPage">
 <div>
 <img  id="imgartistPage" src="../image/<%=artist.user[0].image%>">
 </div>
-<a href = "/artist/artistprofile?id=<%=artist._id%>">Artist User Account</a>
 </div>
 <div><%=artist.bandName%></div>
 <div><%=artist.bio%></div>
@@ -13,7 +13,7 @@
  <% } %>
 </div>
 
-
+<h2>Upcoming Artist Events</h2>
 
 <div class="grid-container">
 
@@ -26,9 +26,10 @@
     <p><%=event.date%></p>
     <p><a href="/event/detail?id=<%=event._id%>">View Event</a></p>
 
-
 </div>
 <% }) %>
 </div>
+
+
 </section>
 

@@ -4,7 +4,6 @@ const mongoose = require('mongoose')
 const artistSchema = mongoose.Schema({
 
     bandName: String,
-    bandMembers: Array,
     genres: Array,
     bio: String,
   

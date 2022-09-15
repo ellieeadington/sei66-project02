@@ -111,6 +111,16 @@ exports.auth_update_post = (req, res) => {
 }
 
 
+
+exports.auth_updatepassword_get = (req, res) => {
+    res.render('auth/updatepassword')
+}
+
+exports.auth_updatepassword_post = async (req, res) => {
+
+}
+  
+
 exports.auth_profile_delete = (req, res) => {
     let user = req.user;
     if(user){
@@ -133,6 +143,7 @@ exports.auth_profile_delete = (req, res) => {
 
     }
 }}
+
 
 
 

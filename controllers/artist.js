@@ -13,33 +13,73 @@ exports.artist_index_get=(req,res) => {
 }
 
 exports.artist_detail_get=(req,res) => {
+  
     Artist.findById(req.query.id).populate('user').populate('event')
     .then((artist) =>{
-        console.log(artist)
+       console.log(artist)
         res.render("artist/detail", {artist:artist})
     })
 }
 
-exports.artistuser_detail_get=(req,res) => {
+exports.artist_edit_get=(req, res)=>{
+    
+    Artist.findById(req.query.id,).populate('user').populate('event')
 
-    Artist.findById(req.query.id).populate('user').populate('event')
-    .then((artist)=>{
-        res.render("artist/artistprofile", {artist:artist})
-    })
-
-    .catch(err => {
-        console.log(err);
-    })
+  .then((artist) =>{
+       res.render("artist/edit", {artist:artist})
+   })
+   .catch(err => {
+       console.log(err)
+   })
 }
 
-exports.artist_delete_get = (req, res) =>{
-    console.log(`Delete ${req.query.id}`)
-    Artist.findByIdAndDelete(req.query.id)
-    .then(()=>{
-        res.redirect("/")
+
+
+exports.artist_profile_get = (req, res) => {
+   Artist.find()
+        .populate('user')
+        .populate('event')
+        .then((artist) => {
+            console.log(artist)
+        res.render('artist/profile', {artist:artist})
     })
     .catch(err => {
         console.log(err)
     })
 }
+
+exports.artist_edit_get=(req, res)=>{
+    Artist.findById(req.query.id,).populate('user')
+  .then((artist) =>{
+       res.render("artist/edit", {artist:artist})
+   })
+   .catch(err => {
+       console.log(err)
+   })
+}
+
+exports.artist_update_post=(req,res) =>{
+    Artist.findByIdAndUpdate(req.body.id, { 
+        bandName:req.body.bandName,
+        genres: req.body.genres,
+        bio: req.body.bio
+    })
+    .then(()=>{
+        res.redirect("/");
+        })
+         .catch(err=>{
+            console.log(err)
+         })
+    }
+
+    exports.artist_delete_get = (req, res) =>{
+        console.log(`Delete ${req.query.id}`)
+        Artist.findByIdAndDelete(req.query.id)
+        .then(()=>{
+            res.render("/")
+        })
+        .catch(err => {
+            console.log(err)
+        })
+    }
 

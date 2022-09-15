@@ -11,15 +11,19 @@
     <p><%=event.postcode%></p>
 </div>
     <p>Date & Time:<%=event.date%></p>
-    <p>Description:<%=event.description%></p>
+    <p>Event Details:<%=event.description%></p>
     </div>
 <div>
     <h1>Line-Up</h1>
 
         <%event.artist.forEach(function(artist) { %>
-   
+    <div></div>
+  <%=artist.user[0]%>
         <h3><%=artist.bandName%></h3>
         <p><%=artist.genres%></p>
+    </div>
+        
+
     </div>
     <% }) %>
 

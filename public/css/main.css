@@ -196,6 +196,13 @@ svg {
     margin-bottom: 40px;
 }
 
+
+#eventartist {
+    border-radius: 50%;
+    height: 50px;
+    width: 50px
+}
+
 .user-profile-pic {
     margin-top: 20px;
 }
@@ -205,4 +212,5 @@ svg {
     border: none;
     border-radius: 50% 50%;
 }
+
 

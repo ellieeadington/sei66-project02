@@ -51,7 +51,7 @@ app.use(passport.session());
 
 // Sharing the user information with all pages
 app.use(function(req, res, next){
-    res.locals.currentUser = req.user;
+    res.locals.currentUser = req.user
     res.locals.alerts = req.flash();
     next();
 })
