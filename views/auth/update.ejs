@@ -1,0 +1,35 @@
+<section>
+
+    <h1> Update Account </h1>
+</div>
+
+
+    <form  id="updateAccount" method="POST" action="/auth/update"  enctype="multipart/form-data" >
+
+             
+        <div class="groupOne">
+            <label>First Name</label>
+            <input type="text" name="firstName" value="<%= currentUser.firstName %>" />
+        </div>
+    
+        <div class="groupOne">
+            <label>Last Name</label>
+            <input type="text" name="lastName" value="<%= currentUser.lastName %>"/>
+        </div>
+    
+        <div>
+            <label class="groupOne">Email Address</label>
+            <input type="email" name="emailAddress" value="<%= currentUser.emailAddress %>"/>
+        </div>
+   
+        <div>
+            <label class="groupOne">Password</label>
+            <input type="password" name="password" value="<%= currentUser.password %>"/>
+        </div>
+
+        <button type= "submit"> Update </button>
+
+    </form> 
+    
+
+</section>

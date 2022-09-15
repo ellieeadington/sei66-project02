@@ -1,16 +1,19 @@
 // Require Models
 const {Event} = require('../models/Event');
 const {Artist} = require('../models/Artist');
-let categories = [0];
-let location = [0];
-let month = [0];
-let artist = [0];
-let genre = [0];
+const {User} = require("../models/User");
+
+let categories = [];
+let location = [];
+let month = [];
+let artist = [];
+let genre = [];
 
 let locationFilter = [];
 let artistFilter = [];
 let monthFilter = [];
 let genreFilter = [];
+
 // to do - get month filtering working
 // get genre filtering working
 
@@ -64,12 +67,44 @@ exports.index_location_post = (req, res) => {
     res.redirect('/');
 }
 
-console.log(categories);
-console.log(month);
+// ASK FOR SAADs HELP !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+exports.index_bookmark_post = (req,res) => {
+    
+
+    let user = req.user;
+    console.log(req.body.id)
+    Event.findOne({$and: [{_id : req.body.id}, {user:  {$in: user._id}} ]}).then(
+        function (err, result) {
+            if(err) {
+                console.log("wasn't favourited");
+            }
+
+            // Event.update(
+            //     {_id: req.body.id },
+            //     { $push: {user: user._id}})
+
+            // User.update(
+            //     {_id: user._id },
+            //     { $push: {event: req.body.id}})
+            // .then(() => {
+            //     res.redirect("/")
+            // })
+            // .catch(err => {
+            // console.log(err)
+            // })
+            // } 
+
+            else{
+                console.log("already favourited")
+            }
+        }
+        )
+        .catch(err => {
+            console.log(err);
+        })
+    
+}
 
 
-
-
-// .populate()
 
 

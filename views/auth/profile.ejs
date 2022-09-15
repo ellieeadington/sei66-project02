@@ -1,6 +1,51 @@
-<h2>Hi</h2>
+
 
 
 <%=currentUser.emailAddress %>
 <%=currentUser.profileType %>
+
+
+<aside class="user-info">
+<div class="user-profile-pic">
+<img class="user-pic" src="../image/<%=currentUser.image%>">
+</div>
+
+<h2>Hi <%=currentUser.firstName %></h3>
+<br>
+<a class="btn btn-primary" href="/auth/update?id=<%= currentUser._id %>" role="button">Update User Detils</a>
+<br>
+<a class="btn btn-primary" href="/auth/delete?id=<%= currentUser._id %>" role="button">Delete Account</a>
+
+</aside>
+<div class="event-body">
+    <h3>Your Events</h3>
+    <div class="event-grid">
+
+        <% event.forEach(function(event) { %>  
+          <div class="event">
+            <div><h4><%=event.name %></h4></div>
+            
+            <img class="event-image" src="../image/<%=event.eventPhoto%>">
+            
+            <div><b><%=event.city %> - <span><%= new Date(event.date).toLocaleDateString('en-us', { year:"numeric", month:"short", day:"numeric"})%></span></b></div>
+            
+            <div class="artists-info">
+              <div class="artists">
+                <% for (i = 0; i < event.artist.length; i++){ %>
+                <h5 class="artist"><%=event.artist[i].bandName %></h5>
+                <% } %>
+              </div>
+              
+              <div class="genres">
+                <% for (i = 0; i < event.artist.length; i++){ %>
+                <h6><%=event.artist[i].genres %></h6>
+                <% } %> 
+              </div>
+            </div>
+          </div>
+
+          <% }) %>
+
+    </div>
+</div>
 
