@@ -51,6 +51,7 @@ h1 {
 }
 
 aside {
+    background-color: rgb(222, 222, 222);
 
     position: relative;
     float: left;
@@ -140,8 +141,8 @@ span {
 }
 
 .bookmark {
-width: 40px;
-margin: 0 auto;
+    width: 40px;
+    margin: 0 auto;
     
 }
 
@@ -180,6 +181,10 @@ svg {
     border-radius: 50%;
     height: 50px;
     width: 50px
+}
+
+.user-info {
+    background-color:rgb(222, 222, 222);
 }
 
 .user-profile-pic {
@@ -235,3 +240,8 @@ img {
 section {
     color: beige;
 }
+
+.profile-button {
+    margin: 10px auto;
+}
+

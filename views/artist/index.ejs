@@ -7,7 +7,7 @@
 <div class="grid-section">
    <img src="../image/<%=artist.user[0].image%>">
     <h3><%=artist.bandName%></h3>
-    <% for(let i=0 ;i< artist.genres.length; i++){%>
+    <% for(let i=0 ;i< artist.genres.length; i++){ %>
         <p>
          #<%=artist.genres[i]%>
         
@@ -15,12 +15,9 @@
         <% } %>
     
         <% if(currentUser) { %> 
-            <a href="/artist/detail?id=<%=artist._id%>" >Artist Profile</a>
-          
-        <% } else { %>
-           
-        <% } %>
-
+        <a href="/artist/detail?id=<%=artist._id%>" >Artist Profile</a> 
+        <% } else { %>  
+    <% } %>
 </div>
 <% }) %> 
 </div>

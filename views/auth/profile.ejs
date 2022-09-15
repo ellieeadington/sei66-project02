@@ -6,14 +6,14 @@
 
 <h2>Hi <%=currentUser.firstName %></h3>
   <br>
-  <a class="btn btn-primary" href="/auth/update?id=<%= currentUser._id %>" role="button">Update User Detils</a>
+  <a class="btn btn-primary profile-button" href="/auth/update?id=<%= currentUser._id %>" role="button">Update User Detils</a>
   <br>
-  <a class="btn btn-primary" href="/auth/updatePassword?id=<%= currentUser._id %>" role="button">Update Password</a>
+  <a class="btn btn-primary profile-button" href="/auth/updatePassword?id=<%= currentUser._id %>" role="button">Update Password</a>
   <br>
-<a class="btn btn-primary" href="/auth/delete?id=<%= currentUser._id %>" role="button">Delete Account</a>
+<a class="btn btn-primary profile-button" href="/auth/delete?id=<%= currentUser._id %>" role="button">Delete Account</a>
 
 </aside>
-<div class="event-body">
+<div class="event-body user-event-body">
     <h3>Your Events</h3>
     <div class="event-grid">
         <% event.forEach(function(event) { %>  
@@ -39,7 +39,7 @@
             </div>
             <form method="POST" action="/auth/bookmarks-delete"  class="bookmark">
               <input type="hidden" name="id" value="<%= event._id %>"/>
-              <input type="submit" value="remove" class="bookmark"/>
+              <input type="submit" value="❌" class="bookmark"/>
               </form>
           </div>
 
