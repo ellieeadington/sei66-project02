@@ -3,6 +3,7 @@ const {Event} = require('../models/Event');
 const {Artist} = require('../models/Artist');
 const {User} = require("../models/User");
 
+
 let categories = [];
 let location = [];
 let month = [];
@@ -59,7 +60,7 @@ exports.index_get = (req, res) => {
     }
 
 // HTTP GET -------------------------------------------------------------
-exports.index_location_post = (req, res) => {
+exports.index_filter_post = (req, res) => {
     location = req.body.loc;
     month = req.body.month;
     artist = req.body.art;
@@ -67,43 +68,113 @@ exports.index_location_post = (req, res) => {
     res.redirect('/');
 }
 
-// ASK FOR SAADs HELP !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-exports.index_bookmark_post = (req,res) => {
-    
 
+exports.index_bookmark_post = (req,res) => {
     let user = req.user;
     console.log(req.body.id)
-    Event.findOne({$and: [{_id : req.body.id}, {user:  {$in: user._id}} ]}).then(
+    Event.find({$and: [{_id : req.body.id}, {user:  {$in: user._id}}]},
+        
         function (err, result) {
-            if(err) {
-                console.log("wasn't favourited");
-            }
 
-            // Event.update(
-            //     {_id: req.body.id },
-            //     { $push: {user: user._id}})
+            if(result.length < 1 ){
+                   console.log("not yet favourited");
+                    User.update(
+                        {_id: user._id },
+                        { $push: {event: req.body.id}}, function (err, result) {
+                            if (err){
+                                console.log(err)
+                            }else{
+                                console.log("Result :", result) 
+                            }
+                        });
 
-            // User.update(
-            //     {_id: user._id },
-            //     { $push: {event: req.body.id}})
-            // .then(() => {
-            //     res.redirect("/")
-            // })
-            // .catch(err => {
-            // console.log(err)
-            // })
-            // } 
+                    Event.update(
+                        {_id: req.body.id },
+                        { $push: {user: user._id}}, function (err, result) {
+                            if (err){
+                                console.log(err)
+                            }else{
+                                console.log("Result :", result) 
+                            }
+                        });
 
-            else{
-                console.log("already favourited")
-            }
-        }
-        )
-        .catch(err => {
-            console.log(err);
-        })
+                } else if(err) {
+                    console.log("error")
+                }
     
+                
+                
+                
+                else {console.log("result:   " + result)};
+            })
+            .clone()
+            .then(  Event.find({"user": {$in: [user._id]}})
+            .populate('artist')
+            .then(event => {
+                
+                res.render('auth/profile', {user, event});
+            }).catch(err => {
+                console.log(err);
+            })
+             
+            )
+            .catch(err => {
+                console.log(err);
+        });
 }
+
+exports.index_unbookmark_post = (req,res) => {
+    let user = req.user;
+    console.log(req.body.id)
+    Event.find({$and: [{_id : req.body.id}, {user:  {$in: user._id}}]},
+        
+        function (err, result) {
+
+            if(result.length >= 1 ){
+                   console.log("favourited");
+                    User.update(
+                        {_id: user._id },
+                        { $pull: {event: req.body.id}}, function (err, result) {
+                            if (err){
+                                console.log(err)
+                            }else{
+                                console.log("Result :", result) 
+                            }
+                        });
+
+                    Event.update(
+                        {_id: req.body.id },
+                        { $pull: {user: user._id}}, function (err, result) {
+                            if (err){
+                                console.log(err)
+                            }else{
+                                console.log("Result :", result) 
+                            }
+                        });
+
+                } else if(err) {
+                    console.log("error")
+                }          
+                
+                else {console.log("result:   " + result)};
+            })
+            .clone()
+            .then(  Event.find({"user": {$in: [user._id]}})
+            .populate('artist')
+            .then(event => {
+                
+                res.render('auth/profile', {user, event});
+            }).catch(err => {
+                console.log(err);
+            })
+            
+            )
+            .catch(err => {
+                console.log(err);
+        });
+}
+
+
 
 
 

@@ -56,6 +56,7 @@ exports.auth_signup_post =(req,res) =>{
 
 exports.auth_signin_get = (req, res) => {
     res.render('auth/signin');
+   
 }
 
 // HTTP POST Signin Route
@@ -100,16 +101,9 @@ res.render('auth/update');
 }
 
 exports.auth_update_post = (req, res) => {
-    let user = req.user;
-    User.findByIdAndUpdate(user._id, req.body)
-    .then(() => {
-        res.redirect("/");
-    })
-    .catch(err => {
-        console.log(err)
-    })
-}
+    
 
+}
 
 
 exports.auth_updatepassword_get = function  (req, res) {

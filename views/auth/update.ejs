@@ -4,27 +4,23 @@
 </div>
 
 
-    <form  id="updateAccount" method="POST" action="/auth/update"  enctype="multipart/form-data" >
+    <form   method="POST" action="/auth/update" class="form-control updateAccount">
+        <input type="hidden" name="userType" class="form-control" value="<%= currentUser.userType %>" />  
 
-             
-        <div class="groupOne">
+        <input type="hideen" name="_id" class="form-control" value="<%= currentUser._id %>" />       
+        <div class="form-group">
             <label>First Name</label>
-            <input type="text" name="firstName" value="<%= currentUser.firstName %>" />
+            <input type="text" name="firstName" class="form-control" value="<%= currentUser.firstName %>" />
         </div>
     
-        <div class="groupOne">
+        <div class="form-group">
             <label>Last Name</label>
-            <input type="text" name="lastName" value="<%= currentUser.lastName %>"/>
+            <input type="text" name="lastName" class="form-control" value="<%= currentUser.lastName %>"/>
         </div>
     
         <div>
-            <label class="groupOne">Email Address</label>
-            <input type="email" name="emailAddress" value="<%= currentUser.emailAddress %>"/>
-        </div>
-   
-        <div>
-            <label class="groupOne">Password</label>
-            <input type="password" name="password" value="<%= currentUser.password %>"/>
+            <label class="form-group">Email Address</label>
+            <input type="email" name="emailAddress" class="form-control" value="<%= currentUser.emailAddress %>"/>
         </div>
 
         <button type= "submit"> Update </button>
