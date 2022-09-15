@@ -15,7 +15,7 @@
 
         <div>
             <label>Address Line 1 </label>
-            <input type="text" name="address" />
+            <input type="text" name="addressLine1" />
         </div>
     
         <div>
@@ -36,18 +36,19 @@
 
         
 <div>
-    <label>Line-Up</label>
-    <select name="artist[]" multiple="multiple" >
-        <% artist.forEach(function(artist) {     %> 
-            <option value="<%= artist._id %>" > <%= artist.bandName %> </option>
-        <% }) %>
-
-
-    </select>
-</div>
+ 
+    <fieldset >
+        <legend>Line-Up</legend>
         <div>
-            <label>Description </label>
-            <input type="textarea" name="description" />
+            <% artist.forEach(function(artist) {     %> 
+            <input type="checkbox"  name="artist[]" value="<%= artist._id %>">
+            <label><%= artist.bandName %></label>
+</div>
+<% }) %>
+</fieldset>
+        <div>
+            <label>Event Details </label>
+            <textarea type="textarea" name="description"></textarea>
         </div>
          
         <div>

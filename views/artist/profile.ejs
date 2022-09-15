@@ -1,9 +1,55 @@
 
-<aside>
-    <h5>Account Details</h5>
-    <p><%=artist.user[0].firstName%> </p>
-    <p><%=artist.user[0].lastName%> </p>
-    <p><%=artist.user[0].emailAddress%> </p>
-</aside>
+
+<h1> Profile Details</h1>
+
+ <% artist.forEach(function(artist) { %> 
+ <% if (currentUser.id === artist.user[0].id) { %> 
+
+    <img id=imgartistPage  src="../image/<%=artist.user[0].image%>">
+
+    <h2>Account Details</h2>
+    <div>
+        <p>First Name:<%=currentUser.firstName %></p>
+        <p>Last Name:<%=currentUser.lastName %></p>
+        <p>emai:<%=currentUser.emailAddress %></p>
+        <p>Profile Type:<%=currentUser.profileType %></p>
+    </div>
+        
+<div>
+    <a href="/artist/delete?id=<%=artist._id%>"> Delete Profile</a>
+    <a href="/artist/edit?id=<%=artist._id%>"> Edit Profile</a>
+    <a href="/event/add"> Add Event</a>
+</div>
+   
+
+<div>
+    <h3><%=artist.bandName%></h3>
+    <p><%=artist.bio%></p>
+
+    <% for(let i=0 ;i< artist.genres.length; i++){%>
+        <p>
+         #<%=artist.genres[i]%>
+        </p>
+        <% } %>
+    </div>
+
+<h3>Associated Events</h3>
+    <% for(let i=0 ;i< artist.event.length; i++){%>
+     <div class="grid-container">
+    <div class="grid-section">
+    <img src="../image/<%=artist.event[i].eventPhoto%>">
+    <div><%=artist.event[i].name%></div>
+    <div><%=artist.event[i].venue%></div>
+    <div><%=artist.event[i].date%></div>
+    <p><a href="/event/edit?id=<%=artist.event[i]._id%>"> Edit Event</a></p>
+    <p><a href="/event/delete?id=<%=artist.event[i]._id%>"> Delete Event</a></p>
+    <% } %>
+        <% } %>
+        <% }) %> 
 
 
+
+
+
+
+    

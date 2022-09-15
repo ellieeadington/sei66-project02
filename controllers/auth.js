@@ -82,3 +82,13 @@ exports.auth_profile_get = (req, res) => {
     let user = req.user;
     res.render('auth/profile', {user});
 }
+
+
+exports.auth_updatepassword_get = (req, res) => {
+    res.render('auth/updatepassword')
+}
+
+exports.auth_updatepassword_post = async (req, res) => {
+
+}
+  

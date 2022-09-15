@@ -1,15 +1,3 @@
-<% if(currentUser.id === artist.user[0].id) { %> 
-<aside>
-    <h5>Account Details</h5>
-    <p><%=artist.user[0].firstName%> </p>
-    <p><%=artist.user[0].lastName%> </p>
-    <p><%=artist.user[0].emailAddress%> </p>
-    <a href="/artist/delete?id=<%=artist._id%>"> Delete Profile</a>
-    <a href="/artist/edit?id=<%=artist._id%>"> Edit Profile</a>
-</aside>
-           
-<% } %>
-
 
 <section id="artistPage">
 <div>
@@ -25,29 +13,7 @@
  <% } %>
 </div>
 
-
-
-<h3>Associated Events</h3>
-
-<% if( currentUser.id === artist.user[0].id) { %> 
-    <p><a href="/event/add"> Add Event</a></p>
-
-<div class="grid-container">
-
-    <%artist.event.forEach(function(event) { %>
-<div class="grid-section">
-   <img src="../image/<%=event.eventPhoto%>">
-    <h3><%=event.name%></h3>
-    <p><%=event.date%></p>
-    <p><a href="/event/edit?id=<%=event._id%>"> Edit Event</a></p>
-    <p><a href="/event/delete?id=<%=event._id%>"> Delete Event</a></p>
-
-
-</div>
-<% }) %>
-</div>
-<% }  else { %>
-
+<h2>Upcoming Artist Events</h2>
 
 <div class="grid-container">
 
@@ -63,7 +29,7 @@
 </div>
 <% }) %>
 </div>
-<% } %>
+
 
 </section>
 
