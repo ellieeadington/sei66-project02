@@ -1,9 +1,12 @@
 
 
 <h1> Profile Details</h1>
-
+ 
  <% artist.forEach(function(artist) { %> 
- <% if (currentUser.id === artist.user[0].id) { %> 
+    <% console.log(artist.user[0].firstName) %>
+    <% console.log(currentUser._id) %>
+    <% console.log(artist.user[0]._id) %>
+ <% if (currentUser._id.toString() === artist.user[0]._id.toString()) { %> 
 
     <img id=imgartistPage  src="../image/<%=artist.user[0].image%>">
 
@@ -26,7 +29,7 @@
     <h3><%=artist.bandName%></h3>
     <p><%=artist.bio%></p>
 
-    <% for(let i=0 ;i< artist.genres.length; i++){%>
+    <% for(let i=0 ;i< artist.genres.length; i++){ %>
         <p>
          #<%=artist.genres[i]%>
         </p>
@@ -34,7 +37,7 @@
     </div>
 
 <h3>Associated Events</h3>
-    <% for(let i=0 ;i< artist.event.length; i++){%>
+    <% for(let i=0 ;i< artist.event.length; i++){ %>
      <div class="grid-container">
     <div class="grid-section">
     <img src="../image/<%=artist.event[i].eventPhoto%>">

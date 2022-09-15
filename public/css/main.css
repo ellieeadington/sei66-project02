@@ -3,21 +3,25 @@ body {
     min-height: 100%;
     margin: 0 auto;
     text-align: center;
-    color: white;
+    color: black;
+    background-color: white;
 }
 
 .nav {
+    
     padding: 5px;
-    background-color: #000002;
 }
-label, .sign-up {color: white}
 
+.nav-item {
+   background-color: rgb(222, 222, 222);
+   border:none;
+   border-radius: 4px;
+}
 
-a {
+a { font-style: bold;
     all: unset;
-    color: white;
-}
 
+}
 
 .profile-pic {
     float: left;
@@ -28,12 +32,12 @@ a {
     background-color: white;
 }
 
-
-
 header {
     display: flex;
     align-items: center;
-    background-image: url('../image/festival.jpeg');
+    background-image: url('../image/concert-clipart-concert-audience-12-original.png');
+    background-size: cover;
+    margin: 0 auto;
     background-color: rgb(152, 152, 152);
     background-position: center;
     height: 200px;
@@ -47,34 +51,12 @@ h1 {
 }
 
 aside {
-    background-color: #504d5d;
+
     position: relative;
     float: left;
     height: 600px;
     width: 20%;
     margin-top: 20px;
-}
-
-.register {
-    margin: 80px auto;
-    width: 280px;
-    height: 280px;
-    background-color: #e6e6e8;
-    border: none;
-    border-radius: 5px;
-}
-#dropdownMenuButton {
-    margin: 5px 0 0 5px;
-    float: left;
-    width: 150px;
-    background-color: #e6e6e8;
-    color: #000002;
-}
-
-.filter-menu {
-    margin-top: 330px;
-    background-color: #e6e6e8;
-    font-size: 12px;
 }
 
 .dropdown {
@@ -84,8 +66,12 @@ aside {
 .form {
     padding: 10px;
     margin-top: 10px;
+    color: black;
 }
 
+input {
+    color: black;
+}
 
 .select {
     margin-top: 20px;
@@ -110,11 +96,12 @@ aside {
 }
 
 .event {
-    background-color: #9b99a2;
+    background-color: #ffffff;
     width: 300px;
     height: 300px;
     border: none;
     border-radius: 5px;
+    box-shadow: 3px 3px 2px rgb(198, 198, 198);
 }
 
 .event-image {
@@ -152,25 +139,18 @@ span {
     margin-left: 5px;
 }
 
-
-
 .bookmark {
 width: 40px;
 margin: 0 auto;
     
 }
 
-.green {
-    background-color: green;
-}
-
-
 footer {
     position: fixed;
     bottom: 0;
     width: 100%;
     height: 50px;
-    background-color:#000002;
+    background-color:rgb(104, 104, 104);
 }
 .footer {
     display: flex;
@@ -196,7 +176,6 @@ svg {
     margin-bottom: 40px;
 }
 
-
 #eventartist {
     border-radius: 50%;
     height: 50px;
@@ -213,4 +192,46 @@ svg {
     border-radius: 50% 50%;
 }
 
+.updateAccount {
+    width: 40%;
+    margin: 20px auto;
+}
 
+#button {
+    background-color: black;
+}
+
+img {
+    height: 250px;
+    width: 300px;
+}
+
+.grid-container {
+
+    display: grid;
+    margin: auto;
+    grid-template-columns: auto auto auto ;
+    grid-template-rows: auto auto auto  ;
+    justify-content: center;
+    padding: 10px 10px;
+   
+}
+
+.grid-section{
+    text-align: center;
+    margin: 50px;
+    border: 2px black solid;
+
+}
+
+#imgartistPage {
+    border-radius: 50%;
+    height: 200px;
+    width: 200px;
+    margin-top: 50px;
+
+}
+
+section {
+    color: beige;
+}

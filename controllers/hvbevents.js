@@ -36,11 +36,6 @@ res.send("Please try again later!!!");
 })
 }
 
-// event.update({month: new Date(req.body.date).toLocaleDateString('en-us', { month:"short",year:"numeric"}).toString()});
-
-
-
-
 exports.event_detail_get = (req, res) => {
     Event.findById(req.query.id).populate('artist').populate('user')
     .then((event)=>{
