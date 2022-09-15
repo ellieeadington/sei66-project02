@@ -41,18 +41,16 @@
 
 
     </aside> 
-        
-
-        
-        
+               
 
         <div class="event-body">
           <!-- -------------------------------------------------------------------- -->
-       
+          <% console.log(location + "--------------" + location.length) %>
             <div class="event-grid">
               <!-- NEARLY THERE -->
 
-              <% if (location == 0 && month == 0 && artist == 0 && genre == 0) { %>
+              <% if (location.length == 0 && month.length == 0 && artist.length == 0 && genre.length == 0) { %>
+              
               <% event.forEach(function(event) { %>
                 <div class="event">
                   <div><h4><%=event.name %></h4></div>
@@ -70,7 +68,7 @@
                     
                     <div class="genres">
                       <% for (i = 0; i < event.artist.length; i++){ %>
-                      <h6><%=event.artist[i].genres %></h6>
+                      <h6>#<%=event.artist[i].genres %></h6>
                       <% } %> 
                     </div>
                  </div>
@@ -83,36 +81,41 @@
 
               <% })} else { %>
 
-              <% event.forEach(function(event) { %>  
-                <% let artistgenres = "" %>
-                <% let artistMatch = true %>
-                <% let genreMatch = true %>
-                <% let artistgenresArr = [] %>
-
-                <% for (i = 0; i < event.artist.length; i++){ %>
-                <% if (artist.includes(event.artist[i].bandName) == false) { %>
-                <% artistMatch = false; %>
-                <% }} %>
-
-                <% for (i = 0; i < event.artist.length; i++){ %>
-                <% artistgenres += event.artist[i].genres %>
-                <% } %>
-  
-                <% artistgenreArr = JSON.stringify(artistgenres).split(",") %>
-                <% trimmedGenre = artistgenreArr[0].replace('"', '') %>
-                <% trimmedGenre2 = artistgenreArr[artistgenreArr.length -1].replace('"', '') %>
-                <% artistgenreArr.splice(0,1); %>
-                <% artistgenreArr.splice(artistgenreArr.length-1, 1) %>
-                <% artistgenreArr.push(trimmedGenre) %>
-                <% artistgenreArr.push(trimmedGenre2) %>
-                <% console.log(artistgenreArr) %>
-                 
-
-                <% for(i = 0; i < artistgenreArr.length; i++) { %>
-                <% console.log(artistgenreArr[i] + " " + genre) %>
-                <% if(genre.indexOf(artistgenreArr[i]) <= -1) { %>
-                <% genreMatch = false}%>
-                <% } %>
+                <% event.forEach(function(event) { %>  
+                  <% let artistgenres = "" %>
+                  <% let artistMatch = true %>
+                  <% let genreMatch = true %>
+                  <% let trimmedGenre = "" %>
+                  <% let trimmedGenre2 = "" %>
+                  <% let artistgenresArr = [] %>
+                  <% for (i = 0; i < event.artist.length; i++){ %>
+                  <% if (artist.includes(event.artist[i].bandName) == false) { %>
+                  <% artistMatch = false; %>
+                  <% }} %>
+                  <% for (i = 0; i < event.artist.length; i++){ %>
+                  <% artistgenres += event.artist[i].genres %>
+                  <% } %>
+    
+                  <% artistgenreArr = JSON.stringify(artistgenres).split(",") %>
+                  <% if(artistgenreArr.length === 1) { %>
+                  <% let trimmedGenre = artistgenreArr[0].replace('"', '') %>
+                  <% trimmedGenre = trimmedGenre.substring(0, trimmedGenre.length-1) %>
+                  <% artistgenreArr.splice(0,1); %>
+                  <% artistgenreArr.push(trimmedGenre) %>
+                  <% } else { %>
+                  <% trimmedGenre = artistgenreArr[0].replace('"', '') %> 
+                  <% trimmedGenre2 = artistgenreArr[artistgenreArr.length -1].replace('"', '') %>
+                  <% artistgenreArr.splice(0,1); %>
+                  <% artistgenreArr.splice(artistgenreArr.length-1, 1) %>
+                  <% artistgenreArr.push(trimmedGenre) %>
+                  <% artistgenreArr.push(trimmedGenre2) %>
+                  <% } %>
+                  <% console.log(artistgenreArr) %>
+                  <% for(i = 0; i < artistgenreArr.length; i++) { %>
+                  <% console.log(artistgenreArr[i] + " " + genre) %>
+                  <% if(genre.indexOf(artistgenreArr[i]) <= -1) { %>
+                  <% genreMatch = false}%>
+                  <% } %>
      
 
                 <% if(location.indexOf(event.city) != -1 && month.indexOf(event.month) != -1 && artistMatch == true && genreMatch == true) { %>
@@ -134,7 +137,7 @@
                   
                   <div class="genres">
                     <% for (i = 0; i < event.artist.length; i++){ %>
-                    <h6><%=event.artist[i].genres %></h6>
+                    <h6>#<%=event.artist[i].genres %></h6>
                     <% } %> 
                   </div>
                 </div>
