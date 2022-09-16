@@ -1,5 +1,4 @@
 //  required User model  
-
 const {User} = require("../models/User")
 const {Artist} = require("../models/Artist");
 const {Event} = require('../models/Event');
@@ -53,7 +52,6 @@ exports.auth_signup_post =(req,res) =>{
 }
 
 // HTTP Get - signin route
-
 exports.auth_signin_get = (req, res) => {
     res.render('auth/signin');
    
@@ -94,15 +92,21 @@ exports.auth_profile_get = (req, res) => {
 
 }
 
-// HTTP UPDATE - user profile#
-
+// HTTP GET - user profile update page
 exports.auth_profile_update = (req, res) => {
-res.render('auth/update');
+    res.render('auth/update');
 }
 
-exports.auth_update_post = (req, res) => {
-    
-
+// HTTP POST - update user info
+exports.auth_update_post = (req, res) => {  
+    let user = req.user;
+    User.findByIdAndUpdate(user._id, req.body)
+    .then(() => {
+        res.redirect("/");
+    })
+    .catch(err => {
+        console.log(err)
+    })  
 }
 
 
@@ -137,6 +141,7 @@ exports.auth_updatepassword_post =(req, res) => {
 }}
   
 
+// HTTP GET - delete profile info
 exports.auth_profile_delete = (req, res) => {
     let user = req.user;
     if(user){

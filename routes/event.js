@@ -4,7 +4,7 @@ const router = express.Router();
 
 router.use(express.urlencoded({extended: true}))
 
-const eventCtrl = require("../controllers/hvbevents")
+const eventCtrl = require("../controllers/events")
 
 const upload = require("../helpers/fileupload")
 
