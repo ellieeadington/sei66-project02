@@ -204,6 +204,7 @@ svg {
     margin: 20px auto;
 }
 
+
 #button {
     background-color: black;
 }
@@ -224,26 +225,133 @@ img {
    
 }
 
-.grid-section{
+#grid-section{
     text-align: center;
     margin: 50px;
-    border: 2px black solid;
-
+    border-width: 1px;
+    box-shadow: 3px 3px 3px 3px rgb(198, 198, 198);
+    border: 1px cornsilk;
+    background-color: white;
 }
+
+
 
 #imgartistPage {
     border-radius: 50%;
-    height: 200px;
-    width: 200px;
+    height: 250px;
+    width: 250px;
     margin-top: 50px;
 
+
+    
+
 }
 
-section {
-    color: beige;
+#createAccount {
+    width: 45%;
+    text-align: left;
+    padding: 25px;
+    margin:  30px auto;
+    border-radius: 25px  15px;
+    border-width: 1px;
+    box-shadow: 3px 3px 3px 3px rgb(198, 198, 198);
+    font-size: 25px;
+    color: rgb(70, 66, 66);
+
 }
 
-.profile-button {
-    margin: 10px auto;
+#profileType {
+    text-align: center;
+    font-size: 25px;
+
 }
 
+#userType{
+    padding: 25px;
+}
+
+.signup {
+    padding: 15px;
+    text-align: left;
+
+}
+
+#artistaccount{
+   margin-top: 25px;
+    width: 10%;
+    text-align: justify;
+}
+
+#accountbtn {
+    background: rgb(198, 198, 198);
+    border: none;
+    width: 200px;
+    
+}
+
+#artistgenres {
+    padding: 3px;
+    font-weight: bold;
+    font-size: 15px;
+
+}
+
+#bio{
+
+    width: 50%;
+    justify-content: center;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 50px;
+ 
+  
+}
+
+.associatedevent{
+    color: #88888c;
+    font-size:50px;
+    padding: 5px;
+}
+
+#bandName {
+    color: #88888c;
+}
+#eventId {
+ margin: 100px auto;
+
+    border-width: 1px;
+    box-shadow: 3px 3px 3px 3px rgb(198, 198, 198);
+    color: rgb(70, 66, 66);
+    width: 50%;
+    font-size: 20px;
+    padding-bottom: 50px;
+    background-color:rgb(242, 242, 228);
+}
+
+#lineup{
+    padding-bottom: 10px;
+}
+
+
+
+#lineheading{
+    font-size: 50px;
+}
+
+#eventDetailImage{
+    padding: 25px;
+    height: 450px;
+    width: 450px;
+}
+
+.artistPage{
+
+    margin: 100px auto;
+    border-width: 1px;
+    box-shadow: 3px 3px 3px 3px rgb(198, 198, 198);
+    color: rgb(70, 66, 66);
+    width: 50%;
+    padding-bottom: 50px;
+    background-color:rgb(242, 242, 228);
+    
+}
