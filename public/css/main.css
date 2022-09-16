@@ -52,7 +52,6 @@ h1 {
 
 aside {
     background-color: rgb(222, 222, 222);
-
     position: relative;
     float: left;
     height: 600px;
@@ -143,7 +142,10 @@ span {
 .bookmark {
     width: 40px;
     margin: 0 auto;
-    
+}
+
+.profile-button {
+    margin: 10px;
 }
 
 footer {
@@ -241,10 +243,6 @@ img {
     height: 250px;
     width: 250px;
     margin-top: 50px;
-
-
-    
-
 }
 
 #createAccount {
@@ -302,9 +300,7 @@ img {
     justify-content: center;
     margin: auto;
     margin-top: 20px;
-    margin-bottom: 50px;
- 
-  
+    margin-bottom: 50px; 
 }
 
 .associatedevent{
@@ -353,8 +349,7 @@ img {
     color: rgb(70, 66, 66);
     width: 50%;
     padding-bottom: 50px;
-    background-color:rgb(242, 242, 228);
-    
+    background-color:rgb(242, 242, 228);  
 }
 
 #userType{
@@ -384,65 +379,4 @@ img {
     padding: 3px;
     font-weight: bold;
     font-size: 15px;
-
-}
-
-#bio{
-
-    width: 50%;
-    justify-content: center;
-    margin: auto;
-    margin-top: 20px;
-    margin-bottom: 50px;
- 
-  
-}
-
-.associatedevent{
-    color: #88888c;
-    font-size:50px;
-    padding: 5px;
-}
-
-#bandName {
-    color: #88888c;
-}
-#eventId {
- margin: 100px auto;
-
-    border-width: 1px;
-    box-shadow: 3px 3px 3px 3px rgb(198, 198, 198);
-    color: rgb(70, 66, 66);
-    width: 50%;
-    font-size: 20px;
-    padding-bottom: 50px;
-    background-color:rgb(242, 242, 228);
-}
-
-#lineup{
-    padding-bottom: 10px;
-}
-
-
-
-#lineheading{
-    font-size: 50px;
-}
-
-#eventDetailImage{
-    padding: 25px;
-    height: 450px;
-    width: 450px;
-}
-
-.artistPage{
-
-    margin: 100px auto;
-    border-width: 1px;
-    box-shadow: 3px 3px 3px 3px rgb(198, 198, 198);
-    color: rgb(70, 66, 66);
-    width: 50%;
-    padding-bottom: 50px;
-    background-color:rgb(242, 242, 228);
-    
 }

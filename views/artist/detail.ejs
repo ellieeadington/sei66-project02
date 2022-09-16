@@ -7,9 +7,9 @@
 
 <h1 id="bandName"><%=artist.bandName%></h1>
 
-<% for(let i=0 ;i< artist.genres.length; i++){%>
+<% for(let i=0 ;i< artist.genres.length; i++){ %>
 
-    <span id="artistgenres"> #<%=artist.genres[i]%></span>
+    <span id="artistgenres"> #<%=artist.genres[i] %></span>
 
  <% } %>
 
@@ -27,7 +27,6 @@
     <p><%=event.city%></p>
     <p><%=event.date%></p>
     <p><a href="/event/detail?id=<%=event._id%>">View Event</a></p>
-
 </div>
 <% }) %>
 </div>
