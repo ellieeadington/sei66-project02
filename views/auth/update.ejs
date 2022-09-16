@@ -1,13 +1,11 @@
+<!-- Simple form to update account  -->
 <section>
-
     <h1> Update Account </h1>
-</div>
 
+    <form method="POST" action="/auth/update" class="form-control updateAccount">
+        <input type="hidden" name="userType" class="form-control" value="<%= currentUser.userType %>"/>  
+        <input type="hidden" name="_id" class="form-control" value="<%= currentUser._id %>"/>    
 
-    <form   method="POST" action="/auth/update" class="form-control updateAccount">
-        <input type="hidden" name="userType" class="form-control" value="<%= currentUser.userType %>" />  
-
-        <input type="hidden" name="_id" class="form-control" value="<%= currentUser._id %>" />       
         <div class="form-group">
             <label>First Name</label>
             <input type="text" name="firstName" class="form-control" value="<%= currentUser.firstName %>" />
@@ -24,8 +22,5 @@
         </div>
 
         <button type= "submit"> Update </button>
-
     </form> 
-    
-
 </section>
