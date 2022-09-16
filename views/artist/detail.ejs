@@ -1,24 +1,26 @@
 
-<section id="artistPage">
+<section class="artistPage">
 <div>
 <img  id="imgartistPage" src="../image/<%=artist.user[0].image%>">
 </div>
 </div>
-<div><%=artist.bandName%></div>
-<div><%=artist.bio%></div>
+
+<h1 id="bandName"><%=artist.bandName%></h1>
+
 <% for(let i=0 ;i< artist.genres.length; i++){%>
-<div>
- #<%=artist.genres[i]%>
+
+    <span id="artistgenres"> #<%=artist.genres[i]%></span>
 
  <% } %>
-</div>
 
-<h2>Upcoming Artist Events</h2>
+ <p id="bio"><%=artist.bio%></p>
 
-<div class="grid-container">
+<h2 class="associatedevent">Upcoming Artist Events</h2>
+
+<div class="grid-container" >
 
     <%artist.event.forEach(function(event) { %>
-<div class="grid-section">
+<div id="grid-section">
    <img src="../image/<%=event.eventPhoto%>">
     <h3><%=event.name%></h3>
     <p><%=event.venue%></p>
