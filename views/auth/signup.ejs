@@ -4,67 +4,145 @@
 </div>
 
 
-    <form  id="createAccount" method="POST" action="/auth/signup"  enctype="multipart/form-data" >
 
-        <div class="groupOne">
-            <label>Fan</label>
-            <input class="sign-up" type="radio" name="profileType" value="fan"/>
+    <form class="form-control" id='createAccount' method="POST" action="/auth/signup"  enctype="multipart/form-data" >
+
+        <div class="signup" id="profileType">
+
+      <span id="userType"> 
+            <label>User  </label>
+            <input type="radio" name="profileType" value="fan"/> 
+    
+        </span>
             <label>Artist</label>
-            <input class="sign-up" type="radio" name="profileType" value="artist"/>
+            <input   type="radio" name="profileType" value="artist"/>
         </div>
          
     
-        <div class="groupOne">
+        <div class="groupTwo">
             <label>First Name</label>
-            <input type="text" name="firstName"/>
+            <input class="form-control"type="text" name="firstName"/>
         </div>
     
-        <div class="groupOne">
+        <div class="groupTwo signup">
             <label>Last Name</label>
-            <input type="text" name="lastName" />
+            <input class="form-control" type="text" name="lastName" />
         </div>
     
-        <div>
-            <label class="groupOne">Email Address</label>
-            <input type="email" name="emailAddress"/>
+        <div class="groupTwo signup">
+            <label>Email Address</label>
+            <input class="form-control" type="email" name="emailAddress"/>
         </div>
    
-        <div>
-            <label class="groupOne">Password</label>
-            <input type="password" name="password"/>
+        <div class="groupTwo signup">
+            <label class="groupTwo">Password</label>
+            <input class="form-control" type="password" name="password"/>
         </div>
-<div class="groupTwo">
+<div class="groupThree signup">
 <label>Artist/Band Name</label>
-<input type="text" name="bandName"/>
+<input class="form-control" type="text" name="bandName"/>
 
 </div>
 
-<div class="groupTwo">
-<label>Genres:</label>
 
-<select type="checkbox" name="genres" multiple>
-<option value="dnb">Alternative</option>
-  <option value="rock">Rock</option>
-  <option value="pop">Indie Rock</option>
-  <option value="hiphop">Hip-Hop</option>
-  <option value="rnb">R&B</option>
-  <option value="dnb">Drum and Bass</option>
-</select>
-</div>
-
- 
-<div class="groupTwo">
+<div class="groupThree signup">
     <label>Bio</label>
-    <textarea  name="bio"></textarea>
+    <textarea  row="50" cols="25"class="form-control" name="bio"></textarea>
 </div>
 
-<div class="groupOne">
-    <label for="image"> Profile Picture</label>
-    <input type="file" id="image" name="image">
+<fieldset class="groupThree signup">
+    <legend>Genres</legend>
+    <div>
+        <input type="checkbox"  name="genres" value="ancepop">
+        <label  for="dancepop">Dance Pop</label>
+      
+   
+      <input  type="checkbox"  name="genres" value="indiepop">
+      <label for="indiepop">Indie Pop</label>
+    
+   
+        <input  type="checkbox"  name="genres" value="teenpop">
+        <label for="teenpop">Teen Pop</label>
+      
+        <input  type="checkbox"  name="genres" value="rock">
+        <label for="rock">Rock</label>
+     
+    
+        <input  type="checkbox"  name="genres" value="Hip-Hop">
+        <label for="Hip-Hop">Hip-Hop</label>
+      
+     
+        <input   type="checkbox"  name="genres" value="rnb">
+        <label for="rnb">RnB</label>
+    
+        <input type="checkbox"  name="genres" value="reggae">
+        <label for="reggae">Reggae</label>
+     
+    
+        <input type="checkbox"  name="genres" value="metal">
+        <label for="metal">Metal</label>
+      
+     
+        <input  type="checkbox"  name="genres" value="metal">
+        <label for="hip-hop">Drum & Bass</label>
+    
+        <input  type="checkbox"  name="genres" value="house">
+        <label for="house">Electro House</label>
+     
+    
+        <input  type="checkbox"  name="genres" value="soul">
+        <label for="metal">Soul</label>
+      
+     
+        <input type="checkbox"  name="genres" value="folk">
+        <label for="folk">Folk & Acoustic</label>
+   
+        <input  type="checkbox"  name="genres" value="country">
+        <label for="Country">Country</label>
+     
+    
+        <input type="checkbox"  name="genres" value="metal">
+        <label for="metal">Metal</label>
+      
+     
+        <input type="checkbox"  name="genres" value="dance">
+        <label for="dance">Dance/Electronic</label>
+    
+        <input   type="checkbox"  name="genres" value="indie">
+        <label for="indie">Indie </label>
+     
+    
+        <input   type="checkbox"  name="genres" value="Ukgarage">
+        <label for="UKgargae">UK Garage</label>
+      
+     
+        <input  type="checkbox"  name="genres" value="grime">
+        <label for="grime">Grime</label>
+    
+        <input   type="checkbox"  name="genres" value="dubstep">
+        <label for="dubstep">Dubstep </label>
+     
+    
+        <input  type="checkbox"  name="genres" value="alternative">
+        <label for="alternative">Alternative</label>
+      
+     
+        <input  type="checkbox"  name="genres" value="britpop">
+        <label for="britpop">Brit Pop</label>
+    
+  </fieldset>
+  
+ 
+
+<div class="groupTwo signup input-group-prepend">
+    <label  for="image"> Upload Profile Picture</label><br>
+    <input  type="file" id="image" name="image">
     </div>
 
 
-<button type= "submit"> Create Profile </button>
+<div class="groupThree signup">
+<button  class="btn btn-primary" type= "submit"> Create Profile </button>
+</div>
 
 </form> 
     

@@ -1,0 +1,61 @@
+
+    
+        
+ <img src="../image/<%=event.eventPhoto%>">
+
+ <h1>Update Event Details </h1>
+ 
+ <form  id="editAccount" method="POST" action="/event/update"  enctype="multipart/form-data" >
+      <div>
+        
+            <label>Event Name</label>
+            <input type="text" name="name" value="<%= event.name%>"/>
+        </div>
+    
+        <div>
+            <label>Event Venue</label>
+            <input type="text" name="venue" value="<%= event.venue%>" />
+        </div>
+         
+
+        <div>
+            <label>Address Line 1 </label>
+            <input type="text" name="addressLine1" value="<%= event.addressLine1%>" />
+        </div>
+    
+        <div>
+            <label>City </label>
+            <input type="text" name="city" value="<%= event.city%>" />
+        </div>
+    
+        
+        <div>
+            <label>Postcode </label>
+            <input type="text" name="postcode" value="<%= event.postcode%>" />
+        </div>
+    
+        <div>
+            <label>Date and Time </label>
+            <input type="datetime-local" name="date" value="<%=event.date%>" />
+        </div>
+
+        
+<div>
+    <fieldset >
+        <legend>Line-Up</legend>
+        <div>
+            <% event.artist.forEach(function(artist) {     %> 
+            <input type="checkbox"  name="artist[]" checked value="<%=artist._id%>">
+            <label><%= artist.bandName %></label>
+</div>
+<% }) %>
+</fieldset>
+        <div>
+            <label>Event Details</label>
+            <textarea type="textarea" name="description" value="<%=event.description%>">"<%=event.description%>"</textarea>
+        </div>
+         
+        <input type="hidden" name="id" value="<%= event._id %>"/>
+        <button type= "submit"> Update Event </button>
+
+</form> 
