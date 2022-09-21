@@ -247,21 +247,20 @@ img {
 
 #createAccount {
     width: 45%;
-    text-align: left;
+    text-align: center;
     padding: 25px;
     margin:  30px auto;
-    border-radius: 25px  15px;
+    border-radius: 25px 15px;
     border-width: 1px;
     box-shadow: 3px 3px 3px 3px rgb(198, 198, 198);
     font-size: 25px;
     color: rgb(70, 66, 66);
-
+    height: auto;
 }
 
 #profileType {
     text-align: center;
     font-size: 25px;
-
 }
 
 #userType{
