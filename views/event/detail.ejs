@@ -27,7 +27,7 @@
     <p><%=event.addressLine1%></p>
     <p><%=event.city%></p>
     <p><%=event.postcode%></p>
-    <p><b>Date & Time</b>:<%=event.date%></p>
+    <p><b>Date & Time</b>:<%= new Date(event.date).toLocaleDateString('en-us', { year:"numeric", month:"short", day:"numeric"})%></p>
     <p id="bio"><b>Event Details</b><br><%=event.description%></p>
     
 

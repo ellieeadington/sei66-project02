@@ -11,7 +11,6 @@
       
         <a class="btn btn-primary artist" id="accountbtn" href="/auth/update?id=<%= currentUser._id %>" role="button">Update Account</a><br><br>
         <a class="btn btn-primary artist"  id="accountbtn" href="/auth/updatePassword?id=<%= currentUser._id %>" role="button">Change Password</a><br><br>
-        <a class="btn btn-primary artist" id="accountbtn"href="/artist/update?id=<%=artist._id%>"> Edit Profile</a><br><br>
         <a class="btn btn-primary artist" id="accountbtn"href="/artist/delete?id=<%=artist._id%>"> Delete Profile</a><br><br>
         <a class="btn btn-primary artist" id="accountbtn" href="/event/add"> Add Event</a>
       
@@ -20,7 +19,7 @@
       
       </aside>
    <div>
-      <img id=imgartistPage  src="../image/<%=artist.user[0].image%>">
+      <img id=imgartist  src="../image/<%=artist.user[0].image%>">
    </div>
       
    <!--       
@@ -46,13 +45,13 @@
       <% for(let i=0 ;i< artist.event.length; i++){ %>
          
        <div class="grid-container">
-       <div id="grid-section">
-      <img src="../image/<%=artist.event[i].eventPhoto%>">
+       <div class="grid-section" style="background-color:rgb(242, 242, 228); margin-top: 10px;">
+      <img   src="../image/<%=artist.event[i].eventPhoto%>">
       <h5><%=artist.event[i].name%></h5>
       <p><%=artist.event[i].venue%><p>
-      <P><%=artist.event[i].date%></p><br>
-      <p ><a href="/event/edit?id=<%=artist.event[i]._id%>"> Edit Event</a>
-      <a href="/event/delete?id=<%=artist.event[i]._id%>"> Delete Event</a></p>
+      <a  class="btn btn-primary artist" style="background-color:rgb(198, 198, 198); border: none; margin-bottom: 10px;" href="/event/edit?id=<%=artist.event[i]._id%>"> Edit Event</a>
+     <a class="btn btn-primary artist"  style="background-color:rgb(198, 198, 198); border: none ; margin-bottom: 10px;" href="/event/delete?id=<%=artist.event[i]._id%>"> Delete Event</a>
+      <a class="btn btn-primary artist" style="background-color:rgb(198, 198, 198);  border: none; margin-bottom: 10px;" href="/event/detail?id=<%=artist.event[i]._id%>">View Event</a>
       </div>
       <% } %>
    </div>

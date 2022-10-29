@@ -34,15 +34,18 @@ exports.auth_signup_post =(req,res) =>{
     .then(() => {
      User.findById(user)
      .then( (user) =>{ 
+       if(user.profileType == 'artist'){
         let artist = new Artist(req.body)
        artist.user.push(user)
        console.log(artist.user[0]._id)
-       artist.save()
+       artist.save()  
+    
        .catch((err)=> {
         console.log(err);
         res.send("Please try again later.")
+    
    })
-        })
+     } })
         res.redirect("/")
     })
      .catch((err)=> {

@@ -51,7 +51,6 @@ h1 {
 }
 
 aside {
-    background-color: rgb(222, 222, 222);
     position: relative;
     float: left;
     height: 600px;
@@ -214,20 +213,21 @@ svg {
 img {
     height: 250px;
     width: 300px;
+    margin: 10px;
 }
 
 .grid-container {
 
     display: grid;
     margin: auto;
-    grid-template-columns: auto auto auto ;
-    grid-template-rows: auto auto auto  ;
+    grid-template-columns: auto auto auto auto ;
+    grid-template-rows:auto auto auto auto  ;
     justify-content: center;
     padding: 10px 10px;
    
 }
 
-#grid-section{
+.grid-section{
     text-align: center;
     margin: 50px;
     border-width: 1px;
@@ -238,7 +238,7 @@ img {
 
 
 
-#imgartistPage {
+.imgartist {
     border-radius: 50%;
     height: 250px;
     width: 250px;
@@ -378,4 +378,11 @@ img {
     padding: 3px;
     font-weight: bold;
     font-size: 15px;
+}
+
+#eventartistpage{
+    background-color: rgb(242, 242, 228);
+    height: 350px;
+    width: 350px;
+    margin: 10px;
 }

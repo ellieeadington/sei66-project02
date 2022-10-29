@@ -1,19 +1,32 @@
 <!-- created basic grid on views index page to render the Artist date -->
 
 <h1>Artist Index</h1>
+
+
 <div class="grid-container">
+  
+    
     <% artist.forEach(function(artist) { %>
-<div id="grid-section">
-   <img src="../image/<%=artist.user[0].image%>">
-    <h3><%=artist.bandName%></h3>
-    <% for(let i=0 ;i< artist.genres.length; i++){ %>
-        <span id="artistgenres">  #<%=artist.genres[i]%></span>
-        <% } %>
-        <% if(currentUser) { %>
-           <p> <a href="/artist/detail?id=<%=artist._id%>" >Artist Profile</a></p>
-        <% } else { %>
-        <% } %>
+        <div class="grid-section" >
+       <% for(let i=0 ;i< artist.user.length; i++){ %> 
+   
+        <img  src="../image/<%=artist.user[i].image%>">
+        <p><%=artist.user[i].name%></p>
+       <% } %>
+       <h3><%=artist.bandName%></h3>
+       <% for(let i=0 ;i< artist.genres.length; i++){ %>
+           <span id="artistgenres">  #<%=artist.genres[i]%></span>
+           <% } %>
+           <% if(currentUser) { %>
+              <p> <a href="/artist/detail?id=<%=artist._id%>" >Artist Profile</a></p>
+           <% } else { %>
+           <% } %>
+          
 </div>
-<% }) %>
+   <% }) %>
+
 </div>
+
+
+
 
