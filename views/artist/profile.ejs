@@ -11,7 +11,7 @@
       
         <a class="btn btn-primary artist" id="accountbtn" href="/auth/update?id=<%= currentUser._id %>" role="button">Update Account</a><br><br>
         <a class="btn btn-primary artist"  id="accountbtn" href="/auth/updatePassword?id=<%= currentUser._id %>" role="button">Change Password</a><br><br>
-        <a class="btn btn-primary artist" id="accountbtn"href="/artist/delete?id=<%=artist._id%>"> Delete Profile</a><br><br>
+        <a class="btn btn-primary artist" id="accountbtn" href="/auth/delete?id=<%= currentUser._id %>" role="button"> Delete Profile</a><br><br>
         <a class="btn btn-primary artist" id="accountbtn" href="/event/add"> Add Event</a>
       
         

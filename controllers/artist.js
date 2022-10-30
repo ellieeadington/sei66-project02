@@ -39,7 +39,7 @@ exports.artist_delete_get = (req, res) => {
   Artist.findByIdAndDelete(req.query.id)
 
     .then(() => {
-      res.render("/");
+      res.redirect("/");
     })
     .catch((err) => {
       console.log(err);

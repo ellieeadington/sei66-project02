@@ -8,7 +8,7 @@ let passport = require('../helpers/ppConfig');
 
 //  Require bcrypt
 const bcrypt = require ('bcrypt')
-const salt = 10 
+const salt = 10 ;
 
 
 exports.auth_signup_get = (req, res) => {
@@ -18,9 +18,9 @@ exports.auth_signup_get = (req, res) => {
 exports.auth_signup_post =(req,res) =>{
 
     let user = new User(req.body)
-    console.log(req.file)
+   
     user.image=req.file.filename
-
+    console.log(user)
     let hash = bcrypt.hashSync(req.body.password, salt);
     console.log(hash);
 
@@ -33,26 +33,28 @@ exports.auth_signup_post =(req,res) =>{
  
     .then(() => {
      User.findById(user)
-     .then( (user) =>{ 
-       if(user.profileType == 'artist'){
+   .then((user) => {
+    if(user.profileType == 'artist'){
         let artist = new Artist(req.body)
        artist.user.push(user)
-       console.log(artist.user[0]._id)
+       console.log(artist.user[0])
        artist.save()  
-    
-       .catch((err)=> {
-        console.log(err);
-        res.send("Please try again later.")
-    
-   })
-     } })
-        res.redirect("/")
-    })
-     .catch((err)=> {
-        console.log(err);
-        res.send("Please try again later.")
-   })
-}
+
+    } else{
+        console.log("they have signed up as a user ")
+    } 
+     })
+
+     .catch(err => {
+        console.log(err)
+        console.log("please try again later ")
+        
+
+    })  
+   
+     res.redirect("/")
+
+}) }
 
 // HTTP Get - signin route
 exports.auth_signin_get = (req, res) => {
