@@ -1,6 +1,5 @@
 
     
-        
  <img  class="imgartist" src="../image/<%=event.eventPhoto%>">
 
  <h1>Update Event Details </h1>
@@ -45,10 +44,12 @@
         <legend>Line-Up</legend>
         <div>
             <% event.artist.forEach(function(artist) {     %> 
-            <input class="form-control" type="checkbox"  name="artist[]" checked value="<%=artist._id%>">
+           
+            <input type="checkbox"  name="artist[]" value="<%= artist._id %>">
             <label><%= artist.bandName %></label>
-            </div>
-<% }) %>
+                       
+        </div>
+                     <% }) %>
 </fieldset>
         <div class="form-group">
             <label>Event Details</label>

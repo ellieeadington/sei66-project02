@@ -41,10 +41,16 @@
         <legend>Line-Up</legend>
         <div>
             <% artist.forEach(function(artist) {     %> 
+                <% for(let i=0 ;i< artist.user.length; i++){ %> 
+                    <% if(artist.user.length === 0 ){ %>
+                    <% } %>
+                    <% if(artist.user.length > 0 ){ %>
             <input type="checkbox"  name="artist[]" value="<%= artist._id %>">
             <label><%= artist.bandName %></label>
-</div>
-<% }) %>
+                    <% } %>
+                    <% } %>
+        </div>
+                     <% }) %>
 </fieldset>
         <div>
             <label>Event Details </label>
@@ -56,8 +62,10 @@
             <input class="form-control"  type="file" id="eventPhoto" name="eventPhoto">
         </div>
         
-        
+        <div>
+            <input name='user' type='hidden'  value="<%= currentUser._id %>">
+        </div>
 
         <button class="btn btn-primary" type= "submit"> Create Event </button>
-
+        
 </form> 
