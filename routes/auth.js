@@ -23,8 +23,8 @@ router.get('/auth/update', authCtrl.auth_profile_update);
 router.post('/auth/update', authCtrl.auth_update_post);
 router.get('/auth/delete', authCtrl.auth_profile_delete);
 
-router.get('/auth/updatePassword', authCtrl.auth_updatepassword_get)
-router.post('/auth/updatePassword', authCtrl.auth_updatepassword_post)
+router.get('/auth/updatepassword', authCtrl.auth_updatepassword_get)
+router.post('/auth/updatepassword', authCtrl.auth_updatepassword_post)
 
 
 
