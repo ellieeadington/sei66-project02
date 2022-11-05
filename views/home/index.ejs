@@ -24,6 +24,7 @@
           <% artistFilter.forEach(function(artistFilter) { %> 
           <label><%=artistFilter%></label>
           <input type="checkbox" name="art" class="art" checked value="<%=artistFilter%>">
+          
           <% }) %>
 
           <hr>
@@ -50,6 +51,7 @@
          <div class="event">
         <div><h4><%=event.name %></h4></div>
         <a href="/event/detail?id=<%=event._id%>"><img class="event-image" src="../image/<%=event.eventPhoto%>"></a>
+    
                    
         <div><b><%=event.city %> - <span><%= new Date(event.date).toLocaleDateString('en-us', { year:"numeric", month:"short", day:"numeric"})%></span></b></div>
                   

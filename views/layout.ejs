@@ -21,7 +21,7 @@
             <% } else if (currentUser.profileType === "artist") { %>
             <a class="dropdown-item" href="/artist/profile">My Profile</a>
             <a class="dropdown-item" href="/auth/logout">Sign Out</a>
-            <% } } else { %>
+            <%  } } else { %>
             <a class="dropdown-item" href="/auth/signup">Sign Up</a>
             <a class="dropdown-item" href="/auth/signin">Sign In</a>
             <% } %>
@@ -30,11 +30,12 @@
       <li class="nav-item">
         <a class="nav-link" href="/">Home</a>
       </li>
+      <% if(currentUser) { %>
       <li class="nav-item">
         <a class="nav-link" href="/artist/index">Artists</a>
       </li>
+      <% } %>
 </ul> 
-
 <header>
     <h1>Music Events App</h1>
 </header>

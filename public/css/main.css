@@ -51,7 +51,6 @@ h1 {
 }
 
 aside {
-    background-color: rgb(222, 222, 222);
     position: relative;
     float: left;
     height: 600px;
@@ -214,6 +213,7 @@ svg {
 img {
     height: 250px;
     width: 300px;
+    margin: 10px;
 }
 
 .grid-container {
@@ -223,13 +223,13 @@ img {
     grid-template-columns: auto auto auto ;
     grid-template-rows: auto auto auto  ;
     justify-content: center;
-    padding: 10px 10px;
    
 }
 
-#grid-section{
+.grid-section{
     text-align: center;
     margin: 50px;
+    width: 400px;
     border-width: 1px;
     box-shadow: 3px 3px 3px 3px rgb(198, 198, 198);
     border: 1px cornsilk;
@@ -238,11 +238,10 @@ img {
 
 
 
-#imgartistPage {
+.imgartist {
     border-radius: 50%;
-    height: 250px;
-    width: 250px;
-    margin-top: 50px;
+    height: 400px;
+    width: 400px;
 }
 
 #createAccount {
@@ -299,7 +298,13 @@ img {
     justify-content: center;
     margin: auto;
     margin-top: 20px;
-    margin-bottom: 50px; 
+    text-align: center;
+}
+
+#bio {
+    text-align: center;
+   width: 50%;
+  
 }
 
 .associatedevent{
@@ -342,12 +347,33 @@ img {
 
 .artistPage{
 
-    margin: 100px auto;
+    margin: 75px auto;
     border-width: 1px;
     box-shadow: 3px 3px 3px 3px rgb(198, 198, 198);
     color: rgb(70, 66, 66);
-    width: 50%;
+    width: 75%;
     padding-bottom: 50px;
+    background-color:rgb(242, 242, 228);  
+}
+
+#artist-grid-container{
+    display: grid;
+    margin: auto;
+    grid-template-columns: auto auto  ;
+    grid-template-rows:auto auto  ;
+    justify-content: center;
+    padding: 10px 10px;
+
+}
+
+#artist-grid-section{
+    text-align: center;
+    height: 300px;
+    width: 300px;
+    margin: 20px;
+    border-width: 1px;
+    box-shadow: 3px 3px 3px 3px rgb(198, 198, 198);
+    border: 1px cornsilk;
     background-color:rgb(242, 242, 228);  
 }
 
@@ -367,7 +393,7 @@ img {
     text-align: justify;
 }
 
-#accountbtn {
+.accountbtn {
     background: rgb(198, 198, 198);
     border: none;
     width: 200px;
@@ -378,4 +404,25 @@ img {
     padding: 3px;
     font-weight: bold;
     font-size: 15px;
+}
+
+#eventartistpage{
+    background-color: rgb(242, 242, 228);
+    height: 350px;
+    width: 350px;
+    margin: 10px;
+}
+
+.account-info{
+    background-color:rgb(229, 229, 227);
+    width: 75%;
+    margin:  auto;
+    display: flex;
+    justify-content: center;
+    box-shadow: 3px 3px 3px 3px rgb(198, 198, 198);
+    color: rgb(70, 66, 66);
+    margin-top: 40px;
+    padding: 5px;
+
+
 }
