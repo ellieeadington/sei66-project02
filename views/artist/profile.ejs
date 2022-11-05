@@ -1,56 +1,105 @@
+<section >
+
+   <!-- in the instance where all artist have been removed so last artist need account if displayed -->
+<% if(artist.length === 0 ) { %>
+
+<div class="account-info">
+      <div class="user-profile-pic">
+        <img class="user-pic" src="../image/<%=currentUser.image%>">
+    <div >
+      <h5><%=currentUser.firstName %></h5>
+      
+  
+           <a class="btn btn-primary accountbtn" style="height: 5px;" href="/auth/update?id=<%= currentUser._id %>" role="button">Update Account</a>
+           <a class="btn btn-primary accountbtn"  href="/auth/updatepassword?id=<%= currentUser._id %>" role="button">Change Password</a>
+           <a class="btn btn-primary accountbtn"  href="/auth/delete?id=<%=currentUser._id %>" role="button"> Delete Account</a>
+           
+</div>
+
+<% } %>
+
+<!-- where there is objects stored in the artist schema  -->
+
+   <% artist.forEach(function(artist , index ) { %> 
+      
+      
+   <% if (currentUser._id.toString() !== artist.user[0]._id.toString()) { %> 
+      <!-- this is for the last artist in the array to render corr -->
+      <% if  (artist.user.length && index === 0 )  { %> 
+
+   
+   <div class="account-info">
+
+            <div class="user-profile-pic" style="margin: auto;">
+              <img class="user-pic" style="margin: 20px auto; height: 150px; width:150px ;" src="../image/<%=currentUser.image%>">
+              <h4>  Welcome <%=currentUser.firstName %> </h4>
+            </div>
+          
+   
+            <a class="btn btn-primary artist"  id="accountbtn"  style="height: 20px; margin: auto;"  href="/auth/update?id=<%= currentUser._id %>" role="button">Update Account</a>
+            <a class="btn btn-primary artist"   id="accountbtn" style="height: 20px; margin: auto;"  href="/auth/updatepassword?id=<%= currentUser._id %>" role="button">Update Password</a>
+            <a class="btn btn-primary artist"   id="accountbtn"   style="height: 20px; margin: auto;"  href="/auth/delete?id=<%=currentUser._id%>" role="button">Delete Account</a>
+            
+        
+    </div>
+     <% } %>
+     <% } %>
 
 
-<% artist.forEach(function(artist) { %> 
-   <% console.log(artist.user[0].firstName) %>
-   <% console.log(currentUser._id) %>
-   <% console.log(artist.user[0]._id) %>
-<% if (currentUser._id.toString() === artist.user[0]._id.toString()) { %> 
+  
 
-   <img id=imgartistPage  src="../image/<%=artist.user[0].image%>">
+        
+   <% if ( currentUser._id.toString() === artist.user[0]._id.toString()) { %> 
+      <% console.log(artist.user[0].firstName) %>
+      <% console.log(artist.user[0]._id) %>
+     
 
-   <h2>Account Details</h2>
+   <div class="artistPage" >
+
    <div>
-       <p>First Name:<%=currentUser.firstName %></p>
-       <p>Last Name:<%=currentUser.lastName %></p>
-       <p>Email Address :<%=currentUser.emailAddress %></p>
-       <p>Profile Type:<%=currentUser.profileType %></p>
-       <a class="btn btn-primary" href="/auth/update?id=<%= currentUser._id %>" role="button">Update User Detials</a>
-       <a class="btn btn-primary" href="/auth/updatePassword?id=<%= currentUser._id %>" role="button">Update Password</a>
+      <img  class='imgartist'  src="../image/<%=artist.user[0].image%>">
    </div>
-
-<h1> Profile Details</h1>
-
-<div>
-    <a href="/artist/delete?id=<%=artist._id%>"> Delete Profile</a>
-    <a href="/artist/update?id=<%=artist._id%>"> Edit Profile</a>
-    <a href="/event/add"> Add Event</a>
- </div>
-<div>
-   <h3><%=artist.bandName%></h3>
-   <p><%=artist.bio%></p>
-
-   <% for(let i=0 ;i< artist.genres.length; i++){ %>
-       <p>
-        #<%=artist.genres[i]%>
-       </p>
-       <% } %>
-   </div>
-
-<h3>Associated Events</h3>
-   <% for(let i=0 ;i< artist.event.length; i++){ %>
-    <div class="grid-container">
-   <div class="grid-section">
-   <img src="../image/<%=artist.event[i].eventPhoto%>">
-   <div><%=artist.event[i].name%></div>
-   <div><%=artist.event[i].venue%></div>
-   <div><%=artist.event[i].date%></div>
-   <p><a href="/event/edit?id=<%=artist.event[i]._id%>"> Edit Event</a></p>
-   <p><a href="/event/delete?id=<%=artist.event[i]._id%>"> Delete Event</a></p>
-   <% } %>
-       <% } %>
-       <% }) %> 
-
-
-
+   <a class="btn btn-primary artist"  id="accountbtn" href="/artist/index" role="button">Remove Artist Profile</a>
+   <a class="btn btn-primary artist" id="accountbtn" href="/event/add"> Add Event</a>
+   <!--       
+          <p>Last Name:<%=currentUser.lastName %></p>
+          <p>Email Address :<%=currentUser.emailAddress %></p>
+          <p>Profile Type:<%=currentUser.profileType %></p> --> 
+          
+     
+       
+    
+      <h1 id="bandName"><%=artist.bandName%></h1>
+    
+      <% for(let i=0 ;i< artist.genres.length; i++){ %>
+          
+      <span id="artistgenres">#<%=artist.genres[i]%></span>
+          
+          <% } %>
+          <p id="bio"><%=artist.bio%></p>
+      </div>
 
     
+   <h2 class="associatedevent">Associated Events</h2>
+      <% for(let i=0 ;i< artist.event.length; i++){ %>
+         
+       <div class="grid-container">
+       <div class= "grid-section" style="background-color:rgb(242, 242, 228); margin-top: 10px;">
+      <img  style="height:150px; width: 150px;" src="../image/<%=artist.event[i].eventPhoto%>">
+      <h5><%=artist.event[i].name%></h5>
+      <p><%=artist.event[i].venue%><p>
+      <a  class="btn btn-primary artist" style="background-color:rgb(198, 198, 198); border: none; margin-bottom: 10px;" href="/event/edit?id=<%=artist.event[i]._id%>"> Edit Event</a>
+     <a class="btn btn-primary artist"  style="background-color:rgb(198, 198, 198); border: none ; margin-bottom: 10px;" href="/event/delete?id=<%=artist.event[i]._id%>"> Delete Event</a>
+      <a class="btn btn-primary artist" style="background-color:rgb(198, 198, 198);  border: none; margin-bottom: 10px;" href="/event/detail?id=<%=artist.event[i]._id%>">View Event</a>
+      </div>
+      <% } %>
+   </div>
+   <% } %>
+    <% }) %> 
+    
+
+      
+        
+         </section>
+   
+   

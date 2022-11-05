@@ -2,23 +2,44 @@
 
 <h1>Artist Index</h1>
 
-<div class="grid-container">
-    <% artist.forEach(function(artist) { %> 
-<div class="grid-section">
-   <img src="../image/<%=artist.user[0].image%>">
-    <h3><%=artist.bandName%></h3>
-    <% for(let i=0 ;i< artist.genres.length; i++){ %>
-        <p>
-         #<%=artist.genres[i]%>
-        
-        </p>
-        <% } %>
-    
-        <% if(currentUser) { %> 
-        <a href="/artist/detail?id=<%=artist._id%>" >Artist Profile</a> 
-        <% } else { %>  
-    <% } %>
-</div>
-<% }) %> 
-</div>
+<div>
 
+  
+  <div class="grid-container">
+
+    <% artist.forEach(function(artist) { %>
+       
+       <% for(let i=0 ;i< artist.user.length; i++){ %> 
+          <% if(artist.user.length === 0 ){ %>
+         
+          <% } %>
+        
+          <div class="grid-section" >
+          <% if(artist.user.length > 0 ){ %>
+         
+            <img  src="../image/<%=artist.user[i].image%>"> 
+    
+          <h3><%=artist.bandName%></h3>
+       <% for(let i=0 ;i< artist.genres.length; i++){ %>
+           <span id="artistgenres">  #<%=artist.genres[i]%></span>
+         <% } %>
+        
+         <% if(currentUser) { %>
+          <p> <a href="/artist/detail?id=<%=artist._id%>" >Artist Profile</a></p>
+          <% } %>
+
+      <% } %>
+      <% if ( artist.user.length > 0  && currentUser._id.toString() === artist.user[0]._id.toString()) { %> 
+       <a class="btn btn-primary artist" style="background-color:rgb(198, 198, 198);  border: none; margin-bottom: 10px;" href="/artist/delete?id=<%=artist._id %>" role="button"> Remove Profile</a>
+  
+  
+   
+        <% } %>
+      </div>
+      <% } %>
+  
+   <% }) %>
+  </div>
+  </div>
+   
+   

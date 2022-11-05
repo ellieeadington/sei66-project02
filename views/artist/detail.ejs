@@ -1,35 +1,35 @@
 
-<section id="artistPage">
-<div>
-<img  id="imgartistPage" src="../image/<%=artist.user[0].image%>">
-</div>
-</div>
-<div><%=artist.bandName%></div>
-<div><%=artist.bio%></div>
-<% for(let i=0 ;i< artist.genres.length; i++){%>
-<div>
- #<%=artist.genres[i]%>
-
- <% } %>
-</div>
-
-<h2>Upcoming Artist Events</h2>
-
-<div class="grid-container">
-
-    <%artist.event.forEach(function(event) { %>
-<div class="grid-section">
-   <img src="../image/<%=event.eventPhoto%>">
-    <h3><%=event.name%></h3>
-    <p><%=event.venue%></p>
-    <p><%=event.city%></p>
-    <p><%=event.date%></p>
-    <p><a href="/event/detail?id=<%=event._id%>">View Event</a></p>
-
-</div>
-<% }) %>
-</div>
-
-
-</section>
-
+<section class="artistPage">
+    <div>
+    <img  class="imgartist " src="../image/<%=artist.user[0].image%>">
+    </div>
+    
+    
+    
+    <h1 id="bandName"><%=artist.bandName%></h1>
+    
+    <% for(let i=0 ;i< artist.genres.length; i++){ %>
+    
+        <span id="artistgenres"> #<%=artist.genres[i] %></span>
+    
+     <% } %>
+    
+     <p id="bio"><%=artist.bio%></p>
+    
+    <h2 class="associatedevent">Upcoming Artist Events</h2>
+    
+    
+    <div id="artist-grid-container" >
+        <%artist.event.forEach(function(event) { %>
+    <div id="artist-grid-section" id="eventartistpage">
+       <img  class='imgartist' style="height: 150px; width: 150px; margin-top: 20px;"src='../image/<%=event.eventPhoto%>'>
+        <h5><%=event.name%></h5>
+        <p><%= new Date(event.date).toLocaleDateString('en-us', { year:"numeric", month:"short", day:"numeric"})%></p>
+        <p><a  class="btn btn-primary artist" style="background-color:rgb(198, 198, 198); border:none; position:relative; margin:auto;" href="/event/detail?id=<%=event._id%>">View Event</a></p>
+    </div>
+    <% }) %>
+    </div>
+    
+    
+    </section>
+    
