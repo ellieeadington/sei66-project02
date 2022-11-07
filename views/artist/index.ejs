@@ -20,7 +20,7 @@
       <% if(currentUser) { %> <% } %> <% } %> <% if ( artist.user.length > 0 &&
       currentUser._id.toString() === artist.user[0]._id.toString()) { %>
       <a class="btn btn-danger" href="/artist/delete?id=<%=artist._id %>" role="button">
-        Remove My Profile From Site</a>
+        Hide My Profile From Site</a>
 
       <% } %>
     </div>
