@@ -1,428 +1,408 @@
 body {
-    background-color:  #1e1a2e;
-    min-height: 100%;
-    margin: 0 auto;
-    text-align: center;
-    color: black;
-    background-color: white;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  color: black;
 }
 
+.user-nav-pic {
+  width: 50px;
+  height: 50px;
+}
+.title {
+  background-color: white;
+  height: 100px;
+  font-size: 60px;
+  margin: 10px auto;
+  border: 4px solid #f5f5f7;
+  border-radius: 4px;
+}
+.sub-title {
+  background-color: white;
+  font-size: 32px;
+  margin: 10px auto;
+  border: 4px solid #f5f5f7;
+  border-radius: 4px;
+}
+
+.filters {
+  width: 300px;
+  position: absolute;
+  margin: 20px;
+  padding-right: 20px;
+  border-right: 4px solid #f5f5f7;
+}
+
+.filter-title {
+  background-color: #f5f5f7;
+  border: none;
+  border-radius: 4px;
+}
+
+.gen {
+  background-color: black;
+}
 .nav {
-    
-    padding: 5px;
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  z-index: 9999;
+  font-size: 22px;
+  background-color: #f5f5f7;
 }
 
-.nav-item {
-   background-color: rgb(222, 222, 222);
-   border:none;
-   border-radius: 4px;
+.nav-item-signout {
+  color: #898989;
 }
 
-a { font-style: bold;
-    all: unset;
-
+a {
+  font-style: bold;
+  all: unset;
 }
 
 .profile-pic {
-    float: left;
-    width: 50px;
-    height: 50px;
-    border: 1px solid black;
-    border-radius: 50%;
-    background-color: white;
+  float: left;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: white;
 }
 
 header {
-    display: flex;
-    align-items: center;
-    background-image: url('../image/concert-clipart-concert-audience-12-original.png');
-    background-size: cover;
-    margin: 0 auto;
-    background-color: rgb(152, 152, 152);
-    background-position: center;
-    height: 200px;
-    background-blend-mode: multiply;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.record {
+  width: 100px;
+  height: 100px;
 }
 
 h1 {
-    font-size:80px;
-    margin: 0 auto;
-    color: #e6e6e8;
-}
-
-aside {
-    position: relative;
-    float: left;
-    height: 600px;
-    width: 20%;
-    margin-top: 20px;
+  font-size: 100px;
+  margin: 0 auto;
 }
 
 .dropdown {
-    width: 95%;
+  width: 95%;
 }
 
 .form {
-    padding: 10px;
-    margin-top: 10px;
-    color: black;
+  padding: 10px;
+  margin-top: 10px;
+  color: black;
 }
 
 input {
-    color: black;
-}
-
-.select {
-    margin-top: 20px;
-    padding: 0 5px;
-    border: none;
-}
-
-.event-body {
-    float: left;
-    width: 80%;
-    margin-top: 20px;
-}
-
-.event-grid {
-    display: inline-grid;
-    justify-items: center;
-    align-items: center;
-    width: 100%;
-    column-gap: 0;
-    row-gap: 20px;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-}
-
-.event {
-    background-color: #ffffff;
-    width: 300px;
-    height: 300px;
-    border: none;
-    border-radius: 5px;
-    box-shadow: 3px 3px 2px rgb(198, 198, 198);
-}
-
-.event-image {
-    width: 260px;
-    height: 160px;
-    margin: 0 auto;
-    background-color: #e6e6e8;
+  color: black;
 }
 
 .artists-info {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .artists {
-    display: flex;
-    flex-direction: row;
-}
-
-.artist {
-    margin-right: 5px;
+  display: flex;
+  flex-direction: row;
 }
 
 .genres {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
 .genre {
-    margin-right: 5px;
+  margin-right: 5px;
 }
 
 span {
-    margin-left: 5px;
+  margin-left: 5px;
 }
 
 .bookmark {
-    width: 40px;
-    margin: 0 auto;
-}
-
-.profile-button {
-    margin: 10px;
+  width: 40px;
+  margin: 0 auto;
+  background-color: #5bc0de;
+  color: white;
+  border: none;
+  font-size: 22px;
+  border-radius: 4px;
 }
 
 footer {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    height: 50px;
-    background-color:rgb(104, 104, 104);
-}
-
-.footer {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    height: 50px;
+  position: fixed;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  bottom: 0;
+  margin-top: 300px;
+  width: 100%;
+  height: 100px;
+  background-color: #f5f5f7;
 }
 
 li {
-    display: inline;
-    margin: 0px 20px 0px 20px;
+  display: inline;
+  margin: 0px 40px 0px 40px;
 }
 
 svg {
-    width: 26px;
-    height: 26px;
+  width: 42px;
+  height: 42px;
 }
 
 .signin-form {
-    width: 250px;
-    margin: 20px auto;
-    margin-bottom: 40px;
+  width: 250px;
+  margin: 20px auto;
+  margin-bottom: 40px;
 }
-
+.body {
+    background-color: red;
+}
 #eventartist {
-    border-radius: 50%;
-    height: 50px;
-    width: 50px
-}
-
-.user-info {
-    background-color:rgb(222, 222, 222);
-    height: 400px;
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
 }
 
 .user-profile-pic {
-    margin-top: 20px;
+  margin-top: 20px;
 }
+
+.user-info {
+  display: flex;
+  flex-direction: row;
+  margin: 0 auto;
+  justify-content: center;
+}
+
 .user-pic {
-    width: 80px;
-    height:80px;
-    border: none;
-    border-radius: 50% 50%;
+  width: 200px;
+  height: 200px;
 }
 
-.updateAccount {
-    width: 40%;
-    margin: 20px auto;
+.user-info-list {
+  padding: 10px;
+  text-align: left;
 }
 
-
-#button {
-    background-color: black;
+.user-info-list-artist {
+  padding: 10px;
+  text-align: left;
 }
 
 img {
-    height: 250px;
-    width: 300px;
-    margin: 10px;
+  height: 250px;
+  width: 300px;
+  margin: 10px;
+}
+.category-container {
+  display: flex;
+  flex-direction: row;
+  margin: 0 auto;
+  justify-content: center;
 }
 
+.category-card {
+  background-color: #f5f5f7;
+  padding: 10px 40px;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+.category-card:hover {
+  z-index: 1;
+  box-shadow: 0 8px 50px rgba(#000, 0.2);
+  transform: scale(1.05);
+  font-weight: bold;
+  transition: box-shadow 0.2s ease, transform 0.2s ease, z-index 0s 0s ease;
+}
+
+.card-body {
+  position: absolute;
+  width: 100%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
 .grid-container {
-
-    display: grid;
-    margin: auto;
-    grid-template-columns: auto auto auto ;
-    grid-template-rows: auto auto auto  ;
-    justify-content: center;
-   
+  display: grid;
+  margin: 0 auto;
+  grid-template-columns: auto auto auto auto;
+  justify-content: center;
 }
 
-.grid-section{
-    text-align: center;
-    margin: 50px;
-    width: 400px;
-    border-width: 1px;
-    box-shadow: 3px 3px 3px 3px rgb(198, 198, 198);
-    border: 1px cornsilk;
-    background-color: white;
+.artist-img {
+  height: 400px;
+  width: 400px;
 }
 
-
-
-.imgartist {
-    border-radius: 50%;
-    height: 400px;
-    width: 400px;
+.artist-detail-page {
+  width: 80%;
+  margin: 0 auto;
 }
 
-#createAccount {
-    width: 45%;
-    text-align: center;
-    padding: 25px;
-    margin:  30px auto;
-    border-radius: 25px 15px;
-    border-width: 1px;
-    box-shadow: 3px 3px 3px 3px rgb(198, 198, 198);
-    font-size: 25px;
-    color: rgb(70, 66, 66);
-    height: auto;
+.artist-detail {
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 25% 75%;
+  grid-column-gap: 10px;
+  width: 100%;
+  justify-content: center;
+}
+
+.artist-detail-sub-title {
+  background-color: #f5f5f7;
+  font-size: 32px;
+  margin: 10px auto;
+  border: 4px solid #f5f5f7;
+  border-radius: 4px;
 }
 
 #profileType {
-    text-align: center;
-    font-size: 25px;
+  text-align: center;
+  font-size: 25px;
 }
 
-#userType{
-    padding: 25px;
+#userType {
+  padding: 25px;
 }
 
-.signup {
-    padding: 15px;
-    text-align: left;
-
-}
-
-#artistaccount{
-   margin-top: 25px;
-    width: 10%;
-    text-align: justify;
-}
-
-#accountbtn {
-    background: rgb(198, 198, 198);
-    border: none;
-    width: 200px;
-    
-}
-
-#artistgenres {
-    padding: 3px;
-    font-weight: bold;
-    font-size: 15px;
-
-}
-
-#bio{
-
-    width: 50%;
-    justify-content: center;
-    margin: auto;
-    margin-top: 20px;
-    text-align: center;
-}
-
-#bio {
-    text-align: center;
-   width: 50%;
-  
-}
-
-.associatedevent{
-    color: #88888c;
-    font-size:50px;
-    padding: 5px;
+#artistaccount {
+  margin-top: 25px;
+  width: 10%;
+  text-align: justify;
 }
 
 #bandName {
-    color: #88888c;
-}
-#eventId {
- margin: 100px auto;
-
-    border-width: 1px;
-    box-shadow: 3px 3px 3px 3px rgb(198, 198, 198);
-    color: rgb(70, 66, 66);
-    width: 50%;
-    font-size: 20px;
-    padding-bottom: 50px;
-    background-color:rgb(242, 242, 228);
+  color: #88888c;
 }
 
-#lineup{
-    padding-bottom: 10px;
+.event-detail-image {
+  padding: 25px;
+  height: 450px;
+  width: 450px;
 }
 
-
-
-#lineheading{
-    font-size: 50px;
+.page {
+  margin: 75px auto;
+  border: none;
+  border-radius: 4px;
+  width: 60%;
+  font-size: 22px;
+  padding-bottom: 50px;
+  background-color: #f5f5f7;
 }
 
-
-#eventDetailImage{
-    padding: 25px;
-    height: 450px;
-    width: 450px;
+.bio {
+  width: 50%;
+  margin: 0 auto;
 }
 
-.artistPage{
-
-    margin: 75px auto;
-    border-width: 1px;
-    box-shadow: 3px 3px 3px 3px rgb(198, 198, 198);
-    color: rgb(70, 66, 66);
-    width: 75%;
-    padding-bottom: 50px;
-    background-color:rgb(242, 242, 228);  
+.artist-page-grid-container {
+  display: grid;
+  margin: auto;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto;
+  justify-content: center;
+  padding: 10px 10px;
+  background-color: #f5f5f7;
 }
 
-#artist-grid-container{
-    display: grid;
-    margin: auto;
-    grid-template-columns: auto auto  ;
-    grid-template-rows:auto auto  ;
-    justify-content: center;
-    padding: 10px 10px;
-
-}
-
-#artist-grid-section{
-    text-align: center;
-    height: 300px;
-    width: 300px;
-    margin: 20px;
-    border-width: 1px;
-    box-shadow: 3px 3px 3px 3px rgb(198, 198, 198);
-    border: 1px cornsilk;
-    background-color:rgb(242, 242, 228);  
-}
-
-#userType{
-    padding: 25px;
+#userType {
+  padding: 25px;
 }
 
 .signup {
-    padding: 15px;
-    text-align: left;
-
+  padding: 15px;
+  text-align: left;
 }
 
-#artistaccount{
-   margin-top: 25px;
-    width: 10%;
-    text-align: justify;
+#artistaccount {
+  margin-top: 25px;
+  width: 10%;
+  text-align: justify;
 }
 
 .accountbtn {
-    background: rgb(198, 198, 198);
-    border: none;
-    width: 200px;
-    
+  background: #f5f5f7;
+  border: none;
+  width: 200px;
 }
 
-#artistgenres {
-    padding: 3px;
-    font-weight: bold;
-    font-size: 15px;
+.genres {
+  padding: 3px;
+  font-weight: bold;
+  font-size: 15px;
 }
 
-#eventartistpage{
-    background-color: rgb(242, 242, 228);
-    height: 350px;
-    width: 350px;
-    margin: 10px;
+.card {
+  background-color: white;
+  margin: 20px;
+  border-radius: 5px;
+  width: 22rem;
+  height: 26rem;
+  border: none !important;
+  box-shadow: 0px 4px 5.5px 0px #f5f5f7;
+}
+.card:hover {
+  z-index: 1;
+  box-shadow: 0 8px 50px rgba(#000, 0.2);
+  transform: scale(1.02);
+  transition: box-shadow 0.2s ease, transform 0.2s ease, z-index 0s 0s ease;
+}
+.card-body {
+  padding: 25px 35px !important;
+}
+.card-img-top {
+  /* float: left; */
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+}
+.card-body {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+}
+.card-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-top: 20px;
+}
+.card-text {
+  font-size: 18px;
+  color: rgba(0, 0, 0, 0.687);
+  overflow: hidden !important;
+  max-width: 55ch !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap;
 }
 
-.account-info{
-    background-color:rgb(229, 229, 227);
-    width: 75%;
-    margin:  auto;
-    display: flex;
-    justify-content: center;
-    box-shadow: 3px 3px 3px 3px rgb(198, 198, 198);
-    color: rgb(70, 66, 66);
-    margin-top: 40px;
-    padding: 5px;
+.form-container {
+  width: 600px;
+  text-align: center;
+  margin: 0 auto;
+  height: auto;
+}
 
+.form-container-profile {
+  width: 1200px;
+  text-align: center;
+  margin: 0 auto;
+  height: auto;
+}
 
+.label {
+  font-weight: bold;
 }

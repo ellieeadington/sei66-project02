@@ -1,147 +1,117 @@
-<section>
+<div class="form-container">
+  <h2>Create Account</h2>
+  <form class="form-control" id="createAccount" method="POST" action="/auth/signup" enctype="multipart/form-data">
+    <div class="signup" id="profileType">
+      <span id="userType">
+        <label>User </label>
+        <input type="radio" name="profileType" value="fan" />
+      </span>
+      <span id="userType">
+        <label>Artist</label>
+        <input type="radio" name="profileType" value="artist" />
+      </span>
+    </div>
 
-    <h2> Create Account </h2>
-</div>
+    <div class="groupTwo signup">
+      <label>First Name</label>
+      <input class="form-control" type="text" name="firstName" />
+    </div>
 
+    <div class="groupTwo signup">
+      <label>Last Name</label>
+      <input class="form-control" type="text" name="lastName" />
+    </div>
 
+    <div class="groupTwo signup">
+      <label>Email Address</label>
+      <input class="form-control" type="email" name="emailAddress" />
+    </div>
 
-    <form class="form-control" id='createAccount' method="POST" action="/auth/signup"  enctype="multipart/form-data" >
+    <div class="groupTwo signup">
+      <label class="groupTwo">Password</label>
+      <input class="form-control" type="password" name="password" />
+    </div>
 
-        <div class="signup" id="profileType">
+    <div class="groupThree signup">
+      <label>Artist/Band Name</label>
+      <input class="form-control" type="text" name="bandName" />
+    </div>
 
-       <span id="userType"> 
-            <label>User  </label>
-            <input type="radio" name="profileType" value="fan"/> 
-        </span>
-        <span id="userType"> 
-            <label>Artist</label>
-            <input   type="radio" name="profileType" value="artist"/>
-        </span>
-        </div>
-         
-    
-        <div class="groupTwo signup">
-            <label>First Name</label>
-            <input class="form-control"type="text" name="firstName"/>
-        </div>
-    
-        <div class="groupTwo signup">
-            <label>Last Name</label>
-            <input class="form-control" type="text" name="lastName" />
-        </div>
-    
-        <div class="groupTwo signup">
-            <label>Email Address</label>
-            <input class="form-control" type="email" name="emailAddress"/>
-        </div>
-   
-        <div class="groupTwo signup">
-            <label class="groupTwo">Password</label>
-            <input class="form-control" type="password" name="password"/>
-        </div>
-<div class="groupThree signup">
-<label>Artist/Band Name</label>
-<input class="form-control" type="text" name="bandName"/>
+    <div class="groupThree signup">
+      <label>Bio</label>
+      <textarea row="50" cols="25" class="form-control" name="bio"></textarea>
+    </div>
 
-</div>
+    <fieldset class="groupThree signup">
+      <legend>Genres</legend>
+      <div>
+        <input type="checkbox" name="genres" value="Dance-Pop" />
+        <label for="dancepop">Dance Pop</label>
 
+        <input type="checkbox" name="genres" value="Indie-Pop" />
+        <label for="indiepop">Indie Pop</label>
 
-<div class="groupThree signup">
-    <label>Bio</label>
-    <textarea  row="50" cols="25"class="form-control" name="bio"></textarea>
-</div>
-
-<fieldset class="groupThree signup">
-    <legend>Genres</legend>
-    <div>
-        <input type="checkbox"  name="genres" value="Dance-Pop">
-        <label  for="dancepop">Dance Pop</label>
-      
-   
-      <input  type="checkbox"  name="genres" value="Indie-Pop">
-      <label for="indiepop">Indie Pop</label>
-    
-   
-        <input  type="checkbox"  name="genres" value="Teen-Pop">
+        <input type="checkbox" name="genres" value="Teen-Pop" />
         <label for="teenpop">Teen Pop</label>
-      
-        <input  type="checkbox"  name="genres" value="Rock">
+
+        <input type="checkbox" name="genres" value="Rock" />
         <label for="rock">Rock</label>
-     
-    
-        <input  type="checkbox"  name="genres" value="Hip-Hop">
+
+        <input type="checkbox" name="genres" value="Hip-Hop" />
         <label for="Hip-Hop">Hip-Hop</label>
-      
-     
-        <input   type="checkbox"  name="genres" value="RnB">
+
+        <input type="checkbox" name="genres" value="RnB" />
         <label for="rnb">RnB</label>
-    
-        <input type="checkbox"  name="genres" value="Reggae">
+
+        <input type="checkbox" name="genres" value="Reggae" />
         <label for="reggae">Reggae</label>
-     
-    
-        <input type="checkbox"  name="genres" value="Metal">
+
+        <input type="checkbox" name="genres" value="Metal" />
         <label for="metal">Metal</label>
-      
-     
-        <input  type="checkbox"  name="genres" value="Drum & Bass">
+
+        <input type="checkbox" name="genres" value="Drum & Bass" />
         <label for="hip-hop">Drum & Bass</label>
-    
-        <input  type="checkbox"  name="genres" value="House-Techno">
+
+        <input type="checkbox" name="genres" value="House-Techno" />
         <label for="house">Electro House</label>
-     
-    
-        <input  type="checkbox"  name="genres" value="Soul">
+
+        <input type="checkbox" name="genres" value="Soul" />
         <label for="metal">Soul</label>
-      
-     
-        <input type="checkbox"  name="genres" value="Folk">
+
+        <input type="checkbox" name="genres" value="Folk" />
         <label for="folk">Folk & Acoustic</label>
-   
-        <input  type="checkbox"  name="genres" value="Country">
+
+        <input type="checkbox" name="genres" value="Country" />
         <label for="Country">Country</label>
-     
-      
-        <input type="checkbox"  name="genres" value="Dance">
+
+        <input type="checkbox" name="genres" value="Dance" />
         <label for="dance">Dance/Electronic</label>
-    
-        <input   type="checkbox"  name="genres" value="Indie">
+
+        <input type="checkbox" name="genres" value="Indie" />
         <label for="indie">Indie </label>
-     
-    
-        <input   type="checkbox"  name="genres" value="Uk-Garage">
+
+        <input type="checkbox" name="genres" value="Uk-Garage" />
         <label for="UKgargae">UK Garage</label>
-      
-     
-        <input  type="checkbox"  name="genres" value="Grime">
+
+        <input type="checkbox" name="genres" value="Grime" />
         <label for="grime">Grime</label>
-    
-        <input   type="checkbox"  name="genres" value="Dubstep">
+
+        <input type="checkbox" name="genres" value="Dubstep" />
         <label for="dubstep">Dubstep </label>
-     
-    
-        <input  type="checkbox"  name="genres" value="Alternative">
+
+        <input type="checkbox" name="genres" value="Alternative" />
         <label for="alternative">Alternative</label>
-      
-     
-        <input  type="checkbox"  name="genres" value="Britpop">
+
+        <input type="checkbox" name="genres" value="Britpop" />
         <label for="britpop">Brit Pop</label>
-    
-  </fieldset>
-  
- 
+      </div>
+    </fieldset>
 
-<div class="groupTwo signup input-group-prepend">
-    <label  for="image"> Upload Profile Picture</label><br>
-    <input  type="file" id="image" name="image">
+    <div class="groupTwo signup input-group-prepend">
+      <label for="image"> Upload Profile Picture</label><br />
+      <input type="file" id="image" name="image" />
+    </div>
+
+    <button class="btn btn-info" type="submit">Create Profile</button>
+  </form>
 </div>
-
-
-<div class="signup">
-    <button  class="btn btn-primary" type= "submit"> Create Profile </button>
-</div>
-
-</form> 
-    
-
-</section>

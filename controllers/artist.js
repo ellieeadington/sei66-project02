@@ -1,6 +1,5 @@
 // required artist and events schema
 const { Artist } = require("../models/Artist");
-const {Event} = require("../models/Event")
 
 exports.artist_index_get = (req, res) => {
   Artist.find(req.query.id)
@@ -15,7 +14,6 @@ exports.artist_detail_get = (req, res) => {
     .populate("user")
     .populate("event")
     .then((artist) => {
-      console.log(artist);
       res.render("artist/detail", { artist: artist });
     });
 };
@@ -25,7 +23,6 @@ exports.artist_profile_get = (req, res) => {
     .populate("user")
     .populate("event")
     .then((artist) => {
-      console.log(artist);
       res.render("artist/profile", { artist: artist });
     })
     .catch((err) => {

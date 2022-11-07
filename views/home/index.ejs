@@ -1,163 +1,154 @@
 <!-- FILTERS -- for each distinct value in the respective fields, populate a checkbox input with the value -->
-
+<div class="title">Events</div>
 <aside class="filters">
-  <div class="dropdown">
+  <form method="POST" action="/">
+    <br />
+    <p class="label">Locations</p>
+    <div class="filter-body">
+      <% locationFilter.forEach(function(locationFilter) { %>
+      <label><%=locationFilter%></label>
+      <input type="checkbox" name="loc" class="loc" checked value="<%=locationFilter%>" />
+      <% }) %>
+    </div>
+    <br />
 
-        <form class="form" method="POST" action="/">
+    <p class="label">Months</p>
+    <div class="filter-body">
+      <% monthFilter.forEach(function(monthFilter) { %>
+      <label><%=monthFilter%></label>
+      <input type="checkbox" name="month" class="month" checked value="<%=monthFilter%>" />
+      <% }) %>
+    </div>
+    <br />
 
-          <h6>Locations</h6>
-          <% locationFilter.forEach(function(locationFilter) { %> 
-          <label><%=locationFilter%></label>
-          <input type="checkbox" name="loc" class="loc" checked value="<%=locationFilter%>">
-          <% }) %>
-          <hr>
+    <p class="label">Artists</p>
+    <div class="filter-body">
+      <% artistFilter.forEach(function(artistFilter) { %>
+      <label><%=artistFilter%></label>
+      <input type="checkbox" name="art" class="art" checked value="<%=artistFilter%>" />
 
-          <h6>Months</h6>          
-          <% monthFilter.forEach(function(monthFilter) { %> 
-          <label><%=monthFilter%></label>
-          <input type="checkbox" name="month" class="month" checked value="<%=monthFilter%>">
-          <% }) %>
+      <% }) %>
+    </div>
+    <br />
 
-          <hr>
-          
-          <h6>Artists</h6>
-          <% artistFilter.forEach(function(artistFilter) { %> 
-          <label><%=artistFilter%></label>
-          <input type="checkbox" name="art" class="art" checked value="<%=artistFilter%>">
-          
-          <% }) %>
-
-          <hr>
-
-          <h6>Genres</h6>          
-          <% genreFilter.forEach(function(genreFilter) { %> 
-          <label><%=genreFilter%></label>
-          <input type="checkbox" name="gen" class="gen" checked value="<%=genreFilter%>">
-          <% }) %>
-
-          <hr>
-
-          <button  type="submit" class="btn btn-primary select">select</button>
-        </form>
-  </div>
-</aside> 
+    <p class="label">Genres</p>
+    <div class="filter-body">
+      <% genreFilter.forEach(function(genreFilter) { %>
+      <label><%=genreFilter%></label>
+      <input type="checkbox" name="gen" class="gen" checked value="<%=genreFilter%>" />
+      <% }) %>
+    </div>
+    <br />
+    <button type="submit" class="btn btn-success">filter</button>
+  </form>
+  <br />
+</aside>
 
 <!-- EVENT BODY, grid of events, each div populated with an event if conditions are met -->
-               
-<div class="event-body">
-    <div class="event-grid">
-        <% if (location.length == 0 && month.length == 0 && artist.length == 0 && genre.length == 0) { %>
-        <% event.forEach(function(event) { %>
-         <div class="event">
-        <div><h4><%=event.name %></h4></div>
-        <a href="/event/detail?id=<%=event._id%>"><img class="event-image" src="../image/<%=event.eventPhoto%>"></a>
-    
-                   
-        <div><b><%=event.city %> - <span><%= new Date(event.date).toLocaleDateString('en-us', { year:"numeric", month:"short", day:"numeric"})%></span></b></div>
-                  
-        <div class="artists-info">
-          <div class="artists">
+
+
+<div class="card-body">
+  <div class="category-container">
+    <% genreFilter.forEach(function(genreFilter) { %>
+    <div class="category-card">
+      <%=genreFilter%>
+    </div>
+    <% }) %>
+  </div>
+  <div class="grid-container">
+    <% if (location.length == 0 && month.length == 0 && artist.length == 0 &&
+    genre.length == 0) { %> <% event.forEach(function(event) { %>
+
+    <div class="card">
+      <div class="card-title"><%=event.name %></div>
+      <a href="/event/detail?id=<%=event._id%>"><img class="card-img-top" src="../image/<%=event.eventPhoto%>" /></a>
+
+      <div class="card-text">
+        <b><%=event.city %> -
+          <span><%= new Date(event.date).toLocaleDateString('en-us', {
+            year:"numeric", month:"short", day:"numeric"})%></span></b>
+      </div>
+
+      <div class="artists-info card-text">
+        <div class="artists">
           <% for (i = 0; i < event.artist.length; i++){ %>
-            <h5 class="artist"><%=event.artist[i].bandName %></h5>
+          <h5 class="artist"><%=event.artist[i].bandName %></h5>
           <% } %>
-          </div>
-          <div class="genres">
-          <% for (i = 0; i < event.artist.length; i++){ %>
-            <h6><%=event.artist[i].genres %></h6>
-          <% } %> 
-          </div>
-       </div>
-            
-      <form method="POST" action="/auth/bookmarks"  class="bookmark">
-        <input type="hidden" name="id" value="<%= event._id %>"/>
-        <input type="submit" value="add" class="bookmark green"/>
-      </form>
-    </div> 
-
-        <% })} else { %>
-
-          <% event.forEach(function(event) { %> 
-
-            <% let artistgenres = "" %>
-            <% let artistMatch = true %>
-            <% let genreMatch = true %>
-            <% let trimmedGenre = "" %>
-            <% let trimmedGenre2 = "" %>
-            <% let artistgenresArr = [] %>
-
-            <!-- Iterate through each bandname, and check if it appears in the filter options selected by the user -->
-
-            <% for (i = 0; i < event.artist.length; i++){ %>
-            <% if (artist.includes(event.artist[i].bandName) == false) { %>
-              <% artistMatch = false; %>
-            <% }} %>
-
-            <!-- For each artist associated with an event, push their array of genres into an an array. -->
-
-            <% for (i = 0; i < event.artist.length; i++){ %>
-            <% artistgenres += event.artist[i].genres %>
-            <% } %>
-
-            <!-- Attempted to use split method and transform the object into an array but struggled! Ended up using this workaround: -->
-            <!-- If there is only one genre, then remove the first extra " that will not return a match, else remove them from both first and last genre -->
-    
-            <% artistgenreArr = JSON.stringify(artistgenres).split(",") %>
-            <% if(artistgenreArr.length === 1) { %>
-              <% let trimmedGenre = artistgenreArr[0].replace('"', '') %>
-              <% trimmedGenre = trimmedGenre.substring(0, trimmedGenre.length-1) %>
-              <% artistgenreArr.splice(0,1); %>
-              <% artistgenreArr.push(trimmedGenre) %>
-            <% } else { %>
-                <% trimmedGenre = artistgenreArr[0].replace('"', '') %> 
-                <% trimmedGenre2 = artistgenreArr[artistgenreArr.length -1].replace('"', '') %>
-                <% artistgenreArr.splice(0,1); %>
-                <% artistgenreArr.splice(artistgenreArr.length-1, 1) %>
-                <% artistgenreArr.push(trimmedGenre) %>
-                <% artistgenreArr.push(trimmedGenre2) %>
-            <% } %>
-
-            <!-- Attempted to use split method and transform the object into an array but struggled! Ended up using this workaround: -->
-
-                  <% for(i = 0; i < artistgenreArr.length; i++) { %>
-                  <% if(genre.indexOf(artistgenreArr[i]) > -1) { %>
-                  <% genreMatch = true} else {genreMatch = false; break} %>
-                  <% } %>
-     
-            <!-- If conditions match, populate! -->
-                <% if(location.indexOf(event.city) != -1 && month.indexOf(event.month) != -1 && artistMatch == true && genreMatch == true) { %>
-
-              <div class="event">
-                <div><h4><%=event.name %></h4></div>
-                
-                <a href="/event/detail?id=<%=event._id%>"><img class="event-image" src="../image/<%=event.eventPhoto%>"></a>
-                
-                <div><b><%=event.city %> - <span><%= new Date(event.date).toLocaleDateString('en-us', { year:"numeric", month:"short", day:"numeric"})%></span></b></div>
-                
-                <div class="artists-info">
-                  <div class="artists">
-                    <% for (i = 0; i < event.artist.length; i++){ %>
-                    <h5 class="artist"><%=event.artist[i].bandName %></h5>
-                    <% } %>
-                  </div>
-                  
-                  <div class="genres">
-                    <% for (i = 0; i < event.artist.length; i++){ %>
-                    <h6><%=event.artist[i].genres %></h6>
-                    <% } %> 
-                  </div>
-                </div>
-                <form method="POST" action="/auth/bookmarks" class="bookmark">
-                  <input type="hidden" name="id" value="<%= event._id %>"/>
-                  <input type="submit" value="add" class="bookmark green"/>
-                  </form>
-              </div>
-              <% } %>
-              <% }) %>
-
-              <% } %>
-
-            <!-- -------------------------------------------------------------------- -->
-          </div> 
         </div>
+      </div>
 
+      <form method="POST" action="/auth/bookmarks" class="bookmark">
+        <input type="hidden" name="id" value="<%= event._id %>" />
+        <input type="submit" value="♡" class="bookmark" />
+      </form>
+    </div>
 
+    <% })} else { %> <% event.forEach(function(event) { %> <% let artistgenres =
+    "" %> <% let artistMatch = true %> <% let genreMatch = true %> <% let
+    trimmedGenre = "" %> <% let trimmedGenre2 = "" %> <% let artistgenresArr =
+    [] %>
+
+    <!-- Iterate through each bandname, and check if it appears in the filter options selected by the user -->
+
+    <% for (i = 0; i < event.artist.length; i++){ %> <% if
+    (artist.includes(event.artist[i].bandName) == false) { %> <% artistMatch =
+    false; %> <% }} %>
+
+    <!-- For each artist associated with an event, push their array of genres into an an array. -->
+
+    <% for (i = 0; i < event.artist.length; i++){ %> <% artistgenres +=
+    event.artist[i].genres %> <% } %>
+
+    <!-- Attempted to use split method and transform the object into an array but struggled! Ended up using this workaround: -->
+    <!-- If there is only one genre, then remove the first extra " that will not return a match, else remove them from both first and last genre -->
+
+    <% artistgenreArr = JSON.stringify(artistgenres).split(",") %> <%
+    if(artistgenreArr.length === 1) { %> <% let trimmedGenre =
+    artistgenreArr[0].replace('"', '') %> <% trimmedGenre =
+    trimmedGenre.substring(0, trimmedGenre.length-1) %> <%
+    artistgenreArr.splice(0,1); %> <% artistgenreArr.push(trimmedGenre) %> <% }
+    else { %> <% trimmedGenre = artistgenreArr[0].replace('"', '') %> <%
+    trimmedGenre2 = artistgenreArr[artistgenreArr.length -1].replace('"', '') %>
+    <% artistgenreArr.splice(0,1); %> <%
+    artistgenreArr.splice(artistgenreArr.length-1, 1) %> <%
+    artistgenreArr.push(trimmedGenre) %> <% artistgenreArr.push(trimmedGenre2)
+    %> <% } %>
+
+    <!-- Attempted to use split method and transform the object into an array but struggled! Ended up using this workaround: -->
+
+    <% for(i = 0; i < artistgenreArr.length; i++) { %> <%
+    if(genre.indexOf(artistgenreArr[i]) > -1) { %> <% genreMatch = true} else
+    {genreMatch = false; break} %> <% } %>
+
+    <!-- If conditions match, populate! -->
+    <% if(location.indexOf(event.city) != -1 && month.indexOf(event.month) != -1
+    && artistMatch == true && genreMatch == true) { %>
+
+    <div class="card">
+      <div class="card-title"><%=event.name %></div>
+
+      <a href="/event/detail?id=<%=event._id%>"><img class="card-img-top" src="../image/<%=event.eventPhoto%>" /></a>
+
+      <div class="card-text">
+        <b><%=event.city %> -
+          <span><%= new Date(event.date).toLocaleDateString('en-us', {
+            year:"numeric", month:"short", day:"numeric"})%></span></b>
+      </div>
+
+      <div class="artists-info">
+        <div class="artists">
+          <% for (i = 0; i < event.artist.length; i++){ %>
+          <h5 class="artist"><%=event.artist[i].bandName %></h5>
+          <% } %>
+        </div>
+      </div>
+      <form method="POST" action="/auth/bookmarks" class="bookmark">
+        <input type="hidden" name="id" value="<%= event._id %>" />
+        <input type="submit" value="♡" class="bookmark" />
+      </form>
+    </div>
+    <% } %> <% }) %> <% } %>
+
+    <!-- -------------------------------------------------------------------- -->
+  </div>
+</div>

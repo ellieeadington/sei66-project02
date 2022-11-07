@@ -1,40 +1,26 @@
-<section id="eventId">
-   
-    <div id="poster">
+<div class="title"><%=event.name%></div>
+<div class="page">
+  <%event.artist.forEach(function(artist) { %>
+  <div>
+    <h2><%=artist.bandName%></h2>
+  </div>
+  <% }) %>
+  <div>
+    <img class="event-detail-image" src="../image/<%=event.eventPhoto%>"><br>
+  </div>
+  <div>
+    <p class="bio"><%=event.description%></p>
+    <br />
     <div>
-    <img id="eventDetailImage" src="../image/<%=event.eventPhoto%>"><br>
-    
-    <div>
-        <h2 id="lineheading">Line-Up</h2>
-    
-            <%event.artist.forEach(function(artist) { %>
-        <div id="lineup">
-            
-            <h3><%=artist.bandName%></h3>
-    
-            <% for(let i=0 ;i< artist.genres.length; i++){%>
-    
-                <span id="artistgenres">#<%=artist.genres[i]%></span>
-            
-             <% } %>
-    
-        </div>
-    
-        <div>
-        <% }) %>
-        <h4>Venue: <%=event.venue%></h4>
-        <p><b>Address</b>:</p>
-        <p><%=event.addressLine1%></p>
-        <p><%=event.city%></p>
-        <p><%=event.postcode%></p>
-        <p><b>Date & Time</b>:<%= new Date(event.date).toLocaleDateString('en-us', { year:"numeric", month:"short", day:"numeric"})%></p>
-        <p id="bio"><b>Event Details</b><br><%=event.description%></p>
-        
-    
-    
+      <p><b>Where</b>: <%=event.venue%>, <%=event.addressLine1%>, <%=event.city%>, <%=event.postcode%></p>
+      <p><b>Date & Time</b>: <%= new Date(event.date).toLocaleDateString('en-us', { year:"numeric", month:"short", day:"numeric"})%></p>
     </div>
-</section>
-    
-
-    
-     
+    <%event.artist.forEach(function(artist) { %>
+    <div>
+      <% for(let i=0 ;i< artist.genres.length; i++){ %>
+      <span>#<%=artist.genres[i]%></span>
+      <% } %>
+    </div>
+    <% }) %>
+  </div>
+</div>

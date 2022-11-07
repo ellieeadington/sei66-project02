@@ -1,55 +1,50 @@
+  <div class="title">My Account</div>
+  <div class="form-container">
 
-<aside class="user-info">
-  <div class="user-profile-pic">
-    <img class="user-pic" src="../image/<%=currentUser.image%>">
+    <div class="user-info">
+      <div>
+        <img class="user-pic" src="../image/<%=currentUser.image%>" />
+      </div>
+
+      <div class="user-info-list">
+        <a class="btn btn-dark" href="/auth/update?id=<%= currentUser._id %>" role="button">Update User Details</a>
+        <br />
+        <br />
+        <a class="btn btn-secondary" href="/auth/updatepassword?id=<%= currentUser._id %>" role="button">Update Password</a>
+        <br />
+        <br />
+        <a class="btn btn-danger" href="/auth/delete?id=<%=currentUser._id%>" role="button">Delete Account</a>
+      </div>
+    </div>
+
   </div>
+  <br />
+  <div class="sub-title">My Bookmarked Events</div>
 
-  <h2>Hi <%=currentUser.firstName %></h3>
-  
-  <br>
+  <div class="grid-container">
+    <% event.forEach(function(event) { %>
+    <div class="card">
+      <div class="card-title"><%=event.name %></div>
+      <a href="/event/detail?id=<%=event._id%>">
+        <img class="card-img-top" src="../image/<%=event.eventPhoto%>" />
+      </a>
 
-  <a class="btn btn-primary profile-button" href="/auth/update?id=<%= currentUser._id %>" role="button">Update User Details</a>
-  
-  <br>
+      <div class="card-text">
+        <b><%=event.city %> -<span><%= new Date(event.date).toLocaleDateString('en-us', {
+          year:"numeric", month:"short", day:"numeric"})%></span></b>
+      </div>
 
-  <a class="btn btn-primary profile-button" href="/auth/updatepassword?id=<%= currentUser._id %>" role="button">Update Password</a>
-  
-  <br>
-
-  <a class="btn btn-primary profile-button" href="/auth/delete?id=<%=currentUser._id%>" role="button">Delete Account</a>
-</aside>
-
-<div class="event-body user-event-body">
-    <h3>Your Events</h3>
-    
-    <div class="event-grid">
-    <% event.forEach(function(event) { %>  
-      <div class="event">
-      <div><h4><%=event.name %></h4></div>
-            
-      <img class="event-image" src="../image/<%=event.eventPhoto%>">
-            
-      <div><b><%=event.city %> - <span><%= new Date(event.date).toLocaleDateString('en-us', { year:"numeric", month:"short", day:"numeric"})%></span></b></div>
-            
-      <div class="artists-info">
-        <div class="artists">
+      <div>
         <% for (i = 0; i < event.artist.length; i++){ %>
-        <h5 class="artist"><%=event.artist[i].bandName %></h5>
+        <h5><%=event.artist[i].bandName %></h5>
         <% } %>
       </div>
 
-      <div class="genres">
-        <% for (i = 0; i < event.artist.length; i++){ %>
-        <h6><%=event.artist[i].genres %></h6>
-        <% } %> 
-      </div>
+      <form method="POST" action="/auth/bookmarks-delete" class="bookmark">
+        <input type="hidden" name="id" value="<%= event._id %>" />
+        <input type="submit" value="✖" class="bookmark" />
+      </form>
     </div>
-    
-    <form method="POST" action="/auth/bookmarks-delete"  class="bookmark">
-      <input type="hidden" name="id" value="<%= event._id %>"/>
-      <input type="submit" value="❌" class="bookmark"/>
-    </form>
+    <% }) %>
   </div>
-  <% }) %>
-</div>
-</div>
+  </div>

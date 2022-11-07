@@ -1,35 +1,43 @@
+<div class="title"><%=artist.bandName%></div>
+<div class="artist-detail-page">
+  <div class="artist-detail">
+    <div class="artist-detail-about">
+      <div>
+        <img class="event-detail-image" src="../image/<%=artist.user[0].image%>" />
+      </div>
+      <p>
+        <%=artist.bio%>
+      </p>
+      <% for(let i=0 ;i< artist.genres.length; i++){ %>
+      <span> #<%=artist.genres[i] %></span>
+      <% } %>
+    </div>
 
-<section class="artistPage">
     <div>
-    <img  class="imgartist " src="../image/<%=artist.user[0].image%>">
-    </div>
-    
-    
-    
-    <h1 id="bandName"><%=artist.bandName%></h1>
-    
-    <% for(let i=0 ;i< artist.genres.length; i++){ %>
-    
-        <span id="artistgenres"> #<%=artist.genres[i] %></span>
-    
-     <% } %>
-    
-     <p id="bio"><%=artist.bio%></p>
-    
-    <h2 class="associatedevent">Upcoming Artist Events</h2>
-    
-    
-    <div id="artist-grid-container" >
+      <div class="sub-title artist-detail-sub-title">Upcoming Events</div>
+      <div class="grid-container">
         <%artist.event.forEach(function(event) { %>
-    <div id="artist-grid-section" id="eventartistpage">
-       <img  class='imgartist' style="height: 150px; width: 150px; margin-top: 20px;"src='../image/<%=event.eventPhoto%>'>
-        <h5><%=event.name%></h5>
-        <p><%= new Date(event.date).toLocaleDateString('en-us', { year:"numeric", month:"short", day:"numeric"})%></p>
-        <p><a  class="btn btn-primary artist" style="background-color:rgb(198, 198, 198); border:none; position:relative; margin:auto;" href="/event/detail?id=<%=event._id%>">View Event</a></p>
+        <div class="card">
+          <div class="card-title">
+            <%=event.name%>
+          </div>
+          <a href="/event/detail?id=<%=event._id%>">
+            <img class="card-img-top" src="../image/<%=event.eventPhoto%>" />
+          </a>
+          <div class="card-text">
+            <b><%=event.city %> -
+              <span><%= new Date(event.date).toLocaleDateString('en-us', {
+                year:"numeric", month:"short", day:"numeric"})%></span></b>
+          </div>
+          <br />
+          <form method="POST" action="/auth/bookmarks" class="bookmark">
+            <input type="hidden" name="id" value="<%= event._id %>" />
+            <input type="submit" value="♡" class="bookmark" />
+          </form>
+        </div>
+        <% }) %>
+      </div>
     </div>
-    <% }) %>
-    </div>
-    
-    
-    </section>
-    
+
+  </div>
+</div>

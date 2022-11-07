@@ -1,30 +1,32 @@
-const mongoose = require('mongoose')
+const mongoose = require("mongoose");
 
-
-const artistSchema = mongoose.Schema({
-
+const artistSchema = mongoose.Schema(
+  {
     bandName: String,
     genres: Array,
     bio: String,
-  
-    
-    event: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Event'
-    }],
 
-    user: [{
+    event: [
+      {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'User'
-    }],
+        ref: "Event",
+      },
+    ],
+
+    user: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User",
+      },
+    ],
 
     artistImage: String,
-}, {
-    timestamps: true
-})
+  },
+  {
+    timestamps: true,
+  }
+);
 
+const Artist = mongoose.model("Artist", artistSchema);
 
-
-const  Artist = mongoose.model("Artist", artistSchema)
-
-module.exports = {Artist};
+module.exports = { Artist };
