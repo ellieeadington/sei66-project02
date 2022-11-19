@@ -3,6 +3,7 @@ body, html {
   margin: 0 auto;
   text-align: center;
   color: black;
+  font-family: 'Inter', sans-serif;
 }
 
 .user-nav-pic {
@@ -17,26 +18,25 @@ body, html {
   height: 100px;
   font-size: 60px;
   margin: 10px auto;
-  border: 4px solid #f5f5f7;
+  border-top: 4px solid #e6e9ec;
   border-radius: 4px;
 }
 .sub-title {
   background-color: white;
   font-size: 32px;
   margin: 10px auto;
-  border: 4px solid #f5f5f7;
   border-radius: 4px;
 }
 
 .filters {
-  width: 300px;
+  width: 400px;
   position: absolute;
-  margin: 80px 160px;
+  left: 100px;
   padding-right: 20px;
 }
 
 .filter-title {
-  background-color: #f5f5f7;
+  background-color: #e6e9ec;
   border: none;
   border-radius: 4px;
 }
@@ -44,6 +44,20 @@ body, html {
   background-color: black;
   color: white;
 }
+
+.filter-section {
+  border: 1px solid #e6e9ec;
+  padding: 5px 20px;
+  border-radius: 4px;
+}
+
+.filter-label {
+  font-weight: bolder;
+}
+
+/* #form1 {
+  display: none;
+} */
 
 .gen {
   background-color: black;
@@ -63,10 +77,30 @@ body, html {
 
 a {
   all: unset;
-  font-weight: bold;
 }
 
+.search {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+} 
+
+.search-form {
+  width: 800px;
+  display: flex;
+  flex-direction:row;
+  justify-content: center;
+}
+
+.form-field  {
+  width: 800px;
+}
+
+.search-btn {
+  width: 80px;
+}
 a:hover {
+  font-weight: bold;
   color: black;
   cursor:pointer;
 }
@@ -223,7 +257,7 @@ img {
 }
 
 .category-card {
-  background-color: #f5f5f7;
+  background-color: #e6e9ec;
   padding: 10px 40px;
   margin: 10px;
   border-radius: 10px;
@@ -271,10 +305,10 @@ img {
 }
 
 .artist-detail-sub-title {
-  background-color: #f5f5f7;
+  background-color: #e6e9ec;
   font-size: 32px;
   margin: 10px auto;
-  border: 4px solid #f5f5f7;
+  border-top: 4px solid #e6e9ec;
   border-radius: 4px;
 }
 
@@ -310,7 +344,6 @@ img {
   width: 60%;
   font-size: 22px;
   padding-bottom: 50px;
-  background-color: #f5f5f7;
 }
 
 .bio {
@@ -325,7 +358,7 @@ img {
   grid-template-rows: auto auto;
   justify-content: center;
   padding: 10px 10px;
-  background-color: #f5f5f7;
+  background-color: #e6e9ec;
 }
 
 #userType {
@@ -344,7 +377,7 @@ img {
 }
 
 .accountbtn {
-  background: #f5f5f7;
+  background: #e6e9ec;
   border: none;
   width: 200px;
 }
@@ -362,7 +395,7 @@ img {
   width: 22rem;
   height: 26rem;
   border: none !important;
-  box-shadow: 0px 4px 5.5px 0px #f5f5f7;
+  box-shadow: 0px 4px 5.5px 0px #e6e9ec;
 }
 .card:hover {
   z-index: 1;
@@ -411,9 +444,10 @@ img {
   margin: 0 auto;
   height: auto;
 }
-
+/* 
 .label {
   font-size: 18px;
   color: rgb(255, 255, 255);
   background-color: rgb(0, 0, 0);
-}
+} */
+

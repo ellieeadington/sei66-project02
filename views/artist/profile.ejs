@@ -8,10 +8,10 @@
       <img class="user-pic" src="../image/<%=currentUser.image%>" />
     </div>
     <div class="user-info-list">
-      <a class="btn btn-dark" href="/auth/update?id=<%= currentUser._id %>" role="button">Update Account</a>
+      <a class="btn filter-btn" href="/auth/update?id=<%= currentUser._id %>" role="button">Update Account</a>
       <br />
       <br />
-      <a class="btn btn-secondary" href="/auth/updatepassword?id=<%= currentUser._id %>" role="button">Change Password</a>
+      <a class="btn filter-btn" href="/auth/updatepassword?id=<%= currentUser._id %>" role="button">Change Password</a>
       <br />
       <br />
       <a class="btn btn-danger" href="/auth/delete?id=<%=currentUser._id %>" role="button">
@@ -31,10 +31,10 @@
       <img class="user-pic" src="../image/<%=currentUser.image%>" />
     </div>
     <div class="user-info-list">
-      <a class="btn btn-dark" href="/auth/update?id=<%= currentUser._id %>" role="button">Update Account Info</a>
+      <a class="btn filter-btn" href="/auth/update?id=<%= currentUser._id %>" role="button">Update Account Info</a>
       <br />
       <br />
-      <a class="btn btn-secondary" href="/auth/updatepassword?id=<%= currentUser._id %>" role="button">Change Password</a>
+      <a class="btn filter-btn" href="/auth/updatepassword?id=<%= currentUser._id %>" role="button">Change Password</a>
       <br />
       <br />
       <a class="btn btn-danger" href="/artist/index" role="button">Remove Artist Profile</a>
@@ -62,7 +62,7 @@
 </div>
 
 <div class="sub-title">My Events</div>
-<a class="btn btn-info" id="accountbtn" href="/event/add">★ Add A New Event ★</a>
+<a class="btn filter-btn" id="accountbtn" href="/event/add">Add A New Event</a>
 <div class="grid-container">
   <% for(let i=0 ;i< artist.event.length; i++){ %>
   <div class="card">
@@ -72,8 +72,8 @@
     <h5><%=artist.event[i].name%></h5>
     <p><%=artist.event[i].venue%></p>
     <p>
-      <a class="btn btn-dark" href="/event/detail?id=<%=artist.event[i]._id%>">View Event</a>
-      <a class="btn btn-secondary" href="/event/edit?id=<%=artist.event[i]._id%>">
+      <a class="btn filter-btn" href="/event/detail?id=<%=artist.event[i]._id%>">View Event</a>
+      <a class="btn filter-btn" href="/event/edit?id=<%=artist.event[i]._id%>">
         Edit Event</a>
       <a class="btn btn-danger" href="/event/delete?id=<%=artist.event[i]._id%>">
         Delete Event</a>

@@ -73,6 +73,13 @@ exports.index_filter_post = (req, res) => {
 
 exports.index_bookmark_post = (req, res) => {
   let user = req.user;
+
+  if(user.profileType === "artist"){
+    console.log("functionality not available yet")
+    res.redirect("/")
+  } 
+  else {
+ 
   Event.find(
     { $and: [{ _id: req.body.id }, { user: { $in: user._id } }] },
 
@@ -128,6 +135,7 @@ exports.index_bookmark_post = (req, res) => {
     .catch((err) => {
       console.log(err);
     });
+  }
 };
 
 exports.index_unbookmark_post = (req, res) => {
@@ -190,3 +198,32 @@ exports.index_unbookmark_post = (req, res) => {
       console.log(err);
     });
 };
+
+
+exports.search = async (req, res) => { 
+  console.log(req.body.regex)
+  let regex =  req.body.regex.toLowerCase().split(" ");
+  console.log(regex)
+  
+  await regex.map((term) => {
+   Event.find({$or: [
+      { name: {$regex: new RegExp(term, "i") }},
+      { venue: {$regex: new RegExp(term, "i")  } },
+      { city: {$regex: new RegExp(term, "i")  } },
+      { description: {$regex: new RegExp(term, "i")   }},
+  ]}).then((event) => {
+        res.render("home/index", {
+          event,
+          locationFilter,
+          monthFilter,
+          genreFilter,
+          artistFilter,
+          categories,
+          location,
+          month,
+          genre,
+          artist,
+        })
+      });
+   }) 
+  }

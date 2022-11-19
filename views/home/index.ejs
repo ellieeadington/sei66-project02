@@ -1,27 +1,43 @@
 <!-- FILTERS -- for each distinct value in the respective fields, populate a checkbox input with the value -->
-<div class="title">Events</div>
+
+<div class="title">Events
+</div>
+<br />
+
+<div class="search">
+  <form action="/search" method="POST">
+    <div class="form-group search-form">
+        <input placeholder="Search for events" type="text" name="regex"  class="form-field search-bar form-control">
+        <button type="submit" class="search-btn btn filter-btn">Search</button>
+    </div>
+</form>
+</div>
 <aside class="filters">
-  <form method="POST" action="/">
+  <!-- <button class="btn filter-btn" type="button" id="formButton">Filter</button> -->
+  <form method="POST" action="/" id="form1">
     <br />
-    <p class="label">Locations</p>
-    <div class="filter-body">
-      <% locationFilter.forEach(function(locationFilter) { %>
-      <label><%=locationFilter%></label>
-      <input type="checkbox" name="loc" class="loc" checked value="<%=locationFilter%>" />
-      <% }) %>
+    <div class="filter-section">
+      <p class="label filter-label">Locations</p>
+      <div class="filter-body">
+        <% locationFilter.forEach(function(locationFilter) { %>
+        <label><%=locationFilter%></label>
+        <input type="checkbox" name="loc" class="loc" checked value="<%=locationFilter%>" />
+        <% }) %>
+      </div>
     </div>
     <br />
-
-    <p class="label">Months</p>
+    <div class="filter-section">
+    <p class="label filter-label">Months</p>
     <div class="filter-body">
       <% monthFilter.forEach(function(monthFilter) { %>
       <label><%=monthFilter%></label>
       <input type="checkbox" name="month" class="month" checked value="<%=monthFilter%>" />
       <% }) %>
     </div>
+    </div>
     <br />
-
-    <p class="label">Artists</p>
+    <div class="filter-section">
+    <p class="label filter-label">Artists</p>
     <div class="filter-body">
       <% artistFilter.forEach(function(artistFilter) { %>
       <label><%=artistFilter%></label>
@@ -29,14 +45,16 @@
 
       <% }) %>
     </div>
+    </div>
     <br />
-
-    <p class="label">Genres</p>
+    <div class="filter-section">
+    <p class="label filter-label">Genres</p>
     <div class="filter-body">
       <% genreFilter.forEach(function(genreFilter) { %>
       <label><%=genreFilter%></label>
       <input type="checkbox" name="gen" class="gen" checked value="<%=genreFilter%>" />
       <% }) %>
+    </div>
     </div>
     <br />
     <button type="submit" class="btn filter-btn">filter</button>
@@ -45,11 +63,12 @@
 </aside>
 
 <!-- EVENT BODY, grid of events, each div populated with an event if conditions are met -->
-
-
+<div>
 <div class="card-body">
-  
+<br>
+
   <div class="grid-container">
+    
     <% if (location.length == 0 && month.length == 0 && artist.length == 0 &&
     genre.length == 0) { %> <% event.forEach(function(event) { %>
 
@@ -145,4 +164,5 @@
 
     <!-- -------------------------------------------------------------------- -->
   </div>
+</div>
 </div>

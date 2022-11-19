@@ -3,7 +3,6 @@ const express = require("express");
 const router = express.Router();
 
 router.use(express.urlencoded({ extended: true }));
-
 const artistCtrl = require("../controllers/artist");
 
 router.get("/artist/index", artistCtrl.artist_index_get);
