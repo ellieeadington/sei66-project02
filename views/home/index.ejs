@@ -39,7 +39,7 @@
       <% }) %>
     </div>
     <br />
-    <button type="submit" class="btn btn-success">filter</button>
+    <button type="submit" class="btn filter-btn">filter</button>
   </form>
   <br />
 </aside>
@@ -48,13 +48,7 @@
 
 
 <div class="card-body">
-  <div class="category-container">
-    <% genreFilter.forEach(function(genreFilter) { %>
-    <div class="category-card">
-      <%=genreFilter%>
-    </div>
-    <% }) %>
-  </div>
+  
   <div class="grid-container">
     <% if (location.length == 0 && month.length == 0 && artist.length == 0 &&
     genre.length == 0) { %> <% event.forEach(function(event) { %>

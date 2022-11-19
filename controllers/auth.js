@@ -56,7 +56,7 @@ exports.auth_signin_get = (req, res) => {
 // HTTP POST Signin Route
 exports.auth_signin_post = passport.authenticate("local", {
   successRedirect: "/",
-  failureRedirect: "/",
+  failureRedirect: "/auth/signin",
 });
 
 // HTTP GET - Logout Route - to logout the user
