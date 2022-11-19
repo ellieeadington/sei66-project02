@@ -1,5 +1,8 @@
 {
   "name": "musiceventsapp",
+  "builds": [
+    { "src": "app.js", "use": "@vercel/node" }
+  ],
   "version": "1.0.0",
   "description": "SEI Project 02 - Music Events App",
   "main": "server.js",
