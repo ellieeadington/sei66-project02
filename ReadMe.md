@@ -25,7 +25,7 @@ i# SEI Project-2
 
 ## Ibento
 
-![image](./public/image/ibento.png)
+<img src="public/image/bookmark.png"/>
 
 Deployed version: https://sei66-project2.onrender.com/
 
