@@ -63,7 +63,7 @@
 </aside>
 
 <!-- EVENT BODY, grid of events, each div populated with an event if conditions are met -->
-<div>
+<div class="card-body-container">
 <div class="card-body">
 <br>
 
@@ -85,7 +85,7 @@
       <div class="artists-info card-text">
         <div class="artists">
           <% for (i = 0; i < event.artist.length; i++){ %>
-          <h5 class="artist"><%=event.artist[i].bandName %></h5>
+          <p class="artist"><%=event.artist[i].bandName %></p>
           <% } %>
         </div>
       </div>

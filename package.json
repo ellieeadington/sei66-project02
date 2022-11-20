@@ -5,12 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "nodemon server",
-    "server": "nodemon server.js",
-    "start": "node server.js",
-    "client": "npm start --prefix client",
-    "clientinstall": "npm install --prefix client",
-    "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "render-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --  prefix client"
+    "start": "node server"
   },
   "author": "Ellie Eadington",
   "license": "ISC",
@@ -36,8 +31,7 @@
     "passport": "^0.6.0",
     "passport-local": "^1.0.0",
     "path": "^0.12.7"
-  },
-  "repository": {
+  },"repository": {
     "type": "git",
     "url": "https://git.generalassemb.ly/hvb/project02-musicEventsApp.git",
     "jquery": "^3.6.1",
