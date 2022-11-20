@@ -201,9 +201,7 @@ exports.index_unbookmark_post = (req, res) => {
 
 
 exports.search = async (req, res) => { 
-  console.log(req.body.regex)
   let regex =  req.body.regex.toLowerCase().split(" ");
-  console.log(regex)
   
   await regex.map((term) => {
    Event.find({$or: [
