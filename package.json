@@ -1,14 +1,16 @@
 {
   "name": "musiceventsapp",
-  "builds": [
-    { "src": "app.js", "use": "@vercel/node" }
-  ],
   "version": "1.0.0",
   "description": "SEI Project 02 - Music Events App",
   "main": "server.js",
   "scripts": {
     "test": "nodemon server",
-    "start": "node server"
+    "server": "nodemon server.js",
+    "start": "node server.js",
+    "client": "npm start --prefix client",
+    "clientinstall": "npm install --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "render-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --  prefix client"
   },
   "author": "Ellie Eadington",
   "license": "ISC",
