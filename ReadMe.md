@@ -1,5 +1,3 @@
-i# SEI Project-2
-
 ## Goal
 
 > The brief was to build a web application using the express framework, deployed on Heroku.
@@ -25,7 +23,7 @@ i# SEI Project-2
 
 ## Ibento
 
-![image](./public/image/ibento.png)
+![image](./public/image/ibento.PNG)
 
 Deployed version: https://sei66-project2.onrender.com/
 
@@ -48,13 +46,13 @@ Deployed version: https://sei66-project2.onrender.com/
 
 >Helene and I worked together to create our ERD diagrams once we were happy with the features and functionalities of our site.
 
-![image](./public/image/erdd.png)
+![image](./public/image/erdd.PNG)
 
 ### Trello
 
 >Once we had completed our initial planning, we populated our Trello board with the tasks that we had assigned ourselves, and used this to keep track of the status of our work.
 
-![image](./public/image/trello.png)
+![image](./public/image/trello.PNG)
 
 ## Build/Code Process
 
@@ -196,7 +194,7 @@ exports.auth_profile_delete = (req, res) => {
 };
 ```
 
-![image](./public/image/profile.png)
+![image](./public/image/profile.PNG)
 
 ### Bookmarking
 
@@ -264,7 +262,7 @@ exports.index_bookmark_post = (req, res) => {
     });
 };
 ```
-![image](./public/image/bookmark.png)
+![image](./public/image/bookmark.PNG)
 
 ### User Authentication and Logout
 
